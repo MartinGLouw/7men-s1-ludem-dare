@@ -30,9 +30,7 @@ public class UIManager : MonoBehaviour
         switch (GetCurrentGameState())
         {
             case GameState.MainMenu:
-                ActivateCanvas(mainMenuCanvas);
-                DeactivateCanvas(settingsCanvas);
-                DeactivateCanvas(controlsCanvas);
+                SoundManager.Instance.QueueMusic(0); //maybe change this to trigger the relevant method in the events manager later.
                 currentActiveCanvas = mainMenuCanvas;
                 break;
             case GameState.TutorialScene:
@@ -47,11 +45,13 @@ public class UIManager : MonoBehaviour
 
     public void ActivateCanvas(GameObject canvas)
     {
+        SoundManager.Instance.PlaySFX(0);
         canvas.SetActive(true);
     }
 
     public void DeactivateCanvas(GameObject canvas)
     {
+        SoundManager.Instance.PlaySFX(0);
         canvas.SetActive(false);
     }
 
@@ -71,27 +71,33 @@ public class UIManager : MonoBehaviour
 
     public void PlayGame()
     {
+        SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene("MainGame");
     }
 
     public void ExitToDesktop()
     {
+        SoundManager.Instance.PlaySFX(0);
         Application.Quit();
     }
 
     public void ResumeGame()
     {
+
         Time.timeScale = 1;
+        SoundManager.Instance.PlaySFX(0);
         //invoke deactivate pauseCanvas
     }
 
     public void RestartGame()
     {
+        SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMainMenu()
     {
+        SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene("Damian_UI");
 
     }
