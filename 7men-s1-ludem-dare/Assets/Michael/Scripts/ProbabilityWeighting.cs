@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Managers
 {
-    public class ProbabilityWeighting
+    public class ProbabilityWeighting : MonoBehaviour
     {
         #region Basic Probability check
 
@@ -60,10 +60,10 @@ namespace Managers
                 
                  //All Probabilities need to be under 100% or it'll throw an exception
                 if (probabilitiesSum > 100f)
-                    {
-                        Debug.LogError("Probabilities exceed 100%");
-                        return false;
-                    }
+                {
+                    Debug.LogError("Probabilities exceed 100%");
+                    return false;
+                }
             }
             return true;
         }

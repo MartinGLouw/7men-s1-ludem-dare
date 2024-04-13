@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Managers.Data
@@ -5,13 +6,15 @@ namespace Managers.Data
     [CreateAssetMenu(menuName = "", fileName = "New Enemy Spawning Data")]
     public class EnemySpawningData : ScriptableObject
     {
-        public EnemyData[] enemies;
+        public EnemyData[] Enemies;
     }
 
+    [Serializable]
     public struct EnemyData
     {
-        public GameObject enemyPrefab;
-        public int weighting;
-        public int enemyTier;
+        public GameObject EnemyPrefab;
+        [Header("Keep percentage sum under a 100")]
+        public float SpawnPercentage;
+        public int EnemyTier;
     }
 }

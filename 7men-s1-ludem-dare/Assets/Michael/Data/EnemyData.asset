@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c566ff693234abf8578a78221fd6386, type: 3}
+  m_Name: EnemyData
+  m_EditorClassIdentifier: 
+  Enemies:
+  - EnemyPrefab: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+    SpawnPercentage: 60
+    EnemyTier: 1
+  - EnemyPrefab: {fileID: 370101179850381824, guid: 1d5a0faaeb97245408a367ff96fe0dcf, type: 3}
+    SpawnPercentage: 30
+    EnemyTier: 2
+  - EnemyPrefab: {fileID: 3565960584079273292, guid: 2eb6cbde273a069438b9182d81cc848a, type: 3}
+    SpawnPercentage: 10
+    EnemyTier: 3

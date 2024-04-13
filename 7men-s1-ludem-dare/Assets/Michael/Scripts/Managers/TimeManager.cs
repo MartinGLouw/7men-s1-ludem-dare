@@ -21,7 +21,6 @@ namespace Managers
         private void Update()
         {
             TimeTaken += Time.deltaTime;
-            Debug.Log($"Time Taken {TimeTaken}");
         }
 
         IEnumerator GameStartCooldown()
