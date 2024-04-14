@@ -9,6 +9,7 @@ namespace Events
         public event Action OnPlayerDeath;
         public event Action<int> OnPlayerDamage;
         public event Action<Vector3> OnShoot;
+        public event Action<GameObject> OnPlayerSpawn;
         
         public void FirePlayerDamageEvent(int health)
         {
@@ -23,6 +24,11 @@ namespace Events
         public void FireOnShootEvent(Vector3 shootPos)
         {
             OnShoot?.Invoke(shootPos);
+        }
+
+        public void FirePlayerSpawnEvent(GameObject player)
+        {
+            OnPlayerSpawn?.Invoke(player);
         }
     }
 }

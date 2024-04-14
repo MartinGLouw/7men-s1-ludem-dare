@@ -14,6 +14,7 @@ namespace Managers
         public Transform enemyParent;
         public EnemySpawningData spawningData;
         public Transform[] spawnLocations;
+        public GameObject player;
 
         [Header("Spawn Amounts: ")] 
         public Vector2 phaseOneSpawnMinMax = new Vector2(5, 7);
@@ -83,7 +84,10 @@ namespace Managers
                 Vector3 spawnPos = GetRandomLocation();
                 GameObject enemy = GetRandomEnemiesBasedOnSpawnPercentage();
 
-                Instantiate(enemy, spawnPos, Quaternion.identity, enemyParent); 
+                GameObject enemySpawned = Instantiate(enemy, spawnPos, Quaternion.identity, enemyParent);
+                EnemyHandling handling = enemySpawned.GetComponent<EnemyHandling>();
+                handling.Init(player);
+
             }
         }
     }

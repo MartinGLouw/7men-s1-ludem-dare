@@ -1,11 +1,12 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyHandling : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
-    public GameObject player;
+    private GameObject _player;
     
     // Health values for different enemy types
     public int boxEnemyHealth = 50;
@@ -13,18 +14,16 @@ public class EnemyHandling : MonoBehaviour
     public int sniperEnemyHealth = 120;
     public int crowbarEnemyHealth = 70;
     public int sprayerEnemyHealth = 100;
+    // Current health for this specific enemy
+    private int currentHealth;
 
-    private int currentHealth; // Current health for this specific enemy
-
-    private void Start()
+    public void Init(GameObject player)
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        _player = player;
         
-    }
-
-    
-    public void Update()
-    {
+        Debug.Log($"Player: {_player.name}");
+        
         if (gameObject.CompareTag("BoxEnemy"))
         {
             currentHealth = boxEnemyHealth;
@@ -56,9 +55,10 @@ public class EnemyHandling : MonoBehaviour
             Debug.Log("Enemy not found");
         }
     }
+
     private void BoxEnemy()
     {
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.transform.position;
         navMeshAgent.SetDestination(targetPosition);
     }
 
@@ -68,7 +68,7 @@ public class EnemyHandling : MonoBehaviour
         float attackDistance = 6.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 1.0f; // The distance at which the enemy will start retreating
 
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer > attackDistance)
@@ -125,7 +125,7 @@ public class EnemyHandling : MonoBehaviour
         float attackDistance = 15.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 8.0f; // The distance at which the enemy will start retreating
 
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer > attackDistance)
@@ -157,7 +157,7 @@ public class EnemyHandling : MonoBehaviour
         Debug.Log("CrowbarEnemy behavior");
         float attackDistance = 1.0f; // The distance at which the enemy will stop and attack
 
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer > attackDistance)
@@ -179,7 +179,7 @@ public class EnemyHandling : MonoBehaviour
         float attackDistance = 10.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 5.0f; // The distance at which the enemy will start retreating
 
-        Vector3 targetPosition = player.transform.position;
+        Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer > attackDistance)

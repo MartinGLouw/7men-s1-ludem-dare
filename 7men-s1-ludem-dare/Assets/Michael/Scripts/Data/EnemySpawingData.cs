@@ -18,3 +18,4 @@ namespace Managers.Data
         public int EnemyTier;
     }
 }
+

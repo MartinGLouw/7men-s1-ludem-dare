@@ -1,15 +1,20 @@
+using System;
 using UnityEngine;
 
 namespace Managers
 {
-    [CreateAssetMenu(menuName = "Mediator/ UI", fileName = "New UI Mediator")]
+    [CreateAssetMenu(menuName = "Game Data", fileName = "New Game Data")]
     public class GameData : ScriptableObject
     {
         [Header("UI")]
         public float TimeTaken;
-        public int Health;
         public int BossHealth;
+        
         [Header("Extra")]
         public int EnemiesInScene;
+
+        [Header("Player")] 
+        public GameObject Player;
+        public int Health;
     }
 }

@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemies:
   - EnemyPrefab: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
-    SpawnPercentage: 60
-    EnemyTier: 1
-  - EnemyPrefab: {fileID: 370101179850381824, guid: 1d5a0faaeb97245408a367ff96fe0dcf, type: 3}
     SpawnPercentage: 30
-    EnemyTier: 2
+    EnemyTier: 1
+  - EnemyPrefab: {fileID: 370101179850381824, guid: 6ca321092cceaed4f83d9ce374be0825, type: 3}
+    SpawnPercentage: 30
+    EnemyTier: 3
   - EnemyPrefab: {fileID: 3565960584079273292, guid: 2eb6cbde273a069438b9182d81cc848a, type: 3}
+    SpawnPercentage: 20
+    EnemyTier: 3
+  - EnemyPrefab: {fileID: 370101179850381824, guid: 31c6f320908dfd341b7a8a5a54a871c0, type: 3}
     SpawnPercentage: 10
     EnemyTier: 3
+  - EnemyPrefab: {fileID: 370101179850381824, guid: 1d5a0faaeb97245408a367ff96fe0dcf, type: 3}
+    SpawnPercentage: 10
+    EnemyTier: 2
