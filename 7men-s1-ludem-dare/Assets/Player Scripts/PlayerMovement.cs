@@ -32,6 +32,16 @@ public class PlayerLook : MonoBehaviour
 
     public ProjectileSpawner projectileSpawner;
 
+    bool canInvoke = true;
+
+    int hp = 3;
+
+    const int maxHP = 3;
+
+    bool isDead = false;
+
+    public PlayerHealth health;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -64,6 +74,8 @@ public class PlayerLook : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+
+        health.UpdateHealthBar(hp, maxHP);
     }
 
     // Update is called once per frame
@@ -124,16 +136,48 @@ public class PlayerLook : MonoBehaviour
 
         yield return new WaitForSeconds(dashDuration);
 
-        player.GetComponent<Collider>().enabled = false;
+        player.GetComponent<Collider>().enabled = true;
 
         isDashing = false;
     }
 
     private void Fire(InputAction.CallbackContext context)
     {
-        if (!isDashing && projectileSpawner.canInvoke[0])
+        if (!isDashing && canInvoke)
         {
-            StartCoroutine(projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward));
+            StartCoroutine(Shoot());
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        canInvoke = false;
+
+        projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
+
+        yield return new WaitForSeconds(0.2f);
+
+        canInvoke = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyProjectile")
+        {
+            TakeDamage();
+        }
+        
+    }
+
+    public void TakeDamage()
+    {
+        hp--;
+
+        health.UpdateHealthBar(hp, maxHP);
+
+        if (hp <= 0)
+        {
+            isDead = true;
         }
     }
 }

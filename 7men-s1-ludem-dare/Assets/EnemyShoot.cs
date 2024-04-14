@@ -7,6 +7,8 @@ public class EnemyShoot : MonoBehaviour
 {
     public ProjectileSpawner projectileSpawner;
 
+    bool canInvoke = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +23,21 @@ public class EnemyShoot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(projectileSpawner.canInvoke[1])
+        if (canInvoke)
         {
-            StartCoroutine(projectileSpawner.SpawnShotgunProjectiles(gameObject.transform.position, gameObject.transform.forward));
+            StartCoroutine(Shoot());
         }
-        
     }
+
+    IEnumerator Shoot()
+    {
+        canInvoke = false;
+
+        projectileSpawner.SpawnBasicEnemyProjectile(transform.position, transform.forward);
+
+        yield return new WaitForSeconds(2);
+
+        canInvoke = true;
+    }
+
 }
