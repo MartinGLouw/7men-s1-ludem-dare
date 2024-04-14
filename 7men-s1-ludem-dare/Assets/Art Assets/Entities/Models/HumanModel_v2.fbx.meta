@@ -17,7 +17,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleCurves: 0
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
@@ -42,14 +42,14 @@ ModelImporter:
       takeName: Legs_Walking_FWD
       internalID: 6696654188757499683
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -71,14 +71,14 @@ ModelImporter:
       takeName: Legs_Walking_BWD
       internalID: 6213006093061269206
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -100,14 +100,14 @@ ModelImporter:
       takeName: Torso_Brawl_Idle
       internalID: -629452985226577457
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -129,14 +129,14 @@ ModelImporter:
       takeName: Arms_Brawl_Idle
       internalID: -7688940729886310775
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -158,14 +158,14 @@ ModelImporter:
       takeName: Legs_Brawl_Idle
       internalID: -3063473007871962684
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -194,7 +194,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -216,7 +216,7 @@ ModelImporter:
       takeName: Arms_Brawl_Attack
       internalID: 226609295912929048
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -274,7 +274,7 @@ ModelImporter:
       takeName: Head_Brawl_Attack
       internalID: 1006902345817301250
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -303,36 +303,7 @@ ModelImporter:
       takeName: Legs_Brawl_Attack
       internalID: -2276993209877726393
       firstFrame: 0
-      lastFrame: 15
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Arms_Gun_Small
-      takeName: Arms_Gun_Small
-      internalID: 2088846858504776904
-      firstFrame: 0
-      lastFrame: 25
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -368,7 +339,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -390,7 +361,7 @@ ModelImporter:
       takeName: Arms_Gun_Med_Fire_Weak
       internalID: -8429108183283363393
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -419,7 +390,7 @@ ModelImporter:
       takeName: Arms_Gun_Med_Fire_Strong
       internalID: -6259805917998090813
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -448,7 +419,7 @@ ModelImporter:
       takeName: Torso_Gun_Fire_Strong
       internalID: -8772636071151184067
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -484,7 +455,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -513,7 +484,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -542,7 +513,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -571,7 +542,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -600,7 +571,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -629,7 +600,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -658,7 +629,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -709,7 +680,7 @@ ModelImporter:
       takeName: Arms_Gun_Sml_Fire
       internalID: -5129038808994307241
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 9
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -738,14 +709,14 @@ ModelImporter:
       takeName: Arms_Crowbar_Walk
       internalID: 2061938977604243405
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -767,14 +738,14 @@ ModelImporter:
       takeName: Torso_Crowbar_Walk
       internalID: -4811016361048597268
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -796,14 +767,14 @@ ModelImporter:
       takeName: Head_Crowbar_Walk
       internalID: -7140944070537450751
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -832,7 +803,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -861,7 +832,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -890,7 +861,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -912,7 +883,7 @@ ModelImporter:
       takeName: Torso_Crossbow_Attack
       internalID: 6703505110724579909
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -941,7 +912,7 @@ ModelImporter:
       takeName: Arms_Crossbow_Attack
       internalID: 201244603511421575
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -970,7 +941,7 @@ ModelImporter:
       takeName: Head_Crossbow_Attack
       internalID: 235572828453586087
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 14
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1006,7 +977,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1028,14 +999,14 @@ ModelImporter:
       takeName: Torso_Idle
       internalID: -3674890842112150303
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1057,14 +1028,14 @@ ModelImporter:
       takeName: Arms_Idle
       internalID: 4827120973585216906
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1093,7 +1064,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1115,14 +1086,14 @@ ModelImporter:
       takeName: Arms_Walking
       internalID: 33607169932267546
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1144,14 +1115,14 @@ ModelImporter:
       takeName: Torso_Walking
       internalID: 2949905044838612067
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1180,7 +1151,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1202,7 +1173,7 @@ ModelImporter:
       takeName: Torso_Throw
       internalID: 5846827264108610345
       firstFrame: 0
-      lastFrame: 5
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1231,7 +1202,7 @@ ModelImporter:
       takeName: Arms_Throw
       internalID: 8440878997484943144
       firstFrame: 0
-      lastFrame: 5
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1260,7 +1231,7 @@ ModelImporter:
       takeName: Head_Throw
       internalID: 3748797309957192851
       firstFrame: 0
-      lastFrame: 5
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1288,6 +1259,35 @@ ModelImporter:
       name: Arms_Gun_Med_Idle
       takeName: Arms_Gun_Med_Idle
       internalID: -541902831738448522
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Head_Brawl_Idle
+      takeName: Head_Brawl_Idle
+      internalID: -1984666780929927138
       firstFrame: 0
       lastFrame: 25
       wrapMode: 0

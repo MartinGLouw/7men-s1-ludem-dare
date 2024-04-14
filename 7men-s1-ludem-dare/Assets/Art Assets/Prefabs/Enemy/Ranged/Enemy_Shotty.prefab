@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2239378251566273124}
   - component: {fileID: 1714540165344423513}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Gun Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2807198785196450904}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.004, z: -0.02}
+  m_LocalPosition: {x: -0.00153, y: -0.004, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -6738481546969478973, guid: b8e72a26827a23749acbfced805b0b78, type: 3}
+    - target: {fileID: 7025812644397347362, guid: e208aaa8af06542439020a21504f1627, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: ff8895c746dd5a54497754fe4408e115, type: 2}
     - target: {fileID: 7696641129690627191, guid: e208aaa8af06542439020a21504f1627, type: 3}
       propertyPath: m_Mesh
       value: 
