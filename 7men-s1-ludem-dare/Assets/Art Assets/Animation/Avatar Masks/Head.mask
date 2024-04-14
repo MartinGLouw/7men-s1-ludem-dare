@@ -42,10 +42,10 @@ AvatarMask:
   - m_Path: Rig_Humanoid_ROOT/Rig_Humanoid_Torso/Rig_Humanoid_Head\
     m_Weight: 1
   - m_Path: Rig_Humanoid_ROOT/Rig_Humanoid_Torso/Rig_Humanoid_Head\/Hair_Male_1
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig_Humanoid_ROOT/Rig_Humanoid_Torso/Rig_Humanoid_Head\/Head
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig_Humanoid_ROOT/Rig_Humanoid_Torso/Rig_Humanoid_Head\/Rig_Humanoid_Head\_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Rig_Humanoid_ROOT/Rig_Humanoid_Torso/Torso
     m_Weight: 0
