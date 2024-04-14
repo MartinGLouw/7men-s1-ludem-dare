@@ -1,7 +1,8 @@
 .panel {
-    background-color: rgba(0, 249, 199, 0.39);
+    background-color: rgba(178, 186, 143, 0.57);
     align-items: center;
     justify-content: center;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
 
 .hide {
@@ -12,12 +13,12 @@
     align-items: stretch;
     width: 30%;
     max-height: 70%;
-    background-color: rgba(62, 197, 164, 0.77);
+    background-color: rgb(230, 144, 78);
     flex-grow: 0;
-    border-left-color: rgb(55, 143, 122);
-    border-right-color: rgb(55, 143, 122);
-    border-top-color: rgb(55, 143, 122);
-    border-bottom-color: rgb(55, 143, 122);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
     border-top-width: 5px;
     border-right-width: 5px;
     border-bottom-width: 5px;
@@ -44,21 +45,23 @@
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
-    background-color: rgb(82, 208, 178);
-    border-left-color: rgb(127, 166, 162);
-    border-right-color: rgb(127, 166, 162);
-    border-top-color: rgb(127, 166, 162);
-    border-bottom-color: rgb(127, 166, 162);
+    background-color: rgb(204, 104, 61);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
 }
 
 .unity-text-element {
-    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    -unity-font: url("project://database/Assets/Art%20Assets/Font/PIXELADE.TTF?fileID=12800000&guid=e75f0e1e2b5d3e54c9dc774ee191b858&type=3#PIXELADE");
     -unity-font-style: bold;
     font-size: 517%;
+    -unity-font-definition: url("project://database/Assets/Art%20Assets/Font/PIXELADE%20SDF.asset?fileID=11400000&guid=2c4f43c8ae4f9c94fa98311f10cad465&type=2#PIXELADE SDF");
+    color: rgb(255, 255, 255);
 }
 
 .unity-button:hover {
-    background-color: rgb(139, 201, 187);
+    background-color: rgb(158, 69, 57);
     scale: 1 1;
     transition-property: rotate;
     transition-duration: 0.25s;
