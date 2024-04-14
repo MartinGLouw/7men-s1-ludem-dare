@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SoundManager.Instance.PlaySFX(0, 1);
+
             if (isPaused)
             {
                 Resume();
