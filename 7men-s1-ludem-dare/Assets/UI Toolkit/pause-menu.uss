@@ -1,0 +1,15 @@
+.panel {
+    background-color: rgba(0, 249, 199, 0.39);
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.menu {
+    align-items: center;
+    justify-content: flex-start;
+    max-height: 553px;
+    width: 212px;
+}
