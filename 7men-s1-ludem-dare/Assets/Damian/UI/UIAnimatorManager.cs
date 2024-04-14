@@ -16,37 +16,61 @@ public class UIAnimatorManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
-    public void FadeInCanvas(CanvasGroup canvasGroup, float duration)
+    public void FadeInCanvas(GameObject panel, float duration)
     {
-        canvasGroup.alpha = 0;  
-        canvasGroup.gameObject.SetActive(true);  
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + panel.name);
+            return;
+        }
+        canvasGroup.alpha = 0;
+        panel.SetActive(true);
         canvasGroup.DOFade(1, duration).OnComplete(() => {
-            canvasGroup.interactable = true;  
+            canvasGroup.interactable = true;
         });
     }
 
-    public void FadeOutCanvas(CanvasGroup canvasGroup, float duration)
+    public void FadeOutCanvas(GameObject panel, float duration)
     {
-        canvasGroup.interactable = false;  
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + panel.name);
+            return;
+        }
+        canvasGroup.interactable = false;
         canvasGroup.DOFade(0, duration).OnComplete(() => {
-            canvasGroup.gameObject.SetActive(false);  
+            panel.SetActive(false);
         });
     }
 
-    public void SlideInCanvas(CanvasGroup canvasGroup, float duration, Vector3 endPosition)
+    public void SlideInCanvas(GameObject panel, float duration, Vector3 endPosition)
     {
-        canvasGroup.gameObject.SetActive(true);
-        canvasGroup.transform.localPosition = endPosition - new Vector3(1000, 0, 0); // start off-screen
-        canvasGroup.transform.DOLocalMove(endPosition, duration).SetEase(Ease.OutQuint);
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + panel.name);
+            return;
+        }
+        panel.SetActive(true);
+        panel.transform.localPosition = endPosition - new Vector3(1000, 0, 0); // start off-screen
+        panel.transform.DOLocalMove(endPosition, duration).SetEase(Ease.OutQuint);
     }
 
-    public void SlideOutCanvas(CanvasGroup canvasGroup, float duration, Vector3 endPosition)
+    public void SlideOutCanvas(GameObject panel, float duration, Vector3 endPosition)
     {
-        canvasGroup.transform.DOLocalMove(endPosition + new Vector3(1000, 0, 0), duration).SetEase(Ease.InQuint).OnComplete(() => {
-            canvasGroup.gameObject.SetActive(false);
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + panel.name);
+            return;
+        }
+        panel.transform.DOLocalMove(endPosition + new Vector3(1000, 0, 0), duration).SetEase(Ease.InQuint).OnComplete(() => {
+            panel.SetActive(false);
         });
     }
-
 }

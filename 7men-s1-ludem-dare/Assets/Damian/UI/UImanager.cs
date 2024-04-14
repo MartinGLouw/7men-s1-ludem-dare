@@ -16,6 +16,11 @@ public class UIManager : MonoBehaviour
     public GameObject settingsCanvas;
     public GameObject controlsCanvas;
 
+    // Canvas panels
+    public GameObject mainMenuPanel;
+    public GameObject settingsPanel;
+    public GameObject controlsPanel;
+
     // Default canvas setup
     private GameObject currentActiveCanvas;
 
@@ -31,6 +36,8 @@ public class UIManager : MonoBehaviour
         {
             case GameState.MainMenu:
                 SoundManager.Instance.QueueMusic(0); //maybe change this to trigger the relevant method in the events manager later.
+                UIAnimatorManager.Instance.FadeInCanvas(mainMenuPanel, 0.5f);
+                UIAnimatorManager.Instance.SlideInCanvas(mainMenuPanel, 0.5f, mainMenuPanel.transform.localPosition);
                 currentActiveCanvas = mainMenuCanvas;
                 break;
             case GameState.TutorialScene:
@@ -53,6 +60,28 @@ public class UIManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX(0);
         canvas.SetActive(false);
+    }
+
+    public void ActivatePanel(GameObject panel)
+    {
+        if (panel == null)
+        {
+            Debug.LogError("Panel reference not set in UIManager.");
+            return;
+        }
+        UIAnimatorManager.Instance.SlideInCanvas(panel, 0.5f, panel.transform.localPosition);
+        UIAnimatorManager.Instance.FadeInCanvas(panel, 0.5f);
+    }
+
+    public void DeactivatePanel(GameObject panel)
+    {
+        if (panel == null)
+        {
+            Debug.LogError("Panel reference not set in UIManager.");
+            return;
+        }
+        UIAnimatorManager.Instance.SlideOutCanvas(panel, 0.5f, panel.transform.localPosition);
+        UIAnimatorManager.Instance.FadeOutCanvas(panel, 0.5f);
     }
 
     // Get current game state based on the scene name
