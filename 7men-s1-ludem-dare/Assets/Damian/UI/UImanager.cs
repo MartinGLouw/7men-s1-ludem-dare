@@ -45,14 +45,28 @@ public class UIManager : MonoBehaviour
 
     public void ActivateCanvas(GameObject canvas)
     {
+        CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + canvas.name);
+            return;
+        }
+
         SoundManager.Instance.PlaySFX(0);
-        canvas.SetActive(true);
+        UIAnimatorManager.Instance.FadeInCanvas(canvasGroup, 0f);  //  0 second fade
     }
 
     public void DeactivateCanvas(GameObject canvas)
     {
+        CanvasGroup canvasGroup = canvas.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            Debug.LogError("CanvasGroup not found on " + canvas.name);
+            return;
+        }
+
         SoundManager.Instance.PlaySFX(0);
-        canvas.SetActive(false);
+        UIAnimatorManager.Instance.FadeOutCanvas(canvasGroup, 0.5f);
     }
 
     // Get current game state based on the scene name
