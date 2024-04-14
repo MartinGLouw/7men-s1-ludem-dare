@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerLook : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
 
     Camera mainCam;
 
@@ -17,9 +17,20 @@ public class PlayerLook : MonoBehaviour
 
     private PlayerInputActions inputActions;
 
+    private InputAction walk;
     private InputAction fire;
-
     private InputAction dash;
+
+    Vector2 moveDirecton;
+
+    public float speed;
+
+    bool isDashing = false;
+
+    public float dashSpeed;
+    public float dashDuration;
+
+    public ProjectileSpawner projectileSpawner;
 
     private void Awake()
     {
@@ -28,6 +39,9 @@ public class PlayerLook : MonoBehaviour
 
     private void OnEnable()
     {
+        walk = inputActions.Player.Walk;
+        walk.Enable();
+
         dash = inputActions.Player.Dash;
         dash.Enable();
         dash.performed += Dash;
@@ -39,6 +53,8 @@ public class PlayerLook : MonoBehaviour
 
     private void OnDisable()
     {
+        walk.Disable();
+
         dash.Disable();
 
         fire.Disable();
@@ -54,14 +70,21 @@ public class PlayerLook : MonoBehaviour
     void Update()
     {
         MoveCamera();
+
+        moveDirecton = walk.ReadValue<Vector2>();   
     }
 
     void FixedUpdate()
     {
-        MovePlayer();
+        PlayerRotation();
+
+        if (!isDashing)
+        {
+            MovePlayer();
+        }
     }
 
-    void MovePlayer()
+    void PlayerRotation()
     {
         RaycastHit hit;
 
@@ -69,16 +92,16 @@ public class PlayerLook : MonoBehaviour
         Ray mousePos = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         //if there was a ray cast the player will look at it
-        if (Mouse.current.leftButton.isPressed && Physics.Raycast(mousePos, out hit, 100f))
+        if (Physics.Raycast(mousePos, out hit, 100f))
         {
-            player.LookAt(new Vector3(hit.point.x, 0f, hit.point.z));
+            player.transform.LookAt(new Vector3(hit.point.x, 0f, hit.point.z));
         }
 
-        //if there was a ray cast  and the player pressed the left mouse button the player's navmesh agent's destination will be set to it
-        if (Mouse.current.leftButton.isPressed && Physics.Raycast(mousePos, out hit, 100f))
-        {
-            agent.SetDestination(hit.point);
-        }
+    }
+
+    void MovePlayer()
+    {
+        agent.velocity = new Vector3(moveDirecton.x * speed, 0f, moveDirecton.y * speed);
     }
 
     void MoveCamera()
@@ -88,11 +111,29 @@ public class PlayerLook : MonoBehaviour
 
     private void Dash(InputAction.CallbackContext context)
     {
-        Debug.Log("dash");
+        StartCoroutine(performDash());
+    }
+
+    private IEnumerator performDash()
+    {
+        isDashing = true;
+
+        player.GetComponent<Collider>().enabled = false;
+
+        agent.velocity = new Vector3(moveDirecton.x * dashSpeed, 0f, moveDirecton.y * dashSpeed);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        player.GetComponent<Collider>().enabled = false;
+
+        isDashing = false;
     }
 
     private void Fire(InputAction.CallbackContext context)
     {
-        Debug.Log("fire");
+        if (!isDashing && projectileSpawner.canInvoke[0])
+        {
+            StartCoroutine(projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward));
+        }
     }
 }
