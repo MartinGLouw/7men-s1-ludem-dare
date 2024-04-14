@@ -35,4 +35,18 @@ public class UIAnimatorManager : MonoBehaviour
         });
     }
 
+    public void SlideInCanvas(CanvasGroup canvasGroup, float duration, Vector3 endPosition)
+    {
+        canvasGroup.gameObject.SetActive(true);
+        canvasGroup.transform.localPosition = endPosition - new Vector3(1000, 0, 0); // start off-screen
+        canvasGroup.transform.DOLocalMove(endPosition, duration).SetEase(Ease.OutQuint);
+    }
+
+    public void SlideOutCanvas(CanvasGroup canvasGroup, float duration, Vector3 endPosition)
+    {
+        canvasGroup.transform.DOLocalMove(endPosition + new Vector3(1000, 0, 0), duration).SetEase(Ease.InQuint).OnComplete(() => {
+            canvasGroup.gameObject.SetActive(false);
+        });
+    }
+
 }
