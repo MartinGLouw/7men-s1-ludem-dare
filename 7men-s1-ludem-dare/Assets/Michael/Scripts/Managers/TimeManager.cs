@@ -8,19 +8,21 @@ namespace Managers
     {
         public float startCountdown;
         public float bossCooldown;
+        public GameData gameData;
         
         private EventManager _eventManager;
         private float TimeTaken = 0;
         
         private void Start()
         {
+            gameData.TimeTaken = 0;
             _eventManager = EventManager.Instance;
             StartCoroutine(GameStartCooldown());
         }
 
         private void Update()
         {
-            TimeTaken += Time.deltaTime;
+            gameData.TimeTaken += Time.deltaTime;
         }
 
         IEnumerator GameStartCooldown()

@@ -53,7 +53,7 @@
 }
 
 .unity-text-element {
-    -unity-font: url("project://database/Assets/Art%20Assets/Font/PIXELADE.TTF?fileID=12800000&guid=e75f0e1e2b5d3e54c9dc774ee191b858&type=3#PIXELADE");
+    -unity-font: url("project://database/Assets/Art%20Assets/Font/PIXELADE.TTF?fileID=12800000&guid=7f92494c570a2594b85592a892b4a789&type=3#PIXELADE");
     -unity-font-style: bold;
     font-size: 517%;
     -unity-font-definition: url("project://database/Assets/Art%20Assets/Font/PIXELADE%20SDF.asset?fileID=11400000&guid=2c4f43c8ae4f9c94fa98311f10cad465&type=2#PIXELADE SDF");
@@ -67,4 +67,34 @@
     transition-duration: 0.25s;
     transition-timing-function: ease-in;
     rotate: 3deg;
+}
+
+.tab-button {
+    font-size: 205%;
+}
+
+.unity-slider {
+    -unity-font: initial;
+    -unity-font-definition: initial;
+    background-color: rgb(255, 255, 255);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-image: url("project://database/Assets/Art%20Assets/Icons/Back%20Icon.png?fileID=2800000&guid=54ad6543da1d0c943aef8d069c8a9104&type=3#Back Icon");
+    cursor: initial;
+}
+
+.unity-base-slider__tracker {
+    background-color: rgb(255, 255, 255);
+    scale: 1 1.5;
+}
+
+.unity-base-slider__dragger {
+    background-image: none;
+    scale: 2 1.4;
 }

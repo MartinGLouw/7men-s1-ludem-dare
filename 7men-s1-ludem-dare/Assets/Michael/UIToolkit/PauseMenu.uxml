@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/pause-menu.uss?fileID=7433441132597879392&amp;guid=69b67f2c97aa92141aab217069afdb2e&amp;type=3#pause-menu" />
+    <Style src="project://database/Assets/Michael/UIToolkit/CustomControls.uss?fileID=7433441132597879392&amp;guid=02809ca4acc8dc84bba596c7504bfc6a&amp;type=3#CustomControls" />
     <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; opacity: 1;">
         <ui:VisualElement name="Container" class="menu" style="flex-grow: 1;">
             <ui:Label tabindex="-1" text="ADJOURNED" parse-escape-sequences="false" display-tooltip-when-elided="true" name="Header" style="align-items: stretch; -unity-text-align: upper-center; color: rgb(0, 0, 0); -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&quot;); -unity-text-outline-color: rgb(255, 255, 255); text-shadow: 0 0 0 rgb(0, 0, 0); -unity-text-outline-width: 2px; font-size: 98%;" />
@@ -7,6 +8,20 @@
             <ui:Button text="Resume" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResumeButton" />
             <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SettingsButton" />
             <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitButton" />
+        </ui:VisualElement>
+        <ui:VisualElement name="SettingsContainer" class="menu hide" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Settings" parse-escape-sequences="false" display-tooltip-when-elided="true" name="Header" style="align-items: stretch; -unity-text-align: upper-center; color: rgb(0, 0, 0); -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&amp;guid=e3265ab4bf004d28a9537516768c1c75&amp;type=3#LiberationSans&quot;); -unity-text-outline-color: rgb(255, 255, 255); text-shadow: 0 0 0 rgb(0, 0, 0); -unity-text-outline-width: 2px; font-size: 98%;" />
+            <ui:VisualElement name="TabContainer" style="flex-grow: 0; align-items: flex-start; flex-direction: row; flex-shrink: 1; justify-content: center; align-self: auto;">
+                <ui:Button text="Audio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AudioButton" class="tab-button" style="-unity-font-definition: initial;" />
+                <ui:Button text="Video" parse-escape-sequences="true" display-tooltip-when-elided="true" name="VideoButton" class="tab-button" style="-unity-font-definition: initial;" />
+            </ui:VisualElement>
+            <ui:Label tabindex="-1" text="Master" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MasterLabel" style="-unity-font-definition: initial; -unity-text-align: upper-center;" />
+            <ui:Slider name="MasterSlider" high-value="1" style="-unity-font: initial; background-image: none; background-color: rgba(255, 255, 255, 0);" />
+            <ui:Label tabindex="-1" text="Music" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MusicLabel" style="-unity-font-definition: initial; -unity-text-align: upper-center;" />
+            <ui:Slider name="MusicSlider" high-value="1" style="-unity-font: initial; background-image: none; background-color: rgba(255, 255, 255, 0);" />
+            <ui:Label tabindex="-1" text="SFX" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SFXLabel" style="-unity-font-definition: initial; -unity-text-align: upper-center;" />
+            <ui:Slider name="SFXSlider" high-value="1" style="-unity-font: initial; background-image: none; background-color: rgba(255, 255, 255, 0);" />
+            <ui:Button text="Return" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackButton" class="tab-button" style="flex-shrink: 1; flex-grow: 1; font-size: 57%; -unity-font: url(&quot;project://database/Assets/Art%20Assets/Font/PIXELADE.TTF?fileID=12800000&amp;guid=7f92494c570a2594b85592a892b4a789&amp;type=3#PIXELADE&quot;); -unity-font-definition: initial; margin-top: 13px; margin-right: 13px; margin-bottom: 13px; margin-left: 13px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

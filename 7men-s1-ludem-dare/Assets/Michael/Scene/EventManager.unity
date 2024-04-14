@@ -1278,6 +1278,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 3985704428396134270, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 275068919}
+    - target: {fileID: 6487253453382944249, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fdb724a7069f9541b0a1cc77a5a645e, type: 3}
     - target: {fileID: 8832115011406000978, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

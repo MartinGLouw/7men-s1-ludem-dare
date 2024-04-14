@@ -6821,6 +6821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 574292263}
+  gameData: {fileID: 0}
   isPaused: 0
 --- !u!4 &1769843481
 Transform:
