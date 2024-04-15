@@ -7,6 +7,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            bossAnimator.SetTrigger("OnMegaStomp");
             bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
         }
 
@@ -19,6 +20,11 @@ namespace Managers.BossStates
         public override void ChangeState(BossStateMachine bossState)
         {
         
+        }
+        
+        public void MegaStompEvent()
+        {
+            
         }
         
     }

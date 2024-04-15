@@ -7,6 +7,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            bossAnimator.SetTrigger("OnShotgunStrike");
             bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
         }
 
@@ -20,7 +21,10 @@ namespace Managers.BossStates
         {
         
         }
-        
-        
+
+        public void ShotgunStrikeAnimEvent()
+        {
+            
+        }
     }
 }

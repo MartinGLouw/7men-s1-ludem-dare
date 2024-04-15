@@ -7,6 +7,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            bossAnimator.SetTrigger("OnFrontKick");
             bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
         }
 

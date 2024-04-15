@@ -80,6 +80,7 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         //Implement Phase
         
         //Anim
+        Debug.Log($"Speed: {_bossRb.velocity.sqrMagnitude}");
         bossAnim.SetFloat("Speed", _bossRb.velocity.sqrMagnitude);
 
         _phaseCheckTimer -= Time.deltaTime;

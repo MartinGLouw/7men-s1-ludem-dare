@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Managers.BossStates
 {
@@ -15,7 +16,7 @@ namespace Managers.BossStates
     
     public abstract class BossStateMachine : MonoBehaviour
     {
-        public Animator bossAnimator;
+        protected Animator bossAnimator;
 
         public BossStates BossState;
 
@@ -23,6 +24,7 @@ namespace Managers.BossStates
 
         public virtual void OnStateEnter()
         {
+            bossAnimator = GetComponent<Animator>();
             runningState = this;
             Debug.Log($"Entering {runningState.name}");
         }
@@ -41,13 +43,13 @@ namespace Managers.BossStates
         {
             if (bossState == runningState) return;
             
+            Debug.Log("Changing state");
             runningState.OnStateExit();
             bossState.OnStateEnter();
 
             runningState = bossState;
-
-
         }
+        
     }
     
     

@@ -735,7 +735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944c80b015d343409f38f9388e88cde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439572
 MonoBehaviour:
@@ -761,7 +760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcf8ad028034c08ab6f80b6eb9a2db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 1
 --- !u!114 &575439574
 MonoBehaviour:
@@ -775,7 +773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3184a36dcdab43ae9a8e6167dac0c63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439575
 MonoBehaviour:
@@ -789,7 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cd904f66f3454995a32d9d6f24c872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439576
 MonoBehaviour:
@@ -803,7 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efa60022ddf4d96b5828abf4ce80098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439577
 MonoBehaviour:
@@ -817,7 +812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f227f57cde4a4c01a35492d8b4fc55cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439578
 MonoBehaviour:
@@ -831,7 +825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384a19a93bdf4b878d1c67b1a29a8dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!114 &575439579
 MonoBehaviour:
@@ -845,7 +838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1741332ed7534daaa704c56a6a81e389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 575439570}
   BossState: 0
 --- !u!1 &765584826
 GameObject:
@@ -2050,6 +2042,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 575439576}
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+      propertyPath: bossMeleeDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: availableStates.Flee
       value: 
       objectReference: {fileID: 575439577}
@@ -2057,6 +2053,10 @@ PrefabInstance:
       propertyPath: availableStates.Idle
       value: 
       objectReference: {fileID: 575439576}
+    - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+      propertyPath: bossShootingDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: availableStates.FrontKick
       value: 

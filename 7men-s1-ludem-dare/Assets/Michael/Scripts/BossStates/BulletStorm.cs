@@ -10,11 +10,10 @@ namespace Managers.BossStates
         {
             base.OnStateEnter();
             Debug.Log("Entering State Bullet Storm");
-            if (!entered)
-            {
-                bossAnimator.SetBool(BossStates.BulletStorm.ToString(), true);
-                entered = true;
-            }
+            
+            bossAnimator.SetTrigger("OnBulletStorm");
+            bossAnimator.SetBool(BossStates.BulletStorm.ToString(), true);
+            entered = true;
             
         }
 
