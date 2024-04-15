@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour
                 Debug.Log("Main Game scene detected");
                 break;
             //Activate relevant canvases here if needed
+            Debug.Log("Main game scene detected");
+                break;
             case GameState.UnknownScene:
                 Debug.LogError("Unknown scene detected");
                 break;
