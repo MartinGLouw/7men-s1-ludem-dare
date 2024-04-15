@@ -11,6 +11,7 @@ public class Projectiles
     public GameObject prefab;
 
     public float shotsDelta, speed;
+    public int damage;
 }
 
 

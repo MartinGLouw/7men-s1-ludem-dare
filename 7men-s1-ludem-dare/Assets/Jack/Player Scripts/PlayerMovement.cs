@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers.Lawyer;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerLook : MonoBehaviour
+public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 {
     public GameObject player;
 
@@ -34,9 +35,9 @@ public class PlayerLook : MonoBehaviour
 
     bool canInvoke = true;
 
-    int hp = 3;
+    int hp = 100;
 
-    const int maxHP = 3;
+    const int maxHP = 100;
 
     bool isDead = false;
 
@@ -74,7 +75,7 @@ public class PlayerLook : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-
+        //hp = maxHP;
         health.UpdateHealthBar(hp, maxHP);
     }
 
@@ -101,6 +102,7 @@ public class PlayerLook : MonoBehaviour
         RaycastHit hit;
 
         //casts ray to mous position
+        Debug.Log(Mouse.current.position.ReadValue());
         Ray mousePos = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         //if there was a ray cast the player will look at it
@@ -171,12 +173,25 @@ public class PlayerLook : MonoBehaviour
 
     public void TakeDamage()
     {
-        hp--;
+        // hp--;
+        //
+        // health.UpdateHealthBar(hp, maxHP);
+        //
+        // if (hp <= 0)
+        // {
+        //     isDead = true;
+        // }
+    }
 
+    public void TakeDamage(Projectiles value)
+    {
+        hp -= value.damage;
+        
         health.UpdateHealthBar(hp, maxHP);
-
+        Debug.Log($"JP: {hp}");
         if (hp <= 0)
         {
+            EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
             isDead = true;
         }
     }
