@@ -86,6 +86,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
     {
         MoveCamera();
 
+        LegAnimations();
+
         moveDirecton = walk.ReadValue<Vector2>();   
     }
 
@@ -116,7 +118,6 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     void MovePlayer()
     {
-        playerAnimator.SetTrigger("IsWalking");
         agent.velocity = new Vector3(moveDirecton.x * speed, 0f, moveDirecton.y * speed);
     }
 
@@ -157,6 +158,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
     {
         canInvoke = false;
 
+        playerAnimator.SetTrigger("Throw");
+
         projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
 
         yield return new WaitForSeconds(0.2f);
@@ -195,6 +198,18 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
         {
             EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
             isDead = true;
+        }
+    }
+
+    void LegAnimations()
+    {
+        if (agent.velocity.magnitude > 0 && !isDashing)
+        {
+            playerAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false);
         }
     }
 }
