@@ -102,7 +102,6 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
         RaycastHit hit;
 
         //casts ray to mous position
-        Debug.Log(Mouse.current.position.ReadValue());
         Ray mousePos = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         //if there was a ray cast the player will look at it

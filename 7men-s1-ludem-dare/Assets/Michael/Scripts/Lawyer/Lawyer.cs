@@ -36,7 +36,7 @@ namespace Managers.Lawyer
 
         IEnumerator ExitSequence()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             lawyerAnimator.SetBool("IsExit", false);
             gameObject.SetActive(false);
         }

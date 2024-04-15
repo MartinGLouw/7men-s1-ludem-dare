@@ -6,21 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Animation/Animator Controllers/Lawyers/Lawyer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art Assets/Animation/Animator Controllers/Lawyers/Lawyer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Projectile Scripts/Projectile Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Projectile Scripts/Projectile Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ContractLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ContractLawyer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jack/Player Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Player Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jack/Projectiles Prefabs/EnemyProjectile1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Projectiles Prefabs/EnemyProjectile1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Managers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Managers.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Jack/Player Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Jack/Projectile Scripts/Projectile Collisions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Michael/Scripts/Utils/Shield.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -114,7 +109,7 @@
       <workItem from="1713088557112" duration="2001000" />
       <workItem from="1713098042529" duration="9826000" />
       <workItem from="1713164238648" duration="7048000" />
-      <workItem from="1713185336015" duration="4955000" />
+      <workItem from="1713185336015" duration="6941000" />
     </task>
     <servers />
   </component>

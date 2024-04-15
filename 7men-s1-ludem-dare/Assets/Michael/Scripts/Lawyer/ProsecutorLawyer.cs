@@ -8,6 +8,7 @@ namespace Managers.Lawyer
     public class ProsecutorLawyer : Lawyer
     {
         public float fireRate = 0.5f;
+        public Transform lawyer;
         public Transform bulletSpawnPos;
         public GameObject projectilePrefab;
         
@@ -47,6 +48,7 @@ namespace Managers.Lawyer
         {
             Vector3 bulletDirection = transform.position - GetClosestPlayer().transform.position;
             bulletSpawnPos.up = bulletDirection;
+            lawyer.forward = -bulletDirection;
             return bulletDirection;
         }
         
