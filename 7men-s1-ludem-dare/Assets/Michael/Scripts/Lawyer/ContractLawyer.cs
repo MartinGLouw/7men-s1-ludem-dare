@@ -55,9 +55,4 @@ namespace Managers.Lawyer
         tweo,
         three
     }
-    
-    public interface IDamageable<T>
-    {
-        void TakeDamage(T value);
-    }
 }
