@@ -15,14 +15,14 @@ public enum Phase
 [Serializable]
 public struct AllBossStates
 {
-    public BossStateMachine BulletStorm;
-    public BossStateMachine FrontKick;
-    public BossStateMachine MegaStomp;
-    public BossStateMachine ShotgunStrike;
-    public BossStateMachine HeavyStrike;
-    public BossStateMachine CallToArms;
-    public BossStateMachine Flee;
-    public BossStateMachine Idle;
+    public BulletStorm BulletStorm;
+    public FrontKick FrontKick;
+    public MegaStomp MegaStomp;
+    public ShotgunStrike ShotgunStrike;
+    public HeavyStrike HeavyStrike;
+    public CallToArms CallToArms;
+    public Flee Flee;
+    public Idle Idle;
     
 }
 
@@ -64,6 +64,7 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         
         bossPhase = Phase.Phase1;
         currentState = availableStates.Idle;
+        currentState.OnStateEnter();
     }
 
     private void Update()

@@ -2,7 +2,7 @@
 
 namespace Managers.BossStates
 {
-    public class FrontKick : BossStateMachine
+    public class Flee : BossStateMachine
     {
         public override void OnStateEnter()
         {
@@ -20,11 +20,7 @@ namespace Managers.BossStates
         {
         
         }
-
-        public void FrontKickLogic()
-        {
-            Debug.Log("Kicking");
-        }
+        
         
     }
 }

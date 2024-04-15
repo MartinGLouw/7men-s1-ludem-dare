@@ -19,10 +19,11 @@ namespace Managers.BossStates
 
         public BossStates BossState;
 
-        public BossStateMachine runningState;
+        protected BossStateMachine runningState;
 
         public virtual void OnStateEnter()
         {
+            runningState = this;
             Debug.Log($"Entering {runningState.name}");
         }
 

@@ -9,9 +9,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2226013661262754511}
-  - component: {fileID: 960648376787308615}
   - component: {fileID: 6463261415825924656}
   - component: {fileID: 6842535079175297681}
+  - component: {fileID: 6738590418118880198}
+  - component: {fileID: 6270123432672636036}
+  - component: {fileID: 7023347184766151550}
+  - component: {fileID: 7661459245775704917}
+  - component: {fileID: 6608651417470752608}
+  - component: {fileID: 5463437410893588532}
+  - component: {fileID: 2204466280062058499}
+  - component: {fileID: 4458548965640079598}
+  - component: {fileID: 5633237578482068325}
+  - component: {fileID: 200079707696973089}
   m_Layer: 0
   m_Name: BossMan
   m_TagString: Untagged
@@ -36,23 +45,6 @@ Transform:
   - {fileID: 1267132291294738274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &960648376787308615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2910928321159725652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxEnemyHealth: 50
-  shotgunEnemyHealth: 80
-  sniperEnemyHealth: 120
-  crowbarEnemyHealth: 70
-  sprayerEnemyHealth: 100
 --- !u!195 &6463261415825924656
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -96,6 +88,184 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.18, y: 3.96, z: 1.79}
   m_Center: {x: 0, y: 1.91, z: 0.24}
+--- !u!114 &6738590418118880198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e160325839f845f39e8c565f80815363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnim: {fileID: 6083434504283417856}
+  player: {fileID: 0}
+  availableStates:
+    BulletStorm: {fileID: 7023347184766151550}
+    FrontKick: {fileID: 7661459245775704917}
+    MegaStomp: {fileID: 6608651417470752608}
+    ShotgunStrike: {fileID: 5463437410893588532}
+    HeavyStrike: {fileID: 4458548965640079598}
+    CallToArms: {fileID: 2204466280062058499}
+    Flee: {fileID: 5633237578482068325}
+    Idle: {fileID: 200079707696973089}
+  bossPhase: 0
+  bossState: 6
+  currentState: {fileID: 200079707696973089}
+  bossHealth: 300
+  bossMeleeDistance: 4
+  bossShootingDistance: 25
+  phaseCheckingInterval: 3
+  attackCooldown: {x: 2, y: 5}
+--- !u!54 &6270123432672636036
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7023347184766151550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944c80b015d343409f38f9388e88cde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 6083434504283417856}
+  BossState: 0
+  runningState: {fileID: 7023347184766151550}
+--- !u!114 &7661459245775704917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf8ad028034c08ab6f80b6eb9a2db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 1
+  runningState: {fileID: 0}
+--- !u!114 &6608651417470752608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cd904f66f3454995a32d9d6f24c872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
+--- !u!114 &5463437410893588532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3184a36dcdab43ae9a8e6167dac0c63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
+--- !u!114 &2204466280062058499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384a19a93bdf4b878d1c67b1a29a8dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
+--- !u!114 &4458548965640079598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1741332ed7534daaa704c56a6a81e389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
+--- !u!114 &5633237578482068325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f227f57cde4a4c01a35492d8b4fc55cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
+--- !u!114 &200079707696973089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910928321159725652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efa60022ddf4d96b5828abf4ce80098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossAnimator: {fileID: 0}
+  BossState: 0
+  runningState: {fileID: 0}
 --- !u!1 &8715129665186482456
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,15 +315,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9386451
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8759165
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7261047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -186,35 +356,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4784735641041181078, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3318207841429144196}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
 --- !u!4 &1267132291294738274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
   m_PrefabInstance: {fileID: 6966009120508045495}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2507088633537392929 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4784735641041181078, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
-  m_PrefabInstance: {fileID: 6966009120508045495}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3318207841429144196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507088633537392929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944c80b015d343409f38f9388e88cde7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossAnimator: {fileID: 6083434504283417856}
-  BossState: 0
 --- !u!95 &6083434504283417856 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3801195386398934455, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
