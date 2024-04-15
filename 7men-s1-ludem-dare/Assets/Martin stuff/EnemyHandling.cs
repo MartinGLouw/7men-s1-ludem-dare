@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyHandling : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent;
-    private GameObject _player;
+    
     
     // Health values for different enemy types
     public int boxEnemyHealth = 50;
@@ -14,8 +13,11 @@ public class EnemyHandling : MonoBehaviour
     public int sniperEnemyHealth = 120;
     public int crowbarEnemyHealth = 70;
     public int sprayerEnemyHealth = 100;
+    
     // Current health for this specific enemy
     private int currentHealth;
+    private NavMeshAgent navMeshAgent;
+    private GameObject _player;
 
     public void Init(GameObject player)
     {
