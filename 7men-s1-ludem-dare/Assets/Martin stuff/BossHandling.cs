@@ -2,12 +2,7 @@
 using Managers.Lawyer;
 using UnityEngine;
 using UnityEngine.AI;
-
-public enum BossStates
-{
-    Fighting,
-    Fleeing
-}
+using Managers.BossStates;
 
 public enum Phase
 {
@@ -24,15 +19,47 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
     public BossStates bossState;
     public int bossHealth = 300;
     public Phase bossPhase;
+    //Randomise melee attack
+    public float bossMeleeDistance = 4;
+    public float bossShootingDistance = 25f;
+
+    public BossStateMachine bossStates;
     
     private NavMeshAgent navMeshAgent;
     private EventManager _eventManager;
 
+    private float playerDistance;
+
     private void Start()
     {
-        bossState = BossStates.Fighting;
+        bossState = BossStates.BulletStorm;
         _eventManager = EventManager.Instance;
+        navMeshAgent = GetComponent<NavMeshAgent>();
         bossPhase = Phase.Phase1;
+        bossStates.OnStateEnter();
+    }
+
+    private void Update()
+    {
+        if (player)
+        {
+            navMeshAgent.SetDestination(player.transform.position);
+        }
+        
+        //Distance
+        playerDistance = Vector3.Distance(transform.position, player.transform.position);
+        
+        //Implement Phase
+    }
+
+    private void PhaseHandling(Phase phase, float distance)
+    {
+        switch (phase)
+        {
+            case Phase.Phase1:
+                
+                break;
+        }
     }
     // Total health for the boss
 
@@ -64,6 +91,7 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
     private void BulletStorm()
     {
         // Implement BulletStorm behavior here
+        Vector3 shootDirection = player.transform.position - transform.position;
     }
 
     private void FrontKick()

@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Martin stuff/EnemyHandling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Martin stuff/EnemyHandling.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art Assets/Animation/Animator Controllers/Enemies/Boss.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art Assets/Animation/Animator Controllers/Enemies/Boss.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/BossMan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/BossMan.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +29,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2f2YMsiv91mqSHGrgZBSASSbFjB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -104,7 +107,7 @@
       <workItem from="1713088557112" duration="2001000" />
       <workItem from="1713098042529" duration="9826000" />
       <workItem from="1713164238648" duration="7048000" />
-      <workItem from="1713185336015" duration="7842000" />
+      <workItem from="1713185336015" duration="11179000" />
     </task>
     <servers />
   </component>
