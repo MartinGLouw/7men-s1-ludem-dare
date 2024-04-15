@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class ProjectileSpawner : MonoBehaviour
+public class ProjectileSpawner : Singleton<ProjectileSpawner>
 {
     public Projectiles[] projectiles;
 

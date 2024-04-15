@@ -6,11 +6,12 @@ namespace Managers.Lawyer
     public class ContractLawyer : Lawyer
     {
         public float bulletSlowMultiplier = 2f;
-
+        
         public SphereCollider bulletArea;
         public override void OnSpawn()
         {
             base.OnSpawn();
+            ActivateBulletSlow(true);
         }
 
         public override void OnAttack()
@@ -32,7 +33,7 @@ namespace Managers.Lawyer
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Projectile"))
+            if (other.CompareTag("EnemyProjectile"))
             {
                 Rigidbody projectileRB = other.GetComponent<Rigidbody>();
                 projectileRB.velocity /= bulletSlowMultiplier;
@@ -41,7 +42,7 @@ namespace Managers.Lawyer
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Projectile"))
+            if (other.CompareTag("EnemyProjectile"))
             {
                 Rigidbody projectileRB = other.GetComponent<Rigidbody>();
                 projectileRB.velocity *=  bulletSlowMultiplier;

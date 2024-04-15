@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5832014680597560466}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.537, y: 0, z: 0.186}
   m_LocalScale: {x: 0.19999999, y: 1, z: 0.08999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,14 +161,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProsecutorLawyer
       objectReference: {fileID: 0}
+    - target: {fileID: 7872397354782555784, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872397354782555784, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872397354782555784, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872397354782555784, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4991952462824347734, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
     - {fileID: 3644327682316273656, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3661052608978073265, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 3477031420925700898}
+    - targetCorrespondingSourceObject: {fileID: 3661052608978073265, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 646924823904391357}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6330158619386139968, guid: baeaf86d6c8a55d4ba03a4af676e0e03, type: 3}
       insertIndex: -1
@@ -203,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lawyerState: 0
+  lawyerAnimator: {fileID: 2738089706148937273}
   spawned: 0
   fireRate: 0.5
   bulletSpawnPos: {fileID: 3477031420925700898}
@@ -255,3 +275,74 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &5790626095978184825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 491591551148020810}
+    m_Modifications:
+    - target: {fileID: 4142845844744324671, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_Name
+      value: Prosecutor Lawyer Visuals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476840843524324928, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+--- !u!4 &646924823904391357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6387856284080083140, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+  m_PrefabInstance: {fileID: 5790626095978184825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2738089706148937273 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8476840843524324928, guid: 2ab1faa1c9a668947b19996cc19b2614, type: 3}
+  m_PrefabInstance: {fileID: 5790626095978184825}
+  m_PrefabAsset: {fileID: 0}

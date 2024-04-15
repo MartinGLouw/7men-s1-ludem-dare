@@ -54,6 +54,7 @@ namespace Managers.Lawyer
         void Shoot()
         {
             Vector3 bulletDirection = AimInClosestEnemyDirection();
+            ProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSpawnPos.position, -bulletDirection);
         }
         
         private void OnTriggerEnter(Collider other)
