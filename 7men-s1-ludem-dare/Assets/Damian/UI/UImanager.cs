@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
     private GameState GetCurrentGameState()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Damian_UI")
+        if (sceneName == "MainMenu")
             return GameState.MainMenu;
         else if (sceneName == "TutorialScene")
             return GameState.TutorialScene;
@@ -127,7 +127,7 @@ public class UIManager : MonoBehaviour
     public void BackToMainMenu()
     {
         SoundManager.Instance.PlaySFX(0);
-        SceneManager.LoadScene("Damian_UI");
+        SceneManager.LoadScene("MainMenu");
 
     }
 }
