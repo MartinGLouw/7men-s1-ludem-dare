@@ -1,4 +1,5 @@
 using System;
+using Managers.Lawyer;
 using Unity;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Events
         public event Action<int> OnPlayerDamage;
         public event Action<Vector3> OnShoot;
         public event Action<GameObject> OnPlayerSpawn;
+        public event Action<LawyerType, Vector3> OnSpawnLawyer;
         
         public void FirePlayerDamageEvent(int health)
         {
@@ -29,6 +31,11 @@ namespace Events
         public void FirePlayerSpawnEvent(GameObject player)
         {
             OnPlayerSpawn?.Invoke(player);
+        }
+
+        public void FireSpawnLawyerEvent(LawyerType lawyer, Vector3 playerLocation)
+        {
+            OnSpawnLawyer?.Invoke(lawyer, playerLocation);
         }
     }
 }

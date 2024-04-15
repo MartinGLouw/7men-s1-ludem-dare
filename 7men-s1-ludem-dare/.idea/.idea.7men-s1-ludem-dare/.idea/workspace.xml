@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Damian/UI/PauseUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Damian/UI/PauseUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Managers.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Managers.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Managers/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Managers/TimeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/UIToolkit/PauseMenu.uxml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/UIToolkit/PauseMenu.uxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Damian_UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Damian_UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/pause-menu.uss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Toolkit/pause-menu.uss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +108,7 @@
       <workItem from="1713087876360" duration="619000" />
       <workItem from="1713088557112" duration="2001000" />
       <workItem from="1713098042529" duration="9826000" />
+      <workItem from="1713164238648" duration="7048000" />
     </task>
     <servers />
   </component>
