@@ -62,7 +62,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8fdb724a7069f9541b0a1cc77a5a645e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -279,6 +279,8 @@ Transform:
   - {fileID: 8912544087018108747}
   - {fileID: 9219921941045684780}
   - {fileID: 4161637116341006412}
+  - {fileID: 36064616363068174}
+  - {fileID: 883792492280649681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245792303737840497
@@ -387,6 +389,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8912544087018108747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2643537263037442993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883792492280649681}
+  - component: {fileID: 874913191993128383}
+  m_Layer: 0
+  m_Name: ProjectileSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883792492280649681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643537263037442993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8832115011406000978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874913191993128383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643537263037442993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c3383e4fcfce94eba4df3005b435e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - name: PlayerProjectile
+    prefab: {fileID: 2664901920565624685, guid: 7ca1a2647573e9c49b1ebf7566b7dbbc, type: 3}
+    shotsDelta: 1
+    speed: 20
+    damage: 20
+  playerProjectile: 0
+  enemyProjectile1: 1
 --- !u!1 &3099538176933659454
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +765,183 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8912544087018108747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7117529425802548925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36064616363068174}
+  - component: {fileID: 72741806492597482}
+  - component: {fileID: 2398893341309533076}
+  m_Layer: 0
+  m_Name: LawyerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &36064616363068174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7117529425802548925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8832115011406000978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72741806492597482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7117529425802548925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca9f62952444c2590a24404f22d3813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 36064616363068174}
+  player: {fileID: 0}
+  publicDefenceCooldownTime: 30
+  prosecutorCooldownTime: 30
+  contractCooldownTime: 30
+  publicDefenceUseTime: 15
+  prosecutorUseTime: 5
+  contractUseTime: 5
+  contractLawyerPrefab: {fileID: 915432370231768551, guid: a87d78e431a1b3143b2cce76e59c2aa3, type: 3}
+  publicDefenceLawyerPrefab: {fileID: 5954837132650418812, guid: 167f063e35580b04f91730ace64c2930, type: 3}
+  prosecutorLawyerPrefab: {fileID: 7189413668436981691, guid: 7667faae574bd5c47803b4f7de5ae0d0, type: 3}
+  pImage: {fileID: 0}
+  pbImage: {fileID: 0}
+  cImage: {fileID: 0}
+--- !u!114 &2398893341309533076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7117529425802548925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d941d484459c3004f8a9f6518285cd58, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 72741806492597482}
+        m_TargetAssemblyTypeName: Managers.Lawyer.LawyerHandler, Assembly-CSharp
+        m_MethodName: OnContractCalled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 885655d2-ed49-4c04-9e62-8d7b5ce9d87a
+    m_ActionName: Player/Contract[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 72741806492597482}
+        m_TargetAssemblyTypeName: Managers.Lawyer.LawyerHandler, Assembly-CSharp
+        m_MethodName: OnProsecutorCalled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bc879284-eb0e-4274-b510-d35d9001786a
+    m_ActionName: Player/Prosecutor[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 72741806492597482}
+        m_TargetAssemblyTypeName: Managers.Lawyer.LawyerHandler, Assembly-CSharp
+        m_MethodName: OnPublicDefenceCall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e6313cb4-3526-40ba-8d03-9c2e49f8634d
+    m_ActionName: Player/PublicDefence[/Keyboard/3]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5adaa63a-97e2-4fd2-8fef-6a366b50c559
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b4f457ca-c14a-4e1d-8e42-67ac13d36347
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7355b5d8-e351-49e5-a997-92f2280245f5
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e67ef1e8-a9b5-4737-9bc7-647dab8f2717
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c2ab4e05-87b8-4489-8df1-e4ce8109d505
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 858f909d-0719-4330-b5af-9c058f868749
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87c4ee24-4a67-4af1-bbf6-5d0ede832c5d
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e945d8d-f61f-42ed-9286-ead1597fe47a
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8769f337-2b2d-4dff-92b0-f38e8b19f726
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cd8c745f-ffec-4217-8534-7f34e65c24f3
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &8797055902782736908
 GameObject:
   m_ObjectHideFlags: 0

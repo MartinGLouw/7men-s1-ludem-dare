@@ -5,11 +5,6 @@ namespace Managers.Lawyer
     public class PublicDefenceLawyer : Lawyer
     {
         public GameObject barrier;
-
-        public void SetBarrierPosition(Vector3 position)
-        {
-            barrier.transform.position = position;
-        }
         
         public override void OnSpawn()
         {
@@ -19,17 +14,20 @@ namespace Managers.Lawyer
 
         public override void OnAttack()
         {
+            Debug.Log("Off");
             base.OnAttack();
         }
 
         public override void OnDeath()
         {
-            ShieldOnOff(false);
             base.OnDeath();
+            ShieldOnOff(false);
+            Debug.Log("Off");
         }
 
         void ShieldOnOff(bool on)
         {
+            
             barrier.SetActive(on);
         }
     }

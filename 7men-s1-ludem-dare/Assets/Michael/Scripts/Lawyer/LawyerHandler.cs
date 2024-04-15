@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 namespace Managers.Lawyer
@@ -14,6 +15,7 @@ namespace Managers.Lawyer
     public class LawyerHandler : MonoBehaviour
     {
         [Header("References:")] public Transform parent;
+        public Transform player;
 
         [Header("Lawyer Times")] 
         public float publicDefenceCooldownTime;
@@ -28,6 +30,11 @@ namespace Managers.Lawyer
         public GameObject contractLawyerPrefab;
         public GameObject publicDefenceLawyerPrefab;
         public GameObject prosecutorLawyerPrefab;
+
+        [Header("UI View")] 
+        public Image pImage;
+        public Image pbImage;
+        public Image cImage;
 
         private GameObject _contractLawyer;
         private GameObject _prosecutorLawyer;
@@ -62,8 +69,6 @@ namespace Managers.Lawyer
             Setup();
 
             _eventManager.PlayerEvents.OnSpawnLawyer += HandleSpawnLawyerCall;
-            
-            HandleSpawnLawyerCall(LawyerType.Prosecutor, Vector3.zero);
         }
 
         private void Setup()
@@ -81,6 +86,21 @@ namespace Managers.Lawyer
             _contractLawyerStates = contractLawyerPrefab.GetComponent<Lawyer>();
             _prosecutorLawyerStates = prosecutorLawyerPrefab.GetComponent<Lawyer>();
             _publicDefenceLawyerStates = publicDefenceLawyerPrefab.GetComponent<Lawyer>();
+        }
+
+        public void OnContractCalled()
+        {
+            HandleSpawnLawyerCall(LawyerType.Contract, player.position);
+        }
+
+        public void OnProsecutorCalled()
+        {
+            HandleSpawnLawyerCall(LawyerType.Prosecutor, player.position);
+        }
+        
+        public void OnPublicDefenceCall()
+        {
+            HandleSpawnLawyerCall(LawyerType.PublicDefence, player.position);
         }
 
         void HandleSpawnLawyerCall(LawyerType lawyer, Vector3 playerPos)
@@ -119,6 +139,7 @@ namespace Managers.Lawyer
                     
             _contractInUse = true;
             _contractLawyerStates.OnSpawn();
+            UpdateImages();
         }
 
         private void SpawnProsecutorLawyer(Vector3 playerPos)
@@ -138,6 +159,7 @@ namespace Managers.Lawyer
                     
             _prosecutorInUse = true;
             _prosecutorLawyerStates.OnSpawn();
+            UpdateImages();
         }
 
         private void SpawnPublicDefenceLawyer(Vector3 playerPos)
@@ -146,7 +168,7 @@ namespace Managers.Lawyer
             if (_publicDefenceCooling) return;
             if (!_publicDefenceLawyerStates.spawned || _publicDefenceLawyer == null)
             {
-                _publicDefenceLawyer = Instantiate(prosecutorLawyerPrefab, playerPos, Quaternion.identity, parent);
+                _publicDefenceLawyer = Instantiate(publicDefenceLawyerPrefab, playerPos, Quaternion.identity, parent);
                 _publicDefenceLawyerStates = _publicDefenceLawyer.GetComponent<Lawyer>();
             }
             else
@@ -157,7 +179,7 @@ namespace Managers.Lawyer
                     
             _publicDefenceInUse = true;
             _publicDefenceLawyerStates.OnSpawn();
-            return;
+            UpdateImages();
         }
 
         private void Update()
@@ -176,6 +198,7 @@ namespace Managers.Lawyer
                 {
                     _contractorCooling = false;
                     _contractCooldownTimer = contractCooldownTime;
+                    UpdateImages();
                 }
             }
 
@@ -189,7 +212,7 @@ namespace Managers.Lawyer
                     _contractInUse = false;
                     _contractLawyerStates.OnDeath();
                     _contractorCooling = true;
-                    HandleSpawnLawyerCall(LawyerType.Contract, Vector3.zero);
+                    UpdateImages();
                 }
             }
         }
@@ -203,6 +226,7 @@ namespace Managers.Lawyer
                 {
                     _prosecutorCooling = false;
                     _prosecutorCooldownTimer = prosecutorCooldownTime;
+                    UpdateImages();
                 }
             }
 
@@ -216,7 +240,7 @@ namespace Managers.Lawyer
                     _prosecutorInUse = false;
                     _prosecutorLawyerStates.OnDeath();
                     _prosecutorCooling = true;
-                    HandleSpawnLawyerCall(LawyerType.Prosecutor, Vector3.zero);
+                    UpdateImages();
                 }
             }
         }
@@ -229,6 +253,7 @@ namespace Managers.Lawyer
                 if (_publicDefenceCooldownTimer <= 0)
                 {
                     _publicDefenceCooling = false;
+                    UpdateImages();
                     _publicDefenceCooldownTimer = publicDefenceCooldownTime;
                 }
             }
@@ -237,15 +262,28 @@ namespace Managers.Lawyer
             {
                 _publicDefenceLawyerStates.OnAttack();
                 _publicDefenceTimer -= Time.deltaTime;
-                if (_contractTimer <= 0)
+                Debug.Log($"Public Defence: {_publicDefenceTimer}");
+                if (_publicDefenceTimer <= 0)
                 {
                     _publicDefenceTimer = publicDefenceUseTime;
                     _publicDefenceInUse = false;
                     _publicDefenceLawyerStates.OnDeath();
                     _publicDefenceCooling = true;
-                    HandleSpawnLawyerCall(LawyerType.Contract, Vector3.zero);
+                    UpdateImages();
                 }
             }
+        }
+
+        private void UpdateImages()
+        {
+            if (_contractInUse || _contractorCooling) cImage.color = Color.red;
+            else cImage.color = Color.green;
+
+            if (_prosecutorInUse || _prosecutorCooling) pImage.color = Color.red;
+            else pImage.color = Color.green;
+            
+            if (_publicDefenceInUse || _publicDefenceCooling) pbImage.color = Color.red;
+            else pbImage.color = Color.green;
         }
     }
 }
