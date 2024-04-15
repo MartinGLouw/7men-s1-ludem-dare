@@ -34,6 +34,10 @@ public class EnemyShoot : MonoBehaviour
 
         projectileSpawner.SpawnBasicEnemyProjectile(transform.position, transform.forward);
 
+        projectileSpawner.SpawnSlowEnemyProjectile(transform.position, transform.forward);
+
+        projectileSpawner.SpawnFastEnemyProjectile(transform.position, transform.forward);
+
         yield return new WaitForSeconds(2);
 
         canInvoke = true;

@@ -43,6 +43,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     public PlayerHealth health;
 
+    public Animator playerAnimator;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -102,7 +104,6 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
         RaycastHit hit;
 
         //casts ray to mous position
-        Debug.Log(Mouse.current.position.ReadValue());
         Ray mousePos = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         //if there was a ray cast the player will look at it
@@ -115,6 +116,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     void MovePlayer()
     {
+        playerAnimator.SetTrigger("IsWalking");
         agent.velocity = new Vector3(moveDirecton.x * speed, 0f, moveDirecton.y * speed);
     }
 
