@@ -22,7 +22,6 @@ public class EventManager : Singleton<EventManager>
 
     private void Start()
     {
-        Debug.Log("Start");
         GameManagerEvents.OnGameStart += () => { Debug.Log("Game Started"); };
     }
 }
