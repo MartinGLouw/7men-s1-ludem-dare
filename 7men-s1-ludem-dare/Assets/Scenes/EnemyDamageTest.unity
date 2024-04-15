@@ -575,7 +575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2040154606}
         m_TargetAssemblyTypeName: DamageFlash, Assembly-CSharp
-        m_MethodName: TestFlashEffect
+        m_MethodName: DamageEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

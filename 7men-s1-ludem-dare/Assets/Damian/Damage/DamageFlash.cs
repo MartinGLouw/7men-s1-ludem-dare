@@ -22,7 +22,7 @@ public class DamageFlash : MonoBehaviour
         }
     }
 
-    public void FlashEffect()
+    public void DamageEffect()
     {
         // this will be the function that will be called when the enemy is hit
 
