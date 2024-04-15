@@ -1,4 +1,4 @@
-﻿internal interface IDamagable
+﻿internal interface IDamagable<T>
 {
-    void TakeDamage(float amount);
+    void TakeDamage(T Data);
 }

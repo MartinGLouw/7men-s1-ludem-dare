@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour, IDamagable
+public class Health : MonoBehaviour, IDamagable<float>
 {
     public float maxHealth = 100f;
     private float currentHealth;
