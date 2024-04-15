@@ -63,7 +63,7 @@ namespace Managers.Lawyer
 
             _eventManager.PlayerEvents.OnSpawnLawyer += HandleSpawnLawyerCall;
             
-            HandleSpawnLawyerCall(LawyerType.Contract, Vector3.zero);
+            HandleSpawnLawyerCall(LawyerType.Prosecutor, Vector3.zero);
         }
 
         private void Setup()
@@ -163,6 +163,8 @@ namespace Managers.Lawyer
         private void Update()
         {
             ContractLawyerTimeSystem();
+            PublicDefenceLawyerTimeSystem();
+            ProsecutorLawyerTimeSystem();
         }
 
         private void ContractLawyerTimeSystem()
@@ -194,53 +196,53 @@ namespace Managers.Lawyer
         
         private void ProsecutorLawyerTimeSystem()
         {
-            if (_contractorCooling)
+            if (_prosecutorCooling)
             {
-                _contractCooldownTimer -= Time.deltaTime;
-                if (_contractCooldownTimer <= 0)
+                _prosecutorCooldownTimer -= Time.deltaTime;
+                if (_prosecutorCooldownTimer <= 0)
                 {
-                    _contractorCooling = false;
-                    _contractCooldownTimer = contractCooldownTime;
+                    _prosecutorCooling = false;
+                    _prosecutorCooldownTimer = prosecutorCooldownTime;
                 }
             }
 
-            if (_contractInUse)
+            if (_prosecutorInUse)
             {
-                _contractLawyerStates.OnAttack();
-                _contractTimer -= Time.deltaTime;
-                if (_contractTimer <= 0)
+                _prosecutorLawyerStates.OnAttack();
+                _prosecutorTimer -= Time.deltaTime;
+                if (_prosecutorTimer <= 0)
                 {
-                    _contractTimer = contractUseTime;
-                    _contractInUse = false;
-                    _contractLawyerStates.OnDeath();
-                    _contractorCooling = true;
-                    HandleSpawnLawyerCall(LawyerType.Contract, Vector3.zero);
+                    _prosecutorTimer = prosecutorUseTime;
+                    _prosecutorInUse = false;
+                    _prosecutorLawyerStates.OnDeath();
+                    _prosecutorCooling = true;
+                    HandleSpawnLawyerCall(LawyerType.Prosecutor, Vector3.zero);
                 }
             }
         }
         
         private void PublicDefenceLawyerTimeSystem()
         {
-            if (_contractorCooling)
+            if (_publicDefenceCooling)
             {
-                _contractCooldownTimer -= Time.deltaTime;
-                if (_contractCooldownTimer <= 0)
+                _publicDefenceCooldownTimer -= Time.deltaTime;
+                if (_publicDefenceCooldownTimer <= 0)
                 {
-                    _contractorCooling = false;
-                    _contractCooldownTimer = contractCooldownTime;
+                    _publicDefenceCooling = false;
+                    _publicDefenceCooldownTimer = publicDefenceCooldownTime;
                 }
             }
 
-            if (_contractInUse)
+            if (_publicDefenceInUse)
             {
-                _contractLawyerStates.OnAttack();
-                _contractTimer -= Time.deltaTime;
+                _publicDefenceLawyerStates.OnAttack();
+                _publicDefenceTimer -= Time.deltaTime;
                 if (_contractTimer <= 0)
                 {
-                    _contractTimer = contractUseTime;
-                    _contractInUse = false;
-                    _contractLawyerStates.OnDeath();
-                    _contractorCooling = true;
+                    _publicDefenceTimer = publicDefenceUseTime;
+                    _publicDefenceInUse = false;
+                    _publicDefenceLawyerStates.OnDeath();
+                    _publicDefenceCooling = true;
                     HandleSpawnLawyerCall(LawyerType.Contract, Vector3.zero);
                 }
             }

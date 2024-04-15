@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Events/PlayerEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Events/PlayerEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Managers/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Managers/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scene/EventManager/NavMesh-TestPlane.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ContractLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/LawyerHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/PublicDefenceLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

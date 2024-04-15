@@ -17,7 +17,11 @@ namespace Managers.Lawyer
 
         public virtual void OnAttack()
         {
-            lawyerState = EntityStates.Attacking;
+            if (lawyerState != EntityStates.Attacking)
+            {
+                lawyerState = EntityStates.Attacking;
+            }
+            
         }
         public virtual void OnDeath()
         {
