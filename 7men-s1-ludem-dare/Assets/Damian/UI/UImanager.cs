@@ -16,10 +16,18 @@ public class UIManager : MonoBehaviour
     public GameObject settingsCanvas;
     public GameObject controlsCanvas;
 
+    public GameObject howToPlayCanvas1;
+    public GameObject howToPlayCanvas2;
+    public GameObject howToPlayCanvas3;
+
     // Canvas panels
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
+
     public GameObject controlsPanel;
+    public GameObject howToPlayPanel1;
+    public GameObject howToPlayPanel2;
+    public GameObject howToPlayPanel3;
 
     // Default canvas setup
     private GameObject currentActiveCanvas;
@@ -52,18 +60,20 @@ public class UIManager : MonoBehaviour
 
     public void ActivateCanvas(GameObject canvas)
     {
-        SoundManager.Instance.PlaySFX(0);
         canvas.SetActive(true);
     }
 
     public void DeactivateCanvas(GameObject canvas)
     {
-        SoundManager.Instance.PlaySFX(0);
         canvas.SetActive(false);
+        UIAnimatorManager.Instance.SlideOutCanvas(canvas, -0.5f, canvas.transform.localPosition);
+        UIAnimatorManager.Instance.FadeOutCanvas(canvas, 0.5f);
     }
 
     public void ActivatePanel(GameObject panel)
     {
+        panel.SetActive(true);
+                SoundManager.Instance.PlaySFX(0);
         if (panel == null)
         {
             Debug.LogError("Panel reference not set in UIManager.");
@@ -75,6 +85,8 @@ public class UIManager : MonoBehaviour
 
     public void DeactivatePanel(GameObject panel)
     {
+        panel.SetActive(false);
+        SoundManager.Instance.PlaySFX(0);
         if (panel == null)
         {
             Debug.LogError("Panel reference not set in UIManager.");
