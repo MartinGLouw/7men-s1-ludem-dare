@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/IDamageable.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/IDamageable.cs.meta" afterDir="false" />
@@ -20,6 +21,9 @@
       <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/TestPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
+=======
+    <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="" />
+>>>>>>> Martin
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +49,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "git-widget-placeholder": "main",
+=======
+    "git-widget-placeholder": "Michael",
+>>>>>>> Martin
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,15 +63,21 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
+<<<<<<< HEAD
       "C:\\Users\\mdhen\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
       "C:\\Users\\mdhen\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
       "C:\\Users\\mdhen\\AppData\\Local\\Symbols\\src"
+=======
+      "C:\\Users\\marti\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\marti\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\marti\\AppData\\Local\\Symbols\\src"
+>>>>>>> Martin
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.24f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\unity hub\2022.3.24f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\mdhen\Documents\Vega\3rdYear\GADS\POE\Game Jam\7men-s1-ludem-dare\7men-s1-ludem-dare&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mdhen\Documents\Vega\3rdYear\GADS\POE\Game Jam\7men-s1-ludem-dare\7men-s1-ludem-dare" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -71,7 +85,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.24f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\unity hub\2022.3.24f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\mdhen\Documents\Vega\3rdYear\GADS\POE\Game Jam\7men-s1-ludem-dare\7men-s1-ludem-dare&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\mdhen\Documents\Vega\3rdYear\GADS\POE\Game Jam\7men-s1-ludem-dare\7men-s1-ludem-dare" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -111,7 +125,11 @@
       <workItem from="1713087876360" duration="619000" />
       <workItem from="1713088557112" duration="2001000" />
       <workItem from="1713098042529" duration="9826000" />
+<<<<<<< HEAD
       <workItem from="1713164238648" duration="7048000" />
+=======
+      <workItem from="1713176946982" duration="4093000" />
+>>>>>>> Martin
     </task>
     <servers />
   </component>
