@@ -56,7 +56,7 @@ public class UIAnimatorManager : MonoBehaviour
             Debug.LogError("CanvasGroup not found on " + panel.name);
             return;
         }
-        panel.SetActive(true);
+        
         panel.transform.localPosition = endPosition - new Vector3(1000, 0, 0); // start off-screen
         panel.transform.DOLocalMove(endPosition, duration).SetEase(Ease.OutQuint);
     }
@@ -70,7 +70,7 @@ public class UIAnimatorManager : MonoBehaviour
             return;
         }
         panel.transform.DOLocalMove(endPosition + new Vector3(1000, 0, 0), duration).SetEase(Ease.InQuint).OnComplete(() => {
-            panel.SetActive(false);
+            
         });
     }
 }
