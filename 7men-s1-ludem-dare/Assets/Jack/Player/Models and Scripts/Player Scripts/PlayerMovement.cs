@@ -146,6 +146,10 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
         agent.velocity = new Vector3(moveDirecton.x * dashSpeed, 0f, moveDirecton.y * dashSpeed);
 
+        playerParticles.transform.position = agent.transform.position;
+
+        playerParticles.transform.LookAt(agent.transform.position);
+
         playerParticles.GetComponent<ParticleSystem>().Play();
 
         yield return new WaitForSeconds(dashDuration);
