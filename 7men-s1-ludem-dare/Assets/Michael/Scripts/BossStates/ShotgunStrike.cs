@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Managers.Pool;
 
 namespace Managers.BossStates
 {
@@ -24,6 +25,13 @@ namespace Managers.BossStates
 
         public void ShotgunStrikeAnimEvent()
         {
+            Vector3 pos = gunSP.position;
+            for (int i = -2; i < 2; i++)
+            {
+
+                pos += new Vector3(pos.x * i, 0, 0);
+                PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position, BulletType.Fast);
+            }
             
         }
     }

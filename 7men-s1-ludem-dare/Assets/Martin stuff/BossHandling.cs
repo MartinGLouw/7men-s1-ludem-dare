@@ -80,7 +80,6 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         //Implement Phase
         
         //Anim
-        Debug.Log($"Speed: {_bossRb.velocity.sqrMagnitude}");
         bossAnim.SetFloat("Speed", _bossRb.velocity.sqrMagnitude);
 
         _phaseCheckTimer -= Time.deltaTime;
@@ -103,14 +102,22 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
             case Phase.Phase1:
                 if (shoot) { currentState.ChangeState(availableStates.BulletStorm); }
                 if (melee) {currentState.ChangeState(availableStates.FrontKick);}
+                
+                if(!melee && !shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase2:
                 //Implement call to arms
                 if (shoot) { currentState.ChangeState(availableStates.ShotgunStrike); }
                 if(melee) {currentState.ChangeState(availableStates.HeavyStrike);}
+                
+                if(!melee && !shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase3:
-                currentState.ChangeState(availableStates.MegaStomp);
+                if(melee) currentState.ChangeState(availableStates.MegaStomp);
+                else
+                {
+                    currentState.ChangeState(availableStates.Idle);
+                }
                 break;
         }
     }
