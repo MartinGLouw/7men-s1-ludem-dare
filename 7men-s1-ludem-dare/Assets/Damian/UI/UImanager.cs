@@ -43,7 +43,8 @@ public class UIManager : MonoBehaviour
         switch (GetCurrentGameState())
         {
             case GameState.MainMenu:
-                SoundManager.Instance.QueueMusic(0); //maybe change this to trigger the relevant method in the events manager later.
+                SoundManager.Instance.ClearMusicQueue();
+                SoundManager.Instance.QueueMusic(1); //maybe change this to trigger the relevant method in the events manager later.
                 UIAnimatorManager.Instance.FadeInCanvas(mainMenuPanel, 0.5f);
                 UIAnimatorManager.Instance.SlideInCanvas(mainMenuPanel, 0.5f, mainMenuPanel.transform.localPosition);
                 currentActiveCanvas = mainMenuCanvas;
@@ -51,6 +52,10 @@ public class UIManager : MonoBehaviour
             case GameState.TutorialScene:
             //Activate relevant canvases here
             case GameState.MainGame:
+                SoundManager.Instance.ClearMusicQueue();
+                SoundManager.Instance.QueueMusic(0);
+                Debug.Log("Main Game scene detected");
+                break;
             //Activate relevant canvases here if needed
             case GameState.UnknownScene:
                 Debug.LogError("Unknown scene detected");
