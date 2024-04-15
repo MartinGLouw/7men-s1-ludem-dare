@@ -45,6 +45,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     public Animator playerAnimator;
 
+    public GameObject playerParticles;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -76,6 +78,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
     // Start is called before the first frame update
     void Start()
     {
+        playerParticles.GetComponent<ParticleSystem>().Stop();
+
         mainCam = Camera.main;
         //hp = maxHP;
         health.UpdateHealthBar(hp, maxHP);
@@ -128,16 +132,21 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     private void Dash(InputAction.CallbackContext context)
     {
+        
+
         StartCoroutine(performDash());
     }
 
     private IEnumerator performDash()
     {
+
         isDashing = true;
 
         player.GetComponent<Collider>().enabled = false;
 
         agent.velocity = new Vector3(moveDirecton.x * dashSpeed, 0f, moveDirecton.y * dashSpeed);
+
+        playerParticles.GetComponent<ParticleSystem>().Play();
 
         yield return new WaitForSeconds(dashDuration);
 
