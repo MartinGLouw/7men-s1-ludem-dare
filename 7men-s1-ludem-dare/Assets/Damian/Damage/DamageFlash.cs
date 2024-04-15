@@ -1,6 +1,6 @@
-using System;
-using System.Collections;
 using UnityEngine;
+using System.Collections;
+using System;
 
 public class DamageFlash : MonoBehaviour
 {
@@ -18,37 +18,56 @@ public class DamageFlash : MonoBehaviour
 
         for (int i = 0; i < meshRenderers.Length; i++)
         {
-            var renderer = meshRenderers[i];
-            renderer.material = new Material(renderer.material);
-            if (renderer.material.HasProperty("_Color"))
-                originalColors[i] = renderer.material.color;
-            else if (renderer.material.HasProperty("_BaseColor"))
-                originalColors[i] = renderer.material.GetColor("_BaseColor");
-            else
-                originalColors[i] = Color.white;
+            originalColors[i] = meshRenderers[i].material.color;
         }
     }
 
-    public void TestFlashEffect()
+    public void FlashEffect()
     {
+        // this will be the function that will be called when the enemy is hit
+
         StartCoroutine(FlashColor(0.5f));
     }
 
-    IEnumerator FlashColor(float flashDuration)
+    IEnumerator FlashColor(float duration)
     {
-        for (int i = 0; i < meshRenderers.Length; i++)
+        // Switch to Unlit/Color shader for the duration of the flashing
+        foreach (var renderer in meshRenderers)
         {
-            var renderer = meshRenderers[i];
             renderer.material.shader = unlitColorShader;
-            renderer.material.color = Color.white;
         }
-        yield return new WaitForSeconds(flashDuration);
-        for (int i = 0; i < meshRenderers.Length; i++)
+
+        // Lerp to white
+        float elapsedTime = 0;
+        while (elapsedTime < duration)
         {
-            var renderer = meshRenderers[i];
+            float t = elapsedTime / duration;
+            foreach (var renderer in meshRenderers)
+            {
+                renderer.material.color = Color.Lerp(renderer.material.color, Color.white, t);
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Lerp back to original color
+        elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            foreach (var renderer in meshRenderers)
+            {
+                renderer.material.color = Color.Lerp(Color.white, originalColors[Array.IndexOf(meshRenderers, renderer)], t);
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Switch back to Standard shader after color transition is complete
+        foreach (var renderer in meshRenderers)
+        {
             renderer.material.shader = standardShader;
-            renderer.material.color = originalColors[i];
+            renderer.material.color = originalColors[Array.IndexOf(meshRenderers, renderer)];
         }
     }
-
 }
