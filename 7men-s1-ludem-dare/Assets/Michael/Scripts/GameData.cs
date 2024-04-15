@@ -16,5 +16,8 @@ namespace Managers
         [Header("Player")] 
         public GameObject Player;
         public int Health;
+
+        [Header("Game Phase")] 
+        public int phase;
     }
 }

@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="945f0498-c557-4323-ba1f-9dcb00efdf9a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Martin stuff/BossHandling.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.7men-s1-ludem-dare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Player Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Player Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Projectiles Prefabs/EnemyProjectile1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Projectiles Prefabs/EnemyProjectile1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Jack/Scenes/Player Scene/NavMesh-NavMesh.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/ProsecutorLawyer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Prefabs/Lawyer/PublicDefenceLawyer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/Lawyer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/Lawyer/ProsecutorLawyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Martin stuff/EnemyHandling.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Martin stuff/EnemyHandling.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Michael/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Michael/Scripts/GameData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,7 @@
       <workItem from="1713088557112" duration="2001000" />
       <workItem from="1713098042529" duration="9826000" />
       <workItem from="1713164238648" duration="7048000" />
-      <workItem from="1713185336015" duration="6941000" />
+      <workItem from="1713185336015" duration="7842000" />
     </task>
     <servers />
   </component>
