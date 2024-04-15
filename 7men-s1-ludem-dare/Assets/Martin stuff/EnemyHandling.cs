@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Managers;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,23 +8,39 @@ public class EnemyHandling : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private GameObject _player;
-    
+
     // Health values for different enemy types
     public int boxEnemyHealth = 50;
     public int shotgunEnemyHealth = 80;
     public int sniperEnemyHealth = 120;
     public int crowbarEnemyHealth = 70;
     public int sprayerEnemyHealth = 100;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawnPoint;
     // Current health for this specific enemy
     private int currentHealth;
 
+    private void FireBullet(float speed, int bulletCount = 1, float spreadAngle = 0)
+    {
+        for (int i = 0; i < bulletCount; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * speed;
+
+            // Apply spread if more than one bullet
+            if (bulletCount > 1)
+            {
+                float angle = spreadAngle * (i - (bulletCount - 1) / 2.0f);
+                bullet.transform.Rotate(0, angle, 0);
+            }
+        }
+    }
     public void Init(GameObject player)
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         _player = player;
-        
         Debug.Log($"Player: {_player.name}");
-        
+
         if (gameObject.CompareTag("BoxEnemy"))
         {
             currentHealth = boxEnemyHealth;
@@ -49,7 +66,6 @@ public class EnemyHandling : MonoBehaviour
             currentHealth = sprayerEnemyHealth;
             SprayerEnemy();
         }
-        
         else
         {
             Debug.Log("Enemy not found");
@@ -67,7 +83,6 @@ public class EnemyHandling : MonoBehaviour
         Debug.Log("ShotgunEnemy behavior");
         float attackDistance = 6.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 1.0f; // The distance at which the enemy will start retreating
-
         Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
@@ -102,11 +117,11 @@ public class EnemyHandling : MonoBehaviour
         }
         else if (gameObject.CompareTag("ShotgunEnemy"))
         {
-            Debug.Log("ShotgunEnemy is attacking");
+            ShotgunAttack();
         }
         else if (gameObject.CompareTag("SniperEnemy"))
         {
-            Debug.Log("SniperEnemy is attacking");
+            StartCoroutine(SniperAttack());
         }
         else if (gameObject.CompareTag("CrowbarEnemy"))
         {
@@ -114,7 +129,29 @@ public class EnemyHandling : MonoBehaviour
         }
         else if (gameObject.CompareTag("SprayerEnemy"))
         {
-            Debug.Log("SprayerEnemy is attacking");
+            StartCoroutine(SprayerAttack());
+        }
+    }
+    private IEnumerator SniperAttack()
+    {
+        while (true)
+        {
+            FireBullet(50); // High-speed bullet
+            yield return new WaitForSeconds(3); // Wait a few seconds between shots
+        }
+    }
+
+    private void ShotgunAttack()
+    {
+        FireBullet(30, 5, 10); // 5 bullets with 10 degrees spread
+    }
+
+    private IEnumerator SprayerAttack()
+    {
+        while (true)
+        {
+            FireBullet(20, 3); // Burst of 3 bullets
+            yield return new WaitForSeconds(0.5f); // Short burst delay
         }
     }
 
@@ -124,7 +161,6 @@ public class EnemyHandling : MonoBehaviour
         Debug.Log("SniperEnemy behavior");
         float attackDistance = 15.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 8.0f; // The distance at which the enemy will start retreating
-
         Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
@@ -149,14 +185,12 @@ public class EnemyHandling : MonoBehaviour
             navMeshAgent.stoppingDistance = 0;
             navMeshAgent.SetDestination(position + retreatDirection);
         }
-        
     }
 
     private void CrowbarEnemy()
     {
         Debug.Log("CrowbarEnemy behavior");
         float attackDistance = 1.0f; // The distance at which the enemy will stop and attack
-
         Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
@@ -173,12 +207,12 @@ public class EnemyHandling : MonoBehaviour
             Debug.Log("CrowbarEnemy is attacking");
         }
     }
+
     private void SprayerEnemy()
     {
         Debug.Log("SprayerEnemy behavior");
         float attackDistance = 10.0f; // The distance at which the enemy will stop and attack
         float retreatDistance = 5.0f; // The distance at which the enemy will start retreating
-
         Vector3 targetPosition = _player.transform.position;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
@@ -202,7 +236,8 @@ public class EnemyHandling : MonoBehaviour
             Vector3 retreatDirection = (position - targetPosition).normalized;
             navMeshAgent.stoppingDistance = 0;
             navMeshAgent.SetDestination(position + retreatDirection);
-        }    }
+        }
+    }
 
     public void TakeDamage(int damageAmount)
     {
@@ -218,13 +253,9 @@ public class EnemyHandling : MonoBehaviour
         // Handle enemy death (e.g., play death animation, destroy GameObject, etc.)
         Destroy(gameObject);
     }
-
-
-
-   
-
-    
 }
+
+
 public class BossHandling : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
@@ -263,6 +294,7 @@ public class BossHandling : MonoBehaviour
         HeavySwipe();
         ShotgunStrike();
         CallToArms();
+        
     }
 
     private void Phase3()

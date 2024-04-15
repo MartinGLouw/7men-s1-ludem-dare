@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 342472547}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: SprayerEnemy
+  m_TagString: BoxEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1937656738}
+  projectilePrefab: {fileID: 5225860199811568286, guid: b2b2bc436f9d78d41a9ef931ce65f91e, type: 3}
   boxEnemyHealth: 50
   shotgunEnemyHealth: 80
   sniperEnemyHealth: 120
