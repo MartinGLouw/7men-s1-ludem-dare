@@ -66,6 +66,7 @@ public class DamageFlash : MonoBehaviour
         // Switch back to Standard shader after color transition is complete
         foreach (var renderer in meshRenderers)
         {
+
             renderer.material.shader = standardShader;
             renderer.material.color = originalColors[Array.IndexOf(meshRenderers, renderer)];
         }

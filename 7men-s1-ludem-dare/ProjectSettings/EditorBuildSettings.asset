@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Damian/MainMenu.unity
     guid: 03a272a0bc1e81f439302cc28378f16a
   - enabled: 1
+    path: Assets/Damian/LoadingScreen/LoadingScreen.unity
+    guid: 20ce3fb17030aac4994c9e3f82945f48
+  - enabled: 1
     path: Assets/Damian/MainGame.unity
     guid: e0b4254958c39fa42a9a94b0b239cb4f
   m_configObjects: {}

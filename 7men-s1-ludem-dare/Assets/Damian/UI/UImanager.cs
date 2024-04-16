@@ -142,7 +142,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SoundManager.Instance.PlaySFX(0);
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("LoadingScreen");
     }
 
     public void ExitToDesktop()
