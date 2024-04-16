@@ -7,28 +7,27 @@ namespace Managers.BossStates
     {
         public Transform bossTransfrom;
         public Transform fleeDestination;
-
-        private Vector3 origin;
+        public Transform origin;
         
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            origin = transform.position;
             Debug.Log("Call To Arms");
             bossAnimator.SetTrigger("OnJump");
             bossAnimator.SetBool("IsJumping", true);
-            StartCoroutine(LerpPosition(fleeDestination.position, 1f));
+            StartCoroutine(LerpPosition(fleeDestination.position, 1f, true));
         }
 
         public override void OnStateExit()
         {
             base.OnStateExit();
 
-            StartCoroutine(LerpPosition(origin, 1f));
-            bossAnimator.SetBool("IsJumping", false);
+            StopAllCoroutines();
+            StartCoroutine(LerpPosition(origin.position, 1f, false));
+            
         }
 
-        private IEnumerator LerpPosition(Vector3 targetPosition, float duration)
+        private IEnumerator LerpPosition(Vector3 targetPosition, float duration, bool animate)
         {
             float time = 0;
             Vector3 startPosition = transform.position;
@@ -41,6 +40,11 @@ namespace Managers.BossStates
             }
 
             transform.position = targetPosition;  // Ensure the position is set exactly at the end
+
+            if (!animate)
+            {
+                bossAnimator.SetBool("IsJumping", false);
+            }
         }
         
     }
