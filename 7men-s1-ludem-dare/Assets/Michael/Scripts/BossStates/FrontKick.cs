@@ -1,9 +1,17 @@
-﻿using UnityEngine;
+﻿using Managers.Lawyer;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers.BossStates
 {
     public class FrontKick : BossStateMachine
     {
+        private Collider[] player = new Collider[1];
+        public LayerMask layer;
+
+        public Transform frontAttackPosition;
+        public Vector3 cubeSize = new Vector3(2, 2, 4);
+        
         public override void OnStateEnter()
         {
             base.OnStateEnter();
@@ -25,6 +33,30 @@ namespace Managers.BossStates
         public void FrontKickLogic()
         {
             Debug.Log("Kicking");
+            
+            Physics.OverlapBoxNonAlloc(frontAttackPosition.position, cubeSize, player, Quaternion.identity, layer);
+            
+            foreach (var hit in player)
+            {
+                Debug.Log("frontKick");
+                if (hit == null) return;
+                if (hit.CompareTag("Player"))
+                {
+                    Rigidbody rb = hit.GetComponent<Rigidbody>();
+                    Vector3 direction = hit.transform.position - transform.position;
+                    rb.AddForce(direction * meleeAttackForce);
+                }
+                //if(hit.TryGetComponent<IDamageable<DamageData>>())
+            }
+        }
+        
+        void OnDrawGizmos()
+        {
+            
+            Gizmos.color = Color.red;
+            //Gizmos.DrawWireSphere(transform.position, 10f);
+            
+            Gizmos.DrawCube(frontAttackPosition.position, cubeSize);
         }
         
     }

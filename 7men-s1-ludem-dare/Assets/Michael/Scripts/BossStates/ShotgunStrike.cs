@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Managers.Pool;
 
 namespace Managers.BossStates
 {
@@ -7,14 +8,15 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            Debug.Log("Shotgun Strike");
             bossAnimator.SetTrigger("OnShotgunStrike");
-            bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
+            bossAnimator.SetBool(BossStates.ShotgunStrike.ToString(), true);
         }
 
         public override void OnStateExit()
         {
             base.OnStateExit();
-            bossAnimator.SetBool(BossStates.FrontKick.ToString(), false);
+            bossAnimator.SetBool(BossStates.ShotgunStrike.ToString(), false);
         }
 
         public override void ChangeState(BossStateMachine bossState)
@@ -24,6 +26,18 @@ namespace Managers.BossStates
 
         public void ShotgunStrikeAnimEvent()
         {
+            // Slow-moving projectiles in a ring
+            Debug.Log("Shotgun");
+            int numberOfProjectiles = 5; // Number of projectiles in the ring
+            float radius = 2.0f; // Radius of the circle of projectiles
+
+            for (int j = 0; j < numberOfProjectiles; j++)
+            {
+                float angle = j * Mathf.PI * 2 / numberOfProjectiles;
+                Vector3 ringOffset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
+                Vector3 projectilePosition = gunSP.position + gunSP.rotation * ringOffset;
+                PooledProjectileSpawner.Instance.SpawnProjectile(projectilePosition + ringOffset, BulletType.Slow, gunSP);
+            }
             
         }
     }

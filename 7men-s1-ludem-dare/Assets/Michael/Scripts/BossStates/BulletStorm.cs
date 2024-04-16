@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Managers.Pool;
+using UnityEngine;
 
 namespace Managers.BossStates
 {
@@ -31,7 +32,7 @@ namespace Managers.BossStates
 
         public void BossShoot()
         {
-            Debug.Log("Shoot");
+            PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position, BulletType.Fast, gunSP);
         }
     }
 }
