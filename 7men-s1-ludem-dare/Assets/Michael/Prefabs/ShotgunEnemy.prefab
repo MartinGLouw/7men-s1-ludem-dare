@@ -47,12 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5225860199811568286, guid: b2b2bc436f9d78d41a9ef931ce65f91e, type: 3}
   boxEnemyHealth: 50
   shotgunEnemyHealth: 80
   sniperEnemyHealth: 120
   crowbarEnemyHealth: 70
   sprayerEnemyHealth: 100
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!195 &8042957211763416477
 NavMeshAgent:
   m_ObjectHideFlags: 0
