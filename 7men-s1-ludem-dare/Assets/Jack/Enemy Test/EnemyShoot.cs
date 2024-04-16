@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
+    //Shoot
     public ProjectileSpawner projectileSpawner;
 
     bool canInvoke = true;

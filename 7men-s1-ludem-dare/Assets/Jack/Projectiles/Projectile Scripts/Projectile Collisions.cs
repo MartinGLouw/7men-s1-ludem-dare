@@ -7,7 +7,7 @@ using UnityEngine;
 public class DespawnScript : MonoBehaviour
 {
     public Projectiles projectileData;
-    
+    //Suhdwidj
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "WorldBorder")

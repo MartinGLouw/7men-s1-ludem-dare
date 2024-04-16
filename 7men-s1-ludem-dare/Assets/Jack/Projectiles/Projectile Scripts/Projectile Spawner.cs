@@ -14,7 +14,7 @@ public class ProjectileSpawner : MonoBehaviour
 
     float speed;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame updat
     void Start()
     {
         
