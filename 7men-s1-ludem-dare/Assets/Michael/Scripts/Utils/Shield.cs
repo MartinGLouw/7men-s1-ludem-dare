@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Shield : MonoBehaviour
 {
@@ -9,9 +10,24 @@ public class Shield : MonoBehaviour
     {
         if (other.CompareTag("EnemyProjectile"))
         {
-            Destroy(other.gameObject);
+            Debug.Log("Enemy Projectile");
+            if (other.TryGetComponent<Bullet>(out Bullet bullet))
+            {
+                PoolableObjects.Instance.ReturnObject(bullet.type, other.gameObject);
+            }
+        }
+        
+        if (other.CompareTag("Enemy"))
+        {
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
         }
     }
-    
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+        }
+    }
 }

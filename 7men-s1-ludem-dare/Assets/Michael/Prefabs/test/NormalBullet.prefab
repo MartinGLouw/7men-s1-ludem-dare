@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6031135489053545656}
   - component: {fileID: 561688368534774095}
   - component: {fileID: 5370081454377397017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
@@ -121,6 +121,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6260527913163078215}
     m_Modifications:
+    - target: {fileID: 906098874563155997, guid: 74da30f36b57c914e8d8689757553b91, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4978932518893288080, guid: 74da30f36b57c914e8d8689757553b91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -164,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 8202014410617558268, guid: 74da30f36b57c914e8d8689757553b91, type: 3}
       propertyPath: m_Name
       value: Normal Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202014410617558268, guid: 74da30f36b57c914e8d8689757553b91, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817951374448608666, guid: 74da30f36b57c914e8d8689757553b91, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

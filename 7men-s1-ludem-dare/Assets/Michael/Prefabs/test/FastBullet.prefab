@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6749367393397182901}
   - component: {fileID: 3530641240413073291}
   - component: {fileID: 5336665338927719840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FastBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
@@ -121,6 +121,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 560990462418602712}
     m_Modifications:
+    - target: {fileID: 906098874563155997, guid: 21cc0c3786e2454438b32d7e88cb48f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4978932518893288080, guid: 21cc0c3786e2454438b32d7e88cb48f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -164,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 8202014410617558268, guid: 21cc0c3786e2454438b32d7e88cb48f2, type: 3}
       propertyPath: m_Name
       value: Fast Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202014410617558268, guid: 21cc0c3786e2454438b32d7e88cb48f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817951374448608666, guid: 21cc0c3786e2454438b32d7e88cb48f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

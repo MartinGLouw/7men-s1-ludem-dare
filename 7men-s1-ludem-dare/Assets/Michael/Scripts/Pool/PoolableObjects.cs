@@ -86,7 +86,6 @@ public class PoolableObjects : Singleton<PoolableObjects>
 
     public void ReturnObject(BulletType poolIndex, GameObject obj)
     {
-        Debug.Log(obj);
         if (obj == null)
         {
             Debug.Log("Object returning not working for index: " + poolIndex);

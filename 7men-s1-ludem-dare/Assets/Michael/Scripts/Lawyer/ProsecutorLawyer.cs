@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Managers.Enemies;
+using Managers.Pool;
 using UnityEngine;
 
 namespace Managers.Lawyer
@@ -56,22 +58,23 @@ namespace Managers.Lawyer
         void Shoot()
         {
             Vector3 bulletDirection = AimInClosestEnemyDirection();
+            PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSpawnPos.position, BulletType.Player, -bulletDirection.normalized);
             //ProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSpawnPos.position, -bulletDirection);
         }
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<EnemyHandling>(out EnemyHandling enemy))
+            if (other.CompareTag("Enemy"))
             {
-                enemies.Add(enemy.gameObject);
+                enemies.Add(other.gameObject);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<EnemyHandling>(out EnemyHandling enemy))
+            if (other.CompareTag("Enemy"))
             {
-                enemies.Remove(enemy.gameObject);
+                enemies.Add(other.gameObject);
             }
         }
 

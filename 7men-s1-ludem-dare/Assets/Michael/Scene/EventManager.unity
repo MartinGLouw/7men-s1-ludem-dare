@@ -1585,6 +1585,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 2.33
       objectReference: {fileID: 0}
+    - target: {fileID: 7112885703559679388, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+      propertyPath: meleeAttackForce
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2013,6 +2017,10 @@ PrefabInstance:
       propertyPath: projectileSpawner
       value: 
       objectReference: {fileID: 1654329846}
+    - target: {fileID: 7204141346771077134, guid: deb2adb68b0679045a093da6adc7f955, type: 3}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8196766970330072075, guid: deb2adb68b0679045a093da6adc7f955, type: 3}
       propertyPath: cam
       value: 

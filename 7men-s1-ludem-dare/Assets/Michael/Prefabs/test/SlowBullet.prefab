@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2198909806915868258}
   - component: {fileID: 2574826481363378749}
   - component: {fileID: -6011838329716096208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlowBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
@@ -121,6 +121,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4913982671855683331}
     m_Modifications:
+    - target: {fileID: 906098874563155997, guid: cb874e24eb7bfef429daf6b4717a623e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4978932518893288080, guid: cb874e24eb7bfef429daf6b4717a623e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -164,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 8202014410617558268, guid: cb874e24eb7bfef429daf6b4717a623e, type: 3}
       propertyPath: m_Name
       value: Slow Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202014410617558268, guid: cb874e24eb7bfef429daf6b4717a623e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8817951374448608666, guid: cb874e24eb7bfef429daf6b4717a623e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

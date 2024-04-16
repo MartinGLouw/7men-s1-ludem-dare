@@ -8,6 +8,7 @@ namespace Managers.BossStates
         public Transform bossTransfrom;
         public Transform fleeDestination;
         public Transform origin;
+        public float jumpSpeed = 1f;
         
         public override void OnStateEnter()
         {
@@ -23,7 +24,7 @@ namespace Managers.BossStates
             base.OnStateExit();
 
             StopAllCoroutines();
-            StartCoroutine(LerpPosition(origin.position, 1f, false));
+            StartCoroutine(LerpPosition(origin.position, jumpSpeed, false));
             
         }
 
