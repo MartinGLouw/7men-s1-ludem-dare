@@ -160,12 +160,14 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMainMenu()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene("MainMenu");
     }
