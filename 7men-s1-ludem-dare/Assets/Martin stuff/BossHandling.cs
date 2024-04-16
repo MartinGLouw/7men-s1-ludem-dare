@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Managers.BossStates;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public enum Phase
 {
@@ -23,16 +24,17 @@ public struct AllBossStates
     public CallToArms CallToArms;
     public Flee Flee;
     public Idle Idle;
-    
+   
 }
 
 
-public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
+public class BossHandling : MonoBehaviour, IDamageable<float>
 {
     [Header("references: ")]
     public Animator bossAnim;
     public GameObject player;
     public AllBossStates availableStates;
+    public Transform gun;
     
     [Header("Boss State")]
     public Phase bossPhase;
@@ -40,19 +42,26 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
     public BossStateMachine currentState;
     
     [Header("Boss Settings")]
-    public int bossHealth = 300;
+    public float bossHealth = 300;
     public float bossMeleeDistance = 4;
     public float bossShootingDistance = 25f;
     public float phaseCheckingInterval = 3f;
     public Vector2 attackCooldown = new Vector2(2, 5);
+
+    [Header("Debug")] 
+    public bool takeDamage = false;
 
     private Rigidbody _bossRb;
     
     private NavMeshAgent _agent;
     private EventManager _eventManager;
 
-    private float _playerDistance;
+    public float _playerDistance;
     private float _phaseCheckTimer;
+    private float _attackCooldownTimer;
+    
+    private bool _melee = false;
+    private bool _shoot = false;
 
     private void Start()
     {
@@ -65,10 +74,22 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         bossPhase = Phase.Phase1;
         currentState = availableStates.Idle;
         currentState.OnStateEnter();
+
+        _attackCooldownTimer = Random.Range(attackCooldown.x, attackCooldown.y);
+        _playerDistance = 100f;
+
+        _shoot = false;
+        _melee = false;
     }
 
     private void Update()
     {
+        if (takeDamage)
+        {
+            TakeDamage(100f);
+            takeDamage = false;
+        }
+        
         if (player)
         {
             _agent.SetDestination(player.transform.position);
@@ -76,6 +97,9 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         
         //Distance
         _playerDistance = Vector3.Distance(transform.position, player.transform.position);
+
+        Vector3 direction = player.transform.position - gun.position;
+        gun.up = direction;
         
         //Implement Phase
         
@@ -92,28 +116,28 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
 
     private void PhaseHandling()
     {
-        bool melee = _playerDistance < bossMeleeDistance;
-        bool shoot = _playerDistance < bossShootingDistance && !melee;
+        _melee = _playerDistance < bossMeleeDistance;
+        _shoot = _playerDistance < bossShootingDistance && !_melee;
 
-        if (melee) shoot = false;
+        if (_melee) _shoot = false;
         
         switch (bossPhase)
         {
             case Phase.Phase1:
-                if (shoot) { currentState.ChangeState(availableStates.BulletStorm); }
-                if (melee) {currentState.ChangeState(availableStates.FrontKick);}
+                if (_shoot) { currentState.ChangeState(availableStates.BulletStorm); }
+                if (_melee) {currentState.ChangeState(availableStates.FrontKick);}
                 
-                if(!melee && !shoot) currentState.ChangeState(availableStates.Idle);
+                if(!_melee && !_shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase2:
                 //Implement call to arms
-                if (shoot) { currentState.ChangeState(availableStates.ShotgunStrike); }
-                if(melee) {currentState.ChangeState(availableStates.HeavyStrike);}
+                if (_shoot) { currentState.ChangeState(availableStates.ShotgunStrike); }
+                if (_melee) { currentState.ChangeState(availableStates.HeavyStrike); }
                 
-                if(!melee && !shoot) currentState.ChangeState(availableStates.Idle);
+                if(!_melee && !_shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase3:
-                if(melee) currentState.ChangeState(availableStates.MegaStomp);
+                if(_melee) currentState.ChangeState(availableStates.MegaStomp);
                 else
                 {
                     currentState.ChangeState(availableStates.Idle);
@@ -122,9 +146,9 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         }
     }
 
-    public void TakeDamage(Projectiles value)
+    public void TakeDamage(float dmg)
     {
-        bossHealth -= value.damage;
+        bossHealth -= dmg;
 
         if (bossHealth <= 200 && bossHealth >= 100)
         {
@@ -135,6 +159,7 @@ public class BossHandling : MonoBehaviour, IDamageable<Projectiles>
         if (bossHealth <= 100)
         {
             bossPhase = Phase.Phase3;
+            //bossMeleeDistance = bossShootingDistance;
             PhaseHandling();
         }
 

@@ -8,7 +8,7 @@ namespace Managers.Pool
         public PoolableObjects poolObjects;
         public Transform player;
 
-        public void SpawnProjectile(Vector3 start, BulletType type)
+        public void SpawnProjectile(Vector3 start, BulletType type, Transform spawn)
         {
             GameObject newProjectile = poolObjects.GetObject(type, start);
 
@@ -19,10 +19,13 @@ namespace Managers.Pool
                 Debug.Log($"speed: {speed}");
 
                 Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
-                rb.velocity = GetPlayerDirection(start) * speed;
+                Vector3 direction = new Vector3(spawn.up.x, 0, spawn.up.z).normalized;
+                rb.velocity = direction * speed;
             }
+            
+            
         }
-
+        
         private Vector3 GetPlayerDirection(Vector3 start)
         {
             return player.position - start;

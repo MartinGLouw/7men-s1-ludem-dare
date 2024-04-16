@@ -7,13 +7,12 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
+            bossAnimator.SetTrigger("OnJump");
         }
 
         public override void OnStateExit()
         {
             base.OnStateExit();
-            bossAnimator.SetBool(BossStates.FrontKick.ToString(), false);
         }
 
         public override void ChangeState(BossStateMachine bossState)

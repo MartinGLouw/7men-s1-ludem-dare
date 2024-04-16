@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,22 @@ public class Bullet : MonoBehaviour
     public float shotsDelta, speed;
 
     public int damage;
-    
+    public BulletType type;
+
+    private void OnEnable()
+    {
+        StartCoroutine(ReturnBulletToPool());
+    }
+
+    IEnumerator ReturnBulletToPool()
+    {
+        yield return new WaitForSeconds(4f);
+
+        if (gameObject.activeSelf)
+        {
+            PoolableObjects.Instance.ReturnObject(type, gameObject);
+        }
+    }
 }
 
 public enum BulletType

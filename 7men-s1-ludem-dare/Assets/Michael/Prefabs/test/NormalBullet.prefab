@@ -52,6 +52,7 @@ MonoBehaviour:
   shotsDelta: 0
   speed: 1
   damage: 25
+  type: 1
 --- !u!54 &6031135489053545656
 Rigidbody:
   m_ObjectHideFlags: 0

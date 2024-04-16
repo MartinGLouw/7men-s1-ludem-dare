@@ -17,6 +17,7 @@ namespace Managers.BossStates
     public abstract class BossStateMachine : MonoBehaviour
     {
         public BossStates BossState;
+        public float meleeAttackForce = 150;
 
         protected BossStateMachine runningState;
         protected Animator bossAnimator;
@@ -27,7 +28,6 @@ namespace Managers.BossStates
             bossAnimator = GetComponent<Animator>();
             gunSP = GetComponent<GunSP>().gunSP;
             runningState = this;
-            Debug.Log($"Entering {runningState.name}");
         }
 
         public virtual void OnStateUpdate()

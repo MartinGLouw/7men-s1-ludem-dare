@@ -32,7 +32,7 @@ namespace Managers.BossStates
 
         public void BossShoot()
         {
-            PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position, BulletType.Fast);
+            PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position, BulletType.Fast, gunSP);
         }
     }
 }

@@ -50,7 +50,7 @@ MonoBehaviour:
   name: Fast
   prefab: {fileID: 0}
   shotsDelta: 0
-  speed: 1
+  speed: 20
   damage: 20
 --- !u!54 &-6749367393397182901
 Rigidbody:
