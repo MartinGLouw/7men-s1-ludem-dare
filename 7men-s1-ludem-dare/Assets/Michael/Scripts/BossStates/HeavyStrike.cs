@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Managers.Lawyer;
+using UnityEngine;
 
 namespace Managers.BossStates
 {
@@ -42,6 +43,11 @@ namespace Managers.BossStates
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     rb.AddForce(direction * meleeAttackForce);
+                    
+                    if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
+                    {
+                        player.TakeDamage(damageData);
+                    }
                 }
             }
         }

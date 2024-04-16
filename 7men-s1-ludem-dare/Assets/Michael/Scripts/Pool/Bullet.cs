@@ -6,14 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class Bullet : MonoBehaviour
 {
-    public string name;
-
-    public GameObject prefab;
-
-    public float shotsDelta, speed;
-
-    public int damage;
+    public float speed;
     public BulletType type;
+
+    public DamageData damageData;
 
     private void OnEnable()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Managers.Data;
+using Managers.Enemies;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -85,8 +86,8 @@ namespace Managers
                 GameObject enemy = GetRandomEnemiesBasedOnSpawnPercentage();
 
                 GameObject enemySpawned = Instantiate(enemy, spawnPos, Quaternion.identity, enemyParent);
-                EnemyHandling handling = enemySpawned.GetComponent<EnemyHandling>();
-                handling.Init(player);
+                Enemy testEnemy = enemySpawned.GetComponent<Enemy>();
+                testEnemy.Init(player);
 
             }
         }

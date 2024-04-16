@@ -36,7 +36,7 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     public GameObject player;
     public AllBossStates availableStates;
     public Transform gun;
-    public Image bossHealthBar;
+    public BossHealthUI bossHealthUI;
     
     [Header("Boss State")]
     public Phase bossPhase;
@@ -183,12 +183,7 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     public void TakeDamage(float dmg)
     {
         bossHealth -= dmg;
-
-        if (bossHealthBar)
-        {
-            bossHealthBar.fillAmount = bossHealth / 300;
-        }
-        
+        bossHealthUI.UpdateBossHealth(bossHealth / 300);
 
         if (bossHealth <= 200 && bossHealth >= 100)
         {

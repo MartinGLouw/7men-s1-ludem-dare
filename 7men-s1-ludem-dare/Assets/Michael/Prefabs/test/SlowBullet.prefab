@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5348507603511182379}
   - component: {fileID: 2198909806915868258}
   - component: {fileID: 2574826481363378749}
+  - component: {fileID: -6011838329716096208}
   m_Layer: 0
   m_Name: SlowBullet
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c27ca690a6d984c839a8bc53c1bcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  prefab: {fileID: 0}
-  shotsDelta: 0
   speed: 15
-  damage: 40
   type: 2
+  damageData:
+    type: 0
+    dmgAmount: 20
 --- !u!54 &2198909806915868258
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,6 +101,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6011838329716096208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062418795345456266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e1572262154dab9e818bf3ff1bba90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &194512113964862345
 PrefabInstance:
   m_ObjectHideFlags: 0

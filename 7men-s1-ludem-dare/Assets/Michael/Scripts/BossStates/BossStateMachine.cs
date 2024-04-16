@@ -18,6 +18,7 @@ namespace Managers.BossStates
     {
         public BossStates BossState;
         public float meleeAttackForce = 150;
+        public DamageData damageData;
 
         protected BossStateMachine runningState;
         protected Animator bossAnimator;

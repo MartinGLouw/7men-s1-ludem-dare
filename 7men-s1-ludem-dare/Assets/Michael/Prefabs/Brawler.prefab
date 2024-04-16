@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7621110468845708969}
   - component: {fileID: 2314713852353066270}
   - component: {fileID: 7774389894984951760}
-  - component: {fileID: -5735482579452589745}
   - component: {fileID: -8298232803746392931}
   - component: {fileID: 8667015765126387787}
+  - component: {fileID: 86731148198546877}
   m_Layer: 0
   m_Name: Brawler
   m_TagString: BoxEnemy
@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 504878698636577549}
+  - {fileID: 8674005677193731626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2314713852353066270
@@ -87,23 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-5735482579452589745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5842310808983657820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxEnemyHealth: 50
-  shotgunEnemyHealth: 80
-  sniperEnemyHealth: 120
-  crowbarEnemyHealth: 70
-  sprayerEnemyHealth: 100
 --- !u!195 &-8298232803746392931
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -114,11 +98,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -149,6 +133,66 @@ CapsuleCollider:
   m_Height: 3.2244895
   m_Direction: 1
   m_Center: {x: -0.03624642, y: 1.6172448, z: 0}
+--- !u!114 &86731148198546877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842310808983657820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561a0149823e4e44a50c549246647a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 50
+  attackingDistance: 5
+  cubeAttackSize: {x: 2, y: 1, z: 2}
+  attackCooldown: 0.8
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  meleeAttackForce: 50
+  damageData:
+    type: 0
+    dmgAmount: 0
+  retreatDistance: 8
+  isScared: 0
+  enemyAnim: {fileID: 843930083468076176}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 8674005677193731626}
+  playerRef: {fileID: 0}
+--- !u!1 &7228162691681787206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8674005677193731626}
+  m_Layer: 0
+  m_Name: BoxOverlapStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8674005677193731626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228162691681787206}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.073, y: 1.62, z: 0.796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7621110468845708969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9073673084138997253
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +298,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cb33bd404598c84d862ebbde82c22f0, type: 3}
+--- !u!95 &843930083468076176 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1617845103509567253, guid: 4cb33bd404598c84d862ebbde82c22f0, type: 3}
+  m_PrefabInstance: {fileID: 2145262068652807045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8777447783524790854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7208646984723554755, guid: 4cb33bd404598c84d862ebbde82c22f0, type: 3}

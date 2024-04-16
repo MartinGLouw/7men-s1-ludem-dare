@@ -7,8 +7,12 @@ using UnityEngine;
 
 public enum DamageType
 {
-    brawl,
-    shotgun,
+    Player,
+    EnemyShotgun,
+    EnemySprayer,
+    EnemySniper,
+    EnemyBrawler,
+    EnemyCrowbar
 }
 
 public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
@@ -17,13 +21,7 @@ public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
     
     public void TakeDamage(DamageData data)
     {
-        
+        health -= 10;
         Debug.Log("take damage");
     }
-}
-
-public struct DamageData
-{
-    public DamageType type;
-    public int dmgAmount;
 }

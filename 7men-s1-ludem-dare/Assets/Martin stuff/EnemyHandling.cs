@@ -1,46 +1,53 @@
 using System;
 using System.Collections;
 using Managers;
+using Managers.Lawyer;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyHandling : MonoBehaviour
 {
-    private bool canShoot = true;
+    
     // Health values for different enemy types
+    [Header("Settings")]
     public int boxEnemyHealth = 50;
     public int shotgunEnemyHealth = 80;
     public int sniperEnemyHealth = 120;
     public int crowbarEnemyHealth = 70;
     public int sprayerEnemyHealth = 100;
+
+    [Header("Attack Settings:")] 
+    public Vector3 cubeAttackSize = new Vector3(2, 1, 2);
+    public LayerMask detectionLayer;
+    public float meleeAttackForce = 80f;
+    public DamageData damageData;
+
+    [Header("References")] 
+    public Animator enemyAnim;
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public GameObject playerRef;
+    
+    private GameObject _player;
+    private bool canShoot = true;
+    
     private bool isAttacking = false;
     private float attackDelay = 0.0f;
     // Current health for this specific enemy
     private int currentHealth;
     private NavMeshAgent navMeshAgent;
-    public GameObject _player;
 
-    private void FireBullet(float speed, int bulletCount = 1, float spreadAngle = 0)
+    private Collider[] _playerCollider = new Collider[3];
+    
+
+    private void Start()
     {
-        for (int i = 0; i < bulletCount; i++)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * speed;
-
-            // Apply spread if more than one bullet
-            if (bulletCount > 1)
-            {
-                float angle = spreadAngle * (i - (bulletCount - 1) / 2.0f);
-                bullet.transform.Rotate(0, angle, 0);
-            }
-        }
+        
     }
 
     public void Update()
     {
-        Init(_player);
+        Init(playerRef);
     }
 
     public void Init(GameObject player)
@@ -135,6 +142,26 @@ public class EnemyHandling : MonoBehaviour
         {
             // Play attack animation 
 
+            Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
+            
+            foreach (var hit in _playerCollider)
+            {
+                Debug.Log("frontKick");
+                if (hit == null) continue;
+                if (hit.CompareTag("Player"))
+                {
+                    Rigidbody rb = hit.GetComponent<Rigidbody>();
+                    Vector3 direction = hit.transform.position - transform.position;
+                    rb.AddForce(direction * meleeAttackForce);
+                    Debug.Log("Add Crowbar Force");
+                    
+                    if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
+                    {
+                        player.TakeDamage(damageData);
+                    }
+                }
+                //
+            }
             // Cause damage to the player
             //_player.GetComponent<PlayerHealth>().TakeDamage(10); // Placeholder damage value
 
@@ -159,7 +186,25 @@ private IEnumerator FighterAttack()
         {
             // Play attack animation
 
-            //_player.GetComponent<PlayerHealth>().TakeDamage(15); // Placeholder damage value
+            Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
+
+            foreach (var hit in _playerCollider)
+            {
+                Debug.Log("frontKick");
+                if (hit == null) continue;
+                if (hit.CompareTag("Player"))
+                {
+                    Rigidbody rb = hit.GetComponent<Rigidbody>();
+                    Vector3 direction = hit.transform.position - transform.position;
+                    rb.AddForce(direction * meleeAttackForce);
+                    Debug.Log("Add Fighter Force");
+
+                    if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
+                    {
+                        player.TakeDamage(damageData);
+                    }
+                }
+            }
 
             isAttacking = false; // Stop attacking after one attack
             yield return new WaitForSeconds(attackCooldown);
@@ -174,8 +219,8 @@ private IEnumerator SniperAttack()
     if (canShoot)
     {
         canShoot = false;
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 100;
+        GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
+        bullet.GetComponent<Rigidbody>().velocity = firePoint.up * 100;
         yield return new WaitForSeconds(5); // Wait for 5 seconds before the next attack
         canShoot = true;
     }
@@ -188,9 +233,9 @@ private IEnumerator ShotgunAttack()
         canShoot = false;
         for (int i = 0; i < 5; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
             Vector3 spread = new Vector3((i - 2) * 1, 0, 0); // Adjust the 2 here to control the spread
-            Vector3 forward = firePoint.forward * 90;
+            Vector3 forward = firePoint.up * 90;
             bullet.GetComponent<Rigidbody>().velocity = spread + forward;
         }
         yield return new WaitForSeconds(5);
@@ -205,8 +250,8 @@ private IEnumerator SprayerAttack()
         canShoot = false;
         for (int i = 0; i < 8; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 80;
+            GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
+            bullet.GetComponent<Rigidbody>().velocity = firePoint.up * 80;
 
             yield return new WaitForSeconds(0.1f); // Adjust this to control the speed of the rapid fire
         }

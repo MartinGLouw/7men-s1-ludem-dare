@@ -135,7 +135,7 @@ MonoBehaviour:
     Flee: {fileID: 6832900767373618760}
     Idle: {fileID: 4940707155636922959}
   gun: {fileID: 5917689439682896929}
-  bossHealthBar: {fileID: 0}
+  bossHealthUI: {fileID: 0}
   bossPhase: 0
   bossState: 6
   currentState: {fileID: 4940707155636922959}
@@ -544,6 +544,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 0
 --- !u!114 &4408544969944427221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,6 +561,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 0
 --- !u!114 &3376436002797551457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,6 +590,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 1
   meleeAttackForce: 200
+  damageData:
+    type: 1
+    dmgAmount: 10
   layer:
     serializedVersion: 2
     m_Bits: 512
@@ -603,6 +612,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 25
   layer:
     serializedVersion: 2
     m_Bits: 512
@@ -620,6 +632,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 0
 --- !u!114 &2753449716290884442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +649,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 0
   bossTransfrom: {fileID: 2226013661262754511}
   fleeDestination: {fileID: 0}
   origin: {fileID: 0}
@@ -651,6 +669,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 25
   layer:
     serializedVersion: 2
     m_Bits: 512
@@ -670,6 +691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  damageData:
+    type: 0
+    dmgAmount: 0
 --- !u!114 &5018586956751699854
 MonoBehaviour:
   m_ObjectHideFlags: 0
