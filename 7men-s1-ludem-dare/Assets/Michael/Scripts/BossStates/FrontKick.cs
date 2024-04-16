@@ -50,12 +50,14 @@ namespace Managers.BossStates
                     if (distance < 5)
                     {
                         rb.AddForce(direction * meleeAttackForce);
+                        
+                        if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
+                        {
+                            player.TakeDamage(damageData);
+                        }
                     }
                     
-                    if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
-                    {
-                        player.TakeDamage(damageData);
-                    }
+                    
                 }
                 //if(hit.TryGetComponent<IDamageable<DamageData>>())
             }

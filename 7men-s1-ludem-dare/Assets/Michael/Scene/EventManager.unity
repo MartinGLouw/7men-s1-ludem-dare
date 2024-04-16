@@ -1565,14 +1565,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossMan
       objectReference: {fileID: 0}
-    - target: {fileID: 2910928321159725652, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6463261415825924656, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: player
       value: 
@@ -1581,20 +1573,7 @@ PrefabInstance:
       propertyPath: bossHealthUI
       value: 
       objectReference: {fileID: 1022768092}
-    - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
-      propertyPath: phaseCheckingInterval
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6842535079175297681, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
-      propertyPath: m_Center.y
-      value: 2.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7112885703559679388, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
-      propertyPath: meleeAttackForce
-      value: 400
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6832900767373618760, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1764,18 +1743,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1090564016}
-    - target: {fileID: 1147394376039067090, guid: f8e2293bf2eae5640b1f30da0569570c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 13ffc4e44c33a144aa35068540b98c78, type: 3}
-    - target: {fileID: 2619581468307153407, guid: f8e2293bf2eae5640b1f30da0569570c, type: 3}
-      propertyPath: m_Name
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716768416542964500, guid: f8e2293bf2eae5640b1f30da0569570c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dadc247ece5b0c54d99378f1fafb056c, type: 3}
     - target: {fileID: 3153145795934468046, guid: f8e2293bf2eae5640b1f30da0569570c, type: 3}
       propertyPath: m_Name
       value: Test
@@ -1860,10 +1827,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8089191625818675739, guid: f8e2293bf2eae5640b1f30da0569570c, type: 3}
-      propertyPath: m_Name
-      value: DefenceImg
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1896,11 +1859,7 @@ PrefabInstance:
     - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 827013504}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: enemyParent
-      value: 
-      objectReference: {fileID: 765584830}
+      objectReference: {fileID: 815030638479875190}
     - target: {fileID: 1013277346931734558, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -2022,10 +1981,6 @@ PrefabInstance:
       propertyPath: projectileSpawner
       value: 
       objectReference: {fileID: 1654329846}
-    - target: {fileID: 7204141346771077134, guid: deb2adb68b0679045a093da6adc7f955, type: 3}
-      propertyPath: m_Drag
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8196766970330072075, guid: deb2adb68b0679045a093da6adc7f955, type: 3}
       propertyPath: cam
       value: 

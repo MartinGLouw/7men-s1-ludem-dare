@@ -211,8 +211,8 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
                 {
                     currentState = GetRandomState(new BossStateMachine[]
                     {
-                        //availableStates.ShotgunStrike,
-                        //availableStates.BulletStorm,
+                        availableStates.ShotgunStrike,
+                        availableStates.BulletStorm,
                         availableStates.MegaStomp
                     });
                     shootingState = currentState;
@@ -222,9 +222,9 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
                 {
                     currentState = GetRandomState(new BossStateMachine[]
                     {
-                        //availableStates.FrontKick,
+                        availableStates.FrontKick,
                         availableStates.MegaStomp,
-                       // availableStates.HeavyStrike
+                        availableStates.HeavyStrike
                     });
 
                     meleeState = currentState;

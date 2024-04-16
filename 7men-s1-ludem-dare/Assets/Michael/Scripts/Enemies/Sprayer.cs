@@ -6,13 +6,6 @@ namespace Managers.Enemies
 {
     public class Sprayer : Enemy
     {
-        private Collider[] _playerCollider = new Collider[3];
-
-        public override void EnemyMovement()
-        {
-            Vector3 targetPosition = _player.transform.position;
-            navMeshAgent.SetDestination(targetPosition);
-        }
 
         public override IEnumerator EnemyAttackBehavior()
         {

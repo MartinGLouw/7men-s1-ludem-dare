@@ -5,10 +5,9 @@ using UnityEngine.Serialization;
 
 namespace Managers.Enemies
 {
-    public abstract class Enemy : MonoBehaviour, IDamagable<DamageData>
+    public abstract class Enemy : MonoBehaviour
     {
         [Header("Settings")]
-        public int enemyHealth = 50;
         public float attackingDistance = 4f;
         
         [Header("Attack Settings:")] 
@@ -44,7 +43,6 @@ namespace Managers.Enemies
             navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.SetDestination(playerRef.transform.position);
             _player = playerRef;
-            currentHealth = enemyHealth;
             enemyAnim.SetBool("IsWalking", true);
         }
 
@@ -54,66 +52,43 @@ namespace Managers.Enemies
             _player = player;
             navMeshAgent = GetComponent<NavMeshAgent>();
             navMeshAgent.SetDestination(playerRef.transform.position);
-            currentHealth = enemyHealth;
             enemyAnim.SetBool("IsWalking", true);
         }
 
         public virtual void Update()
         {
             _playerDistance = Vector3.Distance(playerRef.transform.position ,transform.position);
+            Vector3 retreatDirection = (transform.position - playerRef.transform.position).normalized * 5;
+            transform.forward = -retreatDirection;
 
             if (_playerDistance < attackingDistance)
             {
-                isAttacking = true;
-                isWalking = false;
-                enemyAnim.SetBool("IsWalking", false);
-                navMeshAgent.isStopped = true;
-                StartCoroutine(EnemyAttackBehavior());
-            }
-            else
-            {
-                isAttacking = false;
-                if (!isAttacking)
+                if (isScared)
                 {
-                    StopAllCoroutines();
+                    navMeshAgent.isStopped = true;
                 }
-                navMeshAgent.isStopped = false;
-                isWalking = true;
-                enemyAnim.SetBool("IsWalking", true);
-            } 
-            
-            if (_playerDistance <= retreatDistance)
-            {
-                // Move away from the player
-                if (!isScared) return;
-                var position = transform.position;
-                Vector3 retreatDirection = (position - playerRef.transform.position).normalized;
-                navMeshAgent.stoppingDistance = 0;
-                navMeshAgent.SetDestination(position + retreatDirection);
+                isAttacking = true;
+                StartCoroutine(EnemyAttackBehavior());
+
+                if (_playerDistance < retreatDistance)
+                {
+                    if (!isScared) return;
+                    navMeshAgent.isStopped = false;
+                    var position = transform.position;
+                    navMeshAgent.SetDestination(position + retreatDirection);
+                }
             }
             else
             {
-                if (isAttacking) return;
-                EnemyMovement();
+                navMeshAgent.isStopped = false;
+                isAttacking = false;
+                navMeshAgent.SetDestination(playerRef.transform.position);
             }
-            
-        }
 
-        public abstract void EnemyMovement();
+        }
         
 
         public abstract IEnumerator EnemyAttackBehavior();
         
-        public void TakeDamage(DamageData data)
-        {
-            currentHealth -= data.dmgAmount;
-
-            if (currentHealth <= 0)
-            {
-                Debug.Log("Damaged");
-                gameObject.SetActive(false);
-            }
-            
-        }
     }
 }

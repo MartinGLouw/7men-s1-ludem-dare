@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 6779772253698801621}
   - component: {fileID: 1147394376039067090}
   m_Layer: 5
-  m_Name: HourGlass
+  m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e211b821f8076f458a061494fccc309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13ffc4e44c33a144aa35068540b98c78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -621,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &929289083283012668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 8396119899691115097}
   - component: {fileID: 2716768416542964500}
   m_Layer: 5
-  m_Name: HourGlass
+  m_Name: DefenceImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e211b821f8076f458a061494fccc309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dadc247ece5b0c54d99378f1fafb056c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

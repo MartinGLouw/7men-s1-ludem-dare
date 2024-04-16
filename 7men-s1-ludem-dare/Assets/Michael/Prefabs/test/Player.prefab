@@ -1072,7 +1072,7 @@ Rigidbody:
   m_GameObject: {fileID: 4179370119575868527}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0.4
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4179370119575868527}
+  data: {fileID: 0}
   agent: {fileID: 3558325920136574620}
   bulletSP: {fileID: 5773347992786868483}
   CameraPos: {x: 0, y: 40, z: 43}

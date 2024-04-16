@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Managers.Lawyer;
 using Managers.Pool;
 using UnityEngine;
@@ -10,6 +11,7 @@ using UnityEngine.InputSystem;
 public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 {
     public GameObject player;
+    public GameData data;
 
     Camera mainCam;
 

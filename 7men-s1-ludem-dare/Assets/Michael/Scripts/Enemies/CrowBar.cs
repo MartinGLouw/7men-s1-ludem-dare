@@ -6,53 +6,50 @@ namespace Managers.Enemies
 {
     public class CrowBar : Enemy
     {
-        private Collider[] _playerCollider = new Collider[3];
-
-        public override void EnemyMovement()
-        {
-            Vector3 targetPosition = _player.transform.position;
-            navMeshAgent.SetDestination(targetPosition);
-        }
+        private Collider[] _playerCollider = new Collider[1];
+        private bool _hit = true;
 
         public override IEnumerator EnemyAttackBehavior()
         {
-            float attackCooldown = 0.8f; 
-            float attackRange = attackingDistance;  
-
-            while (true)
+            if (_hit)
             {
+                _hit = false;
                 
-                float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+                // Play attack animation
+                enemyAnim.SetTrigger("OnAttack");
+                Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
 
-                if (distanceToPlayer <= attackRange && isAttacking)
+                foreach (var hit in _playerCollider)
                 {
-                    // Play attack animation
-                    Debug.Log("Crowbar Attack");
-                    enemyAnim.SetTrigger("OnAttack");
-                    Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
-
-                    foreach (var hit in _playerCollider)
+                    if (hit == null) continue;
+                    if (hit.CompareTag("Player"))
                     {
-                        if (hit == null) continue;
-                        if (hit.CompareTag("Player"))
+                        Rigidbody rb = hit.GetComponent<Rigidbody>();
+                        Vector3 direction = hit.transform.position - transform.position;
+                        float distance = Vector3.Distance(hit.transform.position, transform.position);
+                        if (distance < 5)
                         {
-                            Rigidbody rb = hit.GetComponent<Rigidbody>();
-                            Vector3 direction = hit.transform.position - transform.position;
                             rb.AddForce(direction * meleeAttackForce);
-
+                
                             if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                             {
                                 player.TakeDamage(damageData);
                             }
+                            else
+                            {
+                                hit.GetComponent<PlayerLook>().TakeDamage(damageData);
+                            }
                         }
                     }
-                    
-                    isAttacking = false; // Stop attacking after one attack
-                    yield return new WaitForSeconds(attackCooldown);
                 }
-
-                yield return null; 
+            
+                isAttacking = false; // Stop attacking after one attack
+                yield return new WaitForSeconds(attackCooldown);
+                _hit = true;
             }
+            
+            yield return null; 
+            
         }
 
         private void OnDrawGizmos()

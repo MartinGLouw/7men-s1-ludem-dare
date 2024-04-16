@@ -6,20 +6,12 @@ namespace Managers.Enemies
 {
     public class Sniper : Enemy
     {
-        private Collider[] _playerCollider = new Collider[3];
 
         public override void Start()
         {
             base.Start();
             Vector3 direction = _player.transform.position - transform.position;
             transform.forward = direction;
-        }
-
-        public override void EnemyMovement()
-        {
-            Vector3 targetPosition = _player.transform.position;
-            
-            navMeshAgent.SetDestination(targetPosition);
         }
 
         public override IEnumerator EnemyAttackBehavior()

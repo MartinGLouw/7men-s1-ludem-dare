@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 1360221282610676344}
   - component: {fileID: 27925809612455542}
   - component: {fileID: 3497452528469936639}
+  - component: {fileID: -3659382698613188550}
   m_Layer: 0
   m_Name: SlingerEnemy
-  m_TagString: SniperEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +89,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &27925809612455542
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b475de06cf714a2cae64fab0755dfb02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 50
   attackingDistance: 25
   cubeAttackSize: {x: 2, y: 1, z: 2}
   attackCooldown: 2
@@ -141,6 +141,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 4687377985535701342}
   playerRef: {fileID: 0}
+--- !u!114 &-3659382698613188550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ba4970934095961cfb8340d19eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &1784854208030765656
 GameObject:
   m_ObjectHideFlags: 0

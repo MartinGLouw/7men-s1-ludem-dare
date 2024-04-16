@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 243877089377207413}
   - component: {fileID: 7707851206277442074}
   - component: {fileID: 1614898967654617928}
+  - component: {fileID: -1286502567129891579}
   m_Layer: 0
   m_Name: CrowbarEnemy
-  m_TagString: CrowbarEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +47,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -57,7 +58,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &7707851206277442074
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9785c0e4aa7640e7812daa65f73d8b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 80
   attackingDistance: 4
   cubeAttackSize: {x: 4, y: 1, z: 2}
   attackCooldown: 0.8
@@ -103,13 +103,26 @@ MonoBehaviour:
   meleeAttackForce: 50
   damageData:
     type: 0
-    dmgAmount: 0
-  retreatDistance: 8
+    dmgAmount: 20
+  retreatDistance: 1
   isScared: 0
   enemyAnim: {fileID: 1759269485995247078}
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 1033741446955979024}
   playerRef: {fileID: 0}
+--- !u!114 &-1286502567129891579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ba4970934095961cfb8340d19eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &3375804077665060767
 GameObject:
   m_ObjectHideFlags: 0

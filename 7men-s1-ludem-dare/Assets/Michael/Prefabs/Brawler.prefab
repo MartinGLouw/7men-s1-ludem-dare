@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -8298232803746392931}
   - component: {fileID: 8667015765126387787}
   - component: {fileID: 86731148198546877}
+  - component: {fileID: -815162648542433132}
   m_Layer: 0
   m_Name: Brawler
-  m_TagString: BoxEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,18 +99,18 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &8667015765126387787
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -145,23 +146,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561a0149823e4e44a50c549246647a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 50
   attackingDistance: 5
-  cubeAttackSize: {x: 2, y: 1, z: 2}
-  attackCooldown: 0.8
+  cubeAttackSize: {x: 3, y: 3, z: 3}
+  attackCooldown: 1
   detectionLayer:
     serializedVersion: 2
     m_Bits: 512
   meleeAttackForce: 50
   damageData:
     type: 0
-    dmgAmount: 0
+    dmgAmount: 20
   retreatDistance: 8
   isScared: 0
   enemyAnim: {fileID: 843930083468076176}
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 8674005677193731626}
   playerRef: {fileID: 0}
+--- !u!114 &-815162648542433132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842310808983657820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ba4970934095961cfb8340d19eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &7228162691681787206
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,15 +6,8 @@ namespace Managers.Enemies
 {
     public class Shotty : Enemy
     {
-        private Collider[] _playerCollider = new Collider[3];
         public float speed = 0.1f;
         public float spreadVal = 10f;
-        
-        public override void EnemyMovement()
-        {
-            Vector3 targetPosition = _player.transform.position;
-            navMeshAgent.SetDestination(targetPosition);
-        }
 
         public override IEnumerator EnemyAttackBehavior()
         {

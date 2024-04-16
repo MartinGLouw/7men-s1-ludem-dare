@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8925088592076732972}
   - component: {fileID: 3269135464891202444}
   - component: {fileID: 3007104661508618423}
-  - component: {fileID: 6931648913732411786}
+  - component: {fileID: 5301470579629352908}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: PlayerProjectile
@@ -183,8 +183,8 @@ MonoBehaviour:
   type: 0
   damageData:
     type: 0
-    dmgAmount: 50
---- !u!114 &6931648913732411786
+    dmgAmount: 10
+--- !u!114 &5301470579629352908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System;
 using Managers.Lawyer;
+using Managers.Utils;
 using UnityEngine;
 
 namespace Managers.Pool
@@ -40,7 +41,14 @@ namespace Managers.Pool
                 {
                     damageable.TakeDamage(_damageData);
                 }
-                
+                else
+                {
+                    if(other.TryGetComponent<EnemyHealthUtil>(out EnemyHealthUtil enemyHealthUtil))
+                    {
+                        enemyHealthUtil.TakeDamage(_damageData);
+                    }
+                }
+                Debug.Log("Other: " + other.name);
                 PoolableObjects.Instance.ReturnObject(_bulletData.type, gameObject);
             }
         }

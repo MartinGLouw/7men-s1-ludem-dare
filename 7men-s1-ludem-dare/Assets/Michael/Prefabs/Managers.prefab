@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4161637116341006412
 Transform:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb7e86f6c23450b8ad91d1b68cef2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyParent: {fileID: 0}
+  enemyParent: {fileID: 8912544087018108747}
   spawningData: {fileID: 11400000, guid: 9e1f003b930f58b469c23d5e9a32d736, type: 2}
   spawnLocations:
   - {fileID: 7329148616191916478}
@@ -809,8 +809,8 @@ MonoBehaviour:
   - {fileID: 2622349266309872972}
   - {fileID: 6494853154564165917}
   player: {fileID: 0}
-  phaseOneSpawnMinMax: {x: 0, y: 0}
-  phaseTwoSpawnMinMax: {x: 0, y: 0}
+  phaseOneSpawnMinMax: {x: 8, y: 10}
+  phaseTwoSpawnMinMax: {x: 18, y: 20}
   phaseThreeSpawnMinMax: {x: 0, y: 0}
 --- !u!1 &6792027304298448238
 GameObject:

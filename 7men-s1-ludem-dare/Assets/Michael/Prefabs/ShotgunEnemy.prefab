@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 8042957211763416477}
   - component: {fileID: 1172419230284051623}
   - component: {fileID: 5923358957061109294}
+  - component: {fileID: -2077855347653667272}
   m_Layer: 0
   m_Name: ShotgunEnemy
-  m_TagString: ShotgunEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +78,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -88,7 +89,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &1172419230284051623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -124,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e970332915f45be8c301e2a33ccc3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 50
   attackingDistance: 15
   cubeAttackSize: {x: 2, y: 1, z: 2}
   attackCooldown: 2
@@ -143,6 +143,19 @@ MonoBehaviour:
   playerRef: {fileID: 0}
   speed: 0.25
   spreadVal: 15
+--- !u!114 &-2077855347653667272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565960584079273292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ba4970934095961cfb8340d19eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &7990788456143767621
 GameObject:
   m_ObjectHideFlags: 0
