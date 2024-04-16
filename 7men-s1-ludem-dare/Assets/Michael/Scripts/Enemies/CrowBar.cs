@@ -21,25 +21,24 @@ namespace Managers.Enemies
 
             while (true)
             {
-                Debug.Log("Start Attack");
+                
                 float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
 
                 if (distanceToPlayer <= attackRange && isAttacking)
                 {
                     // Play attack animation
+                    Debug.Log("Crowbar Attack");
                     enemyAnim.SetTrigger("OnAttack");
                     Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
 
                     foreach (var hit in _playerCollider)
                     {
-                        Debug.Log("Attacking Fist");
                         if (hit == null) continue;
                         if (hit.CompareTag("Player"))
                         {
                             Rigidbody rb = hit.GetComponent<Rigidbody>();
                             Vector3 direction = hit.transform.position - transform.position;
                             rb.AddForce(direction * meleeAttackForce);
-                            Debug.Log("Add Fighter Force");
 
                             if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                             {
@@ -49,8 +48,6 @@ namespace Managers.Enemies
                     }
                     
                     isAttacking = false; // Stop attacking after one attack
-
-                    yield return new WaitForSeconds(1f);
                     yield return new WaitForSeconds(attackCooldown);
                 }
 

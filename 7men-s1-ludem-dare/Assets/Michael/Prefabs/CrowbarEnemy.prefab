@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2351637689893498885}
-  - component: {fileID: 4875649808673672716}
   - component: {fileID: 243877089377207413}
   - component: {fileID: 7707851206277442074}
+  - component: {fileID: 1614898967654617928}
   m_Layer: 0
   m_Name: CrowbarEnemy
   m_TagString: CrowbarEnemy
@@ -36,26 +36,6 @@ Transform:
   - {fileID: 3689895233233649371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4875649808673672716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370101179850381824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxEnemyHealth: 50
-  shotgunEnemyHealth: 80
-  sniperEnemyHealth: 120
-  crowbarEnemyHealth: 70
-  sprayerEnemyHealth: 100
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 1033741446955979024}
-  playerRef: {fileID: 0}
 --- !u!195 &243877089377207413
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -101,6 +81,35 @@ CapsuleCollider:
   m_Height: 3.507996
   m_Direction: 1
   m_Center: {x: -0.028649867, y: 1.7589982, z: 0}
+--- !u!114 &1614898967654617928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9785c0e4aa7640e7812daa65f73d8b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 80
+  attackingDistance: 4
+  cubeAttackSize: {x: 4, y: 1, z: 2}
+  attackCooldown: 0.8
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  meleeAttackForce: 50
+  damageData:
+    type: 0
+    dmgAmount: 0
+  retreatDistance: 8
+  isScared: 0
+  enemyAnim: {fileID: 1759269485995247078}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 1033741446955979024}
+  playerRef: {fileID: 0}
 --- !u!1 &3375804077665060767
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +230,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57eee97e89c89bc41951e657d8e9a0f2, type: 3}
+--- !u!95 &1759269485995247078 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2808630295102556784, guid: 57eee97e89c89bc41951e657d8e9a0f2, type: 3}
+  m_PrefabInstance: {fileID: 4508222084514795414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7643683852758012720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6089919955314449574, guid: 57eee97e89c89bc41951e657d8e9a0f2, type: 3}

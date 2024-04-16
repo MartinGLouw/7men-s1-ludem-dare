@@ -25,9 +25,7 @@ public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
         Debug.Log("take damage");
     }
 }
-
-[Serializable]
-public struct DamageData
+public class DamageData : MonoBehaviour
 {
     public DamageType type;
     public int dmgAmount;

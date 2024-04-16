@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &439948679342167348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7103601714615188069}
+  m_Layer: 0
+  m_Name: ShootPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7103601714615188069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439948679342167348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.267, y: 1.646, z: 1.089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1683103530839023965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3565960584079273292
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683103530839023965}
-  - component: {fileID: -591781103190209819}
   - component: {fileID: 8042957211763416477}
   - component: {fileID: 1172419230284051623}
+  - component: {fileID: 5923358957061109294}
   m_Layer: 0
   m_Name: ShotgunEnemy
   m_TagString: ShotgunEnemy
@@ -33,28 +64,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8910507688400164558}
+  - {fileID: 7103601714615188069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-591781103190209819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3565960584079273292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d320d56fdf15644b5042d2e6bdb94b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxEnemyHealth: 50
-  shotgunEnemyHealth: 80
-  sniperEnemyHealth: 120
-  crowbarEnemyHealth: 70
-  sprayerEnemyHealth: 100
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 4869946130366590146}
-  playerRef: {fileID: 0}
 --- !u!195 &8042957211763416477
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -100,6 +112,37 @@ CapsuleCollider:
   m_Height: 3.507996
   m_Direction: 1
   m_Center: {x: -0.028649867, y: 1.7589982, z: 0}
+--- !u!114 &5923358957061109294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565960584079273292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e970332915f45be8c301e2a33ccc3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 50
+  attackingDistance: 15
+  cubeAttackSize: {x: 2, y: 1, z: 2}
+  attackCooldown: 2
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  meleeAttackForce: 80
+  damageData:
+    type: 0
+    dmgAmount: 0
+  retreatDistance: 5
+  isScared: 1
+  enemyAnim: {fileID: 4260051582264207866}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 7103601714615188069}
+  playerRef: {fileID: 0}
+  speed: 0.25
+  spreadVal: 15
 --- !u!1 &7990788456143767621
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +269,11 @@ PrefabInstance:
 --- !u!4 &3638345963965244523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3430331590361745377, guid: 9c8e169907d748940bea375ea4b1c99c, type: 3}
+  m_PrefabInstance: {fileID: 2154123635249374090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4260051582264207866 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2808630295102556784, guid: 9c8e169907d748940bea375ea4b1c99c, type: 3}
   m_PrefabInstance: {fileID: 2154123635249374090}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5289268745588145964 stripped

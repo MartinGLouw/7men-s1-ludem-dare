@@ -42,6 +42,7 @@ namespace Managers.Enemies
         public virtual void Start()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.SetDestination(playerRef.transform.position);
             _player = playerRef;
             currentHealth = enemyHealth;
             enemyAnim.SetBool("IsWalking", true);
@@ -53,10 +54,10 @@ namespace Managers.Enemies
 
             if (_playerDistance < attackingDistance)
             {
-                if (isAttacking) return;
                 isAttacking = true;
                 isWalking = false;
                 enemyAnim.SetBool("IsWalking", false);
+                navMeshAgent.isStopped = true;
                 StartCoroutine(EnemyAttackBehavior());
             }
             else
@@ -66,6 +67,7 @@ namespace Managers.Enemies
                 {
                     StopAllCoroutines();
                 }
+                navMeshAgent.isStopped = false;
                 isWalking = true;
                 enemyAnim.SetBool("IsWalking", true);
             } 
