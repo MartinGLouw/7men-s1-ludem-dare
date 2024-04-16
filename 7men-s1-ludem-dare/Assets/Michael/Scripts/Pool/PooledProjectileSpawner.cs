@@ -26,6 +26,24 @@ namespace Managers.Pool
             
         }
         
+        public void SpawnPlayerProjectiles(Vector3 start, BulletType type, Vector3 direction)
+        {
+            GameObject newProjectile = poolObjects.GetObject(type, start);
+            if (newProjectile.TryGetComponent<Bullet>(out Bullet projectile))
+            {
+                var speed = projectile.speed;
+                Debug.Log($"speed: {speed}");
+                Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
+                newProjectile.GetComponent<Rigidbody>().velocity = new Vector3(
+                    direction.x * speed, 
+                    0f, direction.z * speed
+                    );
+                
+            }
+
+            //newProjectile.GetComponent<Rigidbody>().velocity = new Vector3(direction.x * projectiles[playerProjectile].speed, 0f, direction.z * projectiles[playerProjectile].speed);
+        }
+        
         private Vector3 GetPlayerDirection(Vector3 start)
         {
             return player.position - start;

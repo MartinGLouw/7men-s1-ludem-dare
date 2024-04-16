@@ -48,6 +48,16 @@ namespace Managers.Enemies
             enemyAnim.SetBool("IsWalking", true);
         }
 
+        public void Init(GameObject player)
+        {
+            playerRef = player;
+            _player = player;
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            navMeshAgent.SetDestination(playerRef.transform.position);
+            currentHealth = enemyHealth;
+            enemyAnim.SetBool("IsWalking", true);
+        }
+
         public virtual void Update()
         {
             _playerDistance = Vector3.Distance(playerRef.transform.position ,transform.position);
@@ -100,6 +110,7 @@ namespace Managers.Enemies
 
             if (currentHealth <= 0)
             {
+                Debug.Log("Damaged");
                 gameObject.SetActive(false);
             }
             

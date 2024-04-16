@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Managers.Lawyer;
+using Managers.Pool;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
+public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 {
     public GameObject player;
 
@@ -127,13 +128,11 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
     void MoveCamera()
     {
-        mainCam.transform.position = new Vector3(player.transform.position.x + CameraPos.x, player.transform.position.y + CameraPos.y, player.transform.position.z + CameraPos.z);
+        //mainCam.transform.position = new Vector3(player.transform.position.x + CameraPos.x, player.transform.position.y + CameraPos.y, player.transform.position.z + CameraPos.z);
     }
 
     private void Dash(InputAction.CallbackContext context)
     {
-        
-
         StartCoroutine(performDash());
     }
 
@@ -173,45 +172,13 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
 
         playerAnimator.SetTrigger("Throw");
 
-        projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
-
+        //projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
+        PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(player.transform.position, BulletType.Player, player.transform.forward);
+        
+        
         yield return new WaitForSeconds(0.2f);
 
         canInvoke = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "EnemyProjectile")
-        {
-            TakeDamage();
-        }
-        
-    }
-
-    public void TakeDamage()
-    {
-        // hp--;
-        //
-        // health.UpdateHealthBar(hp, maxHP);
-        //
-        // if (hp <= 0)
-        // {
-        //     isDead = true;
-        // }
-    }
-
-    public void TakeDamage(Projectiles value)
-    {
-        hp -= value.damage;
-        
-        health.UpdateHealthBar(hp, maxHP);
-        Debug.Log($"JP: {hp}");
-        if (hp <= 0)
-        {
-            EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
-            isDead = true;
-        }
     }
 
     void LegAnimations()
@@ -223,6 +190,19 @@ public class PlayerLook : MonoBehaviour, IDamageable<Projectiles>
         else
         {
             playerAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    public void TakeDamage(DamageData value)
+    {
+        hp -= value.dmgAmount;
+        
+        health.UpdateHealthBar(hp, maxHP);
+        Debug.Log($"JP: {hp}");
+        if (hp <= 0)
+        {
+            EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
+            isDead = true;
         }
     }
 }
