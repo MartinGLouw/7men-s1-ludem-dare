@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8925088592076732972}
   - component: {fileID: 3269135464891202444}
   - component: {fileID: 3007104661508618423}
+  - component: {fileID: 6931648913732411786}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: PlayerProjectile
@@ -183,3 +184,15 @@ MonoBehaviour:
   damageData:
     type: 0
     dmgAmount: 50
+--- !u!114 &6931648913732411786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980333615458265748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e1572262154dab9e818bf3ff1bba90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

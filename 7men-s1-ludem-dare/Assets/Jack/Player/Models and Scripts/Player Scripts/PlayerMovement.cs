@@ -196,7 +196,6 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         hp -= value.dmgAmount;
         
         health.UpdateHealthBar(hp, maxHP);
-        Debug.Log($"JP: {hp}");
         if (hp <= 0)
         {
             EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();

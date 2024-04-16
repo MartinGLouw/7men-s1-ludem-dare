@@ -560,7 +560,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Boss_BigSwipe_Fire
-  m_Speed: 0.2
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7659620090458853889}
@@ -844,7 +844,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Boss_Slam_Fire
-  m_Speed: 0.2
+  m_Speed: 0.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6460489369155320488}
@@ -1217,7 +1217,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Boss_FrontKick_Fire
-  m_Speed: 0.2
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8164882120972102432}

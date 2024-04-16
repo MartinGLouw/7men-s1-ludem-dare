@@ -23,13 +23,12 @@ public struct AllBossStates
     public ShotgunStrike ShotgunStrike;
     public HeavyStrike HeavyStrike;
     public CallToArms CallToArms;
-    public Flee Flee;
     public Idle Idle;
    
 }
 
 
-public class BossHandling : MonoBehaviour, IDamageable<float>
+public class BossHandling : MonoBehaviour, IDamageable<DamageData>
 {
     [Header("references: ")]
     public Animator bossAnim;
@@ -66,13 +65,12 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     
     private bool _melee = false;
     private bool _flee = false;
+    private bool _bossFled = false;
     private bool _shoot = false;
     private bool _dead = false;
 
     private void Start()
     {
-        bossAnim.SetFloat("SpeedMultiplier", 0.1f);
-        
         _eventManager = EventManager.Instance;
         _agent = GetComponent<NavMeshAgent>();
         _bossRb = GetComponent<Rigidbody>();
@@ -86,6 +84,9 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
         _attackCooldownTimer = Random.Range(attackCooldown.x, attackCooldown.y);
         _playerDistance = 100f;
 
+        _dead = false;
+        _flee = false;
+        _agent.isStopped = false;
         _shoot = false;
         _melee = false;
         
@@ -95,17 +96,8 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     private void Update()
     {
         if (_dead) return;
-        //Debugging
-        if (takeDamage)
-        {
-            TakeDamage(100f);
-            takeDamage = false;
-        }
         
-        if (player && !_flee)
-        {
-            _agent.SetDestination(player.transform.position);
-        }
+        _agent.SetDestination(player.transform.position);
         
         //Distance
         _playerDistance = Vector3.Distance(transform.position, player.transform.position);
@@ -180,23 +172,30 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
         }
     }
 
-    public void TakeDamage(float dmg)
+    private void HandleFlee()
     {
-        bossHealth -= dmg;
+        if (_bossFled) return;
+
+        _agent.isStopped = true;
+        _flee = true;
+        _eventManager.EnemyEvents.FireOnSpawnEnemies(2);
+        _bossFled = true;
+    }
+
+    public void TakeDamage(DamageData data)
+    {
+        bossHealth -= data.dmgAmount;
         bossHealthUI.UpdateBossHealth(bossHealth / 300);
 
         if (bossHealth <= 200 && bossHealth >= 100)
         {
-            _flee = true;
-            _eventManager.EnemyEvents.FireOnSpawnEnemies(2);
+            HandleFlee();
             bossPhase = Phase.Phase2;
             PhaseHandling();
         }
         
         if (bossHealth <= 100)
         {
-            _flee = true;
-            _agent.isStopped = true;
             bossPhase = Phase.Phase3;
             
             //bossMeleeDistance = bossShootingDistance;
