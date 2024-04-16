@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Managers.BossStates;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public enum Phase
@@ -35,6 +36,7 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     public GameObject player;
     public AllBossStates availableStates;
     public Transform gun;
+    public Image bossHealthBar;
     
     [Header("Boss State")]
     public Phase bossPhase;
@@ -47,6 +49,7 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     public float bossShootingDistance = 25f;
     public float phaseCheckingInterval = 3f;
     public Vector2 attackCooldown = new Vector2(2, 5);
+    public float bossCooldown = 30f;
 
     [Header("Debug")] 
     public bool takeDamage = false;
@@ -56,15 +59,20 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     private NavMeshAgent _agent;
     private EventManager _eventManager;
 
-    public float _playerDistance;
+    private float _playerDistance;
     private float _phaseCheckTimer;
+    private float _bossCooldownTimer;
     private float _attackCooldownTimer;
     
     private bool _melee = false;
+    private bool _flee = false;
     private bool _shoot = false;
+    private bool _dead = false;
 
     private void Start()
     {
+        bossAnim.SetFloat("SpeedMultiplier", 0.1f);
+        
         _eventManager = EventManager.Instance;
         _agent = GetComponent<NavMeshAgent>();
         _bossRb = GetComponent<Rigidbody>();
@@ -80,17 +88,21 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
 
         _shoot = false;
         _melee = false;
+        
+        _bossCooldownTimer = bossCooldown;
     }
 
     private void Update()
     {
+        if (_dead) return;
+        //Debugging
         if (takeDamage)
         {
             TakeDamage(100f);
             takeDamage = false;
         }
         
-        if (player)
+        if (player && !_flee)
         {
             _agent.SetDestination(player.transform.position);
         }
@@ -106,12 +118,28 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
         //Anim
         bossAnim.SetFloat("Speed", _bossRb.velocity.sqrMagnitude);
 
+        //Phase check with distance check
         _phaseCheckTimer -= Time.deltaTime;
         if (_phaseCheckTimer <= 0)
         {
             PhaseHandling();
             _phaseCheckTimer = phaseCheckingInterval;
         }
+        
+        //Boss Cooldown
+        if (_flee)
+        {
+            _bossCooldownTimer -= Time.deltaTime;
+            if (_bossCooldownTimer <= 0)
+            {
+                _flee = false;
+                _bossCooldownTimer = bossCooldown;
+                currentState.ChangeState(availableStates.Idle);
+                _agent.isStopped = false;
+            }
+        }
+        
+        
     }
 
     private void PhaseHandling()
@@ -130,6 +158,12 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
                 if(!_melee && !_shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase2:
+                if (_flee)
+                {
+                    currentState.ChangeState((availableStates.CallToArms));
+                    return;
+                }
+                
                 //Implement call to arms
                 if (_shoot) { currentState.ChangeState(availableStates.ShotgunStrike); }
                 if (_melee) { currentState.ChangeState(availableStates.HeavyStrike); }
@@ -150,15 +184,26 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
     {
         bossHealth -= dmg;
 
+        if (bossHealthBar)
+        {
+            bossHealthBar.fillAmount = bossHealth / 300;
+        }
+        
+
         if (bossHealth <= 200 && bossHealth >= 100)
         {
+            _flee = true;
+            _eventManager.EnemyEvents.FireOnSpawnEnemies(2);
             bossPhase = Phase.Phase2;
             PhaseHandling();
         }
         
         if (bossHealth <= 100)
         {
+            _flee = true;
+            _agent.isStopped = true;
             bossPhase = Phase.Phase3;
+            
             //bossMeleeDistance = bossShootingDistance;
             PhaseHandling();
         }
@@ -166,6 +211,7 @@ public class BossHandling : MonoBehaviour, IDamageable<float>
         if (bossHealth <= 0)
         {
             _eventManager.GameManagerEvents.FireEndGameEvent();
+            bossAnim.SetTrigger("OnDeath");
         }
     }
 }

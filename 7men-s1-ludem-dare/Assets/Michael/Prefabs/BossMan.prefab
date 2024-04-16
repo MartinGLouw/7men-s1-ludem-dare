@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &590511170508168220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5071216180334096638}
+  m_Layer: 0
+  m_Name: FleeDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5071216180334096638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590511170508168220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.42, y: 5.88, z: -15.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2226013661262754511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1411469697713088099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5917689439682896929}
+  m_Layer: 0
+  m_Name: GunSP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5917689439682896929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411469697713088099}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0.000000026692545, z: 0.7071068, w: 0.0000000062195635}
+  m_LocalPosition: {x: -0, y: -0.01302, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6931613064088841953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2910928321159725652
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +97,7 @@ Transform:
   m_Children:
   - {fileID: 4148558564633180517}
   - {fileID: 1267132291294738274}
+  - {fileID: 5071216180334096638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6463261415825924656
@@ -51,7 +114,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -103,6 +166,8 @@ MonoBehaviour:
     CallToArms: {fileID: 2753449716290884442}
     Flee: {fileID: 6832900767373618760}
     Idle: {fileID: 4940707155636922959}
+  gun: {fileID: 5917689439682896929}
+  bossHealthBar: {fileID: 0}
   bossPhase: 0
   bossState: 6
   currentState: {fileID: 4940707155636922959}
@@ -111,6 +176,8 @@ MonoBehaviour:
   bossShootingDistance: 50
   phaseCheckingInterval: 3
   attackCooldown: {x: 2, y: 5}
+  bossCooldown: 6
+  takeDamage: 0
 --- !u!54 &6270123432672636036
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -450,6 +517,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8158831998825127893, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3783782664956887256}
+    - targetCorrespondingSourceObject: {fileID: 44531563093526102, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5917689439682896929}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4784735641041181078, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
       insertIndex: -1
@@ -565,6 +635,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  layer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &4011481945837681227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossState: 0
   meleeAttackForce: 150
+  bossTransfrom: {fileID: 2226013661262754511}
+  fleeDestination: {fileID: 0}
 --- !u!114 &6667226553288333440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c424057b5b1e548a2148c531866d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunSP: {fileID: 6931613064088841953}
+  gunSP: {fileID: 5917689439682896929}
 --- !u!95 &6083434504283417856 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3801195386398934455, guid: 3940a1a7543c97a48ab1d3a5ce8c67b2, type: 3}
