@@ -28,6 +28,17 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        EventManager.Instance.GameManagerEvents.OnLoseGame += PlayLoseMusic;
+        EventManager.Instance.GameManagerEvents.OnEndGame += PlayWinMusic;
+    }
+    private void OnDisable()
+    {
+        EventManager.Instance.GameManagerEvents.OnLoseGame -= PlayLoseMusic;
+        EventManager.Instance.GameManagerEvents.OnEndGame -= PlayWinMusic;
+    }
+
     private void Update()
     {
         if (!musicSource.isPlaying && musicQueue.Count > 0)

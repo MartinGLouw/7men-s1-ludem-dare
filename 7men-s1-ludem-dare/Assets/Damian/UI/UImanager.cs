@@ -37,27 +37,32 @@ public class UIManager : MonoBehaviour
         CheckSceneAndAdjustCanvases();
     }
 
-
     private void CheckSceneAndAdjustCanvases()
     {
-        switch (GetCurrentGameState())
+        GameState currentState = GetCurrentGameState();
+        switch (currentState)
         {
             case GameState.MainMenu:
-                SoundManager.Instance.ClearMusicQueue();
-                SoundManager.Instance.QueueMusic(1); //maybe change this to trigger the relevant method in the events manager later.
-                UIAnimatorManager.Instance.FadeInCanvas(mainMenuPanel, 0.5f);
-                UIAnimatorManager.Instance.SlideInCanvas(mainMenuPanel, 0.5f, mainMenuPanel.transform.localPosition);
-                currentActiveCanvas = mainMenuCanvas;
+                if (mainMenuPanel != null)
+                {
+                    SoundManager.Instance.ClearMusicQueue();
+                    SoundManager.Instance.QueueMusic(1);
+                    UIAnimatorManager.Instance.FadeInCanvas(mainMenuPanel, 0.5f);
+                    UIAnimatorManager.Instance.SlideInCanvas(mainMenuPanel, 0.5f, mainMenuPanel.transform.localPosition);
+                    currentActiveCanvas = mainMenuCanvas;
+                }
+                else
+                {
+                    Debug.LogError("MainMenuPanel is null in UIManager.");
+                }
                 break;
             case GameState.TutorialScene:
-            //Activate relevant canvases here
+                // Activate relevant canvases here, check for null as necessary
+                break;
             case GameState.MainGame:
                 SoundManager.Instance.ClearMusicQueue();
                 SoundManager.Instance.QueueMusic(0);
                 Debug.Log("Main Game scene detected");
-                break;
-            //Activate relevant canvases here if needed
-            Debug.Log("Main game scene detected");
                 break;
             case GameState.UnknownScene:
                 Debug.LogError("Unknown scene detected");
@@ -67,43 +72,60 @@ public class UIManager : MonoBehaviour
 
     public void ActivateCanvas(GameObject canvas)
     {
-        canvas.SetActive(true);
+        if (canvas != null)
+        {
+            canvas.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Attempted to activate a null canvas in UIManager.");
+        }
     }
 
     public void DeactivateCanvas(GameObject canvas)
     {
-        canvas.SetActive(false);
-        UIAnimatorManager.Instance.SlideOutCanvas(canvas, -0.5f, canvas.transform.localPosition);
-        UIAnimatorManager.Instance.FadeOutCanvas(canvas, 0.5f);
+        if (canvas != null)
+        {
+            canvas.SetActive(false);
+            UIAnimatorManager.Instance.SlideOutCanvas(canvas, -0.5f, canvas.transform.localPosition);
+            UIAnimatorManager.Instance.FadeOutCanvas(canvas, 0.5f);
+        }
+        else
+        {
+            Debug.LogError("Attempted to deactivate a null canvas in UIManager.");
+        }
     }
 
     public void ActivatePanel(GameObject panel)
     {
-        panel.SetActive(true);
-                SoundManager.Instance.PlaySFX(0);
-        if (panel == null)
+        if (panel != null)
+        {
+            panel.SetActive(true);
+            SoundManager.Instance.PlaySFX(0);
+            UIAnimatorManager.Instance.SlideInCanvas(panel, 0.5f, panel.transform.localPosition);
+            UIAnimatorManager.Instance.FadeInCanvas(panel, 0.5f);
+        }
+        else
         {
             Debug.LogError("Panel reference not set in UIManager.");
-            return;
         }
-        UIAnimatorManager.Instance.SlideInCanvas(panel, 0.5f, panel.transform.localPosition);
-        UIAnimatorManager.Instance.FadeInCanvas(panel, 0.5f);
     }
 
     public void DeactivatePanel(GameObject panel)
     {
-        panel.SetActive(false);
-        SoundManager.Instance.PlaySFX(0);
-        if (panel == null)
+        if (panel != null)
+        {
+            panel.SetActive(false);
+            SoundManager.Instance.PlaySFX(0);
+            UIAnimatorManager.Instance.SlideOutCanvas(panel, 0.5f, panel.transform.localPosition);
+            UIAnimatorManager.Instance.FadeOutCanvas(panel, 0.5f);
+        }
+        else
         {
             Debug.LogError("Panel reference not set in UIManager.");
-            return;
         }
-        UIAnimatorManager.Instance.SlideOutCanvas(panel, 0.5f, panel.transform.localPosition);
-        UIAnimatorManager.Instance.FadeOutCanvas(panel, 0.5f);
     }
 
-    // Get current game state based on the scene name
     private GameState GetCurrentGameState()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -120,7 +142,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SoundManager.Instance.PlaySFX(0);
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("LoadingScreen");
     }
 
     public void ExitToDesktop()
@@ -131,22 +153,22 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
-
         Time.timeScale = 1;
         SoundManager.Instance.PlaySFX(0);
-        //invoke deactivate pauseCanvas
+        // Invoke deactivate pauseCanvas with appropriate checks
     }
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMainMenu()
     {
+        Time.timeScale = 1;
         SoundManager.Instance.PlaySFX(0);
         SceneManager.LoadScene("MainMenu");
-
     }
 }
