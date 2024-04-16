@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2729332154525132557}
   - component: {fileID: 720784731191894135}
   - component: {fileID: 5134046444133004847}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HealthBar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 6910410630205104815}
   - component: {fileID: 2270748751864604893}
   - component: {fileID: 275464876053103612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 6206264392654702094}
   - component: {fileID: 292712453553927322}
   - component: {fileID: 4460504142554451825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Sleeve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 8666803207547212086}
   - component: {fileID: 5691594684521914842}
   - component: {fileID: 2105787062536317021}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -304,6 +304,7 @@ Transform:
   - {fileID: 8585756644944717652}
   - {fileID: 3937219711324986089}
   - {fileID: 4944035979022375015}
+  - {fileID: 1093019566321053880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4380255120587278223
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 815030638064518930}
   agent: {fileID: 5691594684521914842}
+  bulletSP: {fileID: 1093019566321053880}
   CameraPos: {x: 0, y: 40, z: 43}
   speed: 20
   dashSpeed: 70
@@ -399,7 +401,7 @@ MonoBehaviour:
   projectileSpawner: {fileID: 0}
   health: {fileID: 5679310858531274915}
   playerAnimator: {fileID: 4961330467016576063}
-  playerParticles: {fileID: 8965325337742488620, guid: d3e8d6394481a24468b32ea4142fa541, type: 3}
+  playerParticles: {fileID: 0}
 --- !u!1 &1908018249796037562
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +413,7 @@ GameObject:
   - component: {fileID: 4821352557532869383}
   - component: {fileID: 1083794409335006730}
   - component: {fileID: 4653166422828939023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hair_Crowbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +496,7 @@ GameObject:
   - component: {fileID: 6459901764098126089}
   - component: {fileID: 603272108332524048}
   - component: {fileID: 443504473047144704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 34959483717328454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_ROOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +614,7 @@ GameObject:
   - component: {fileID: 7781401879715395273}
   - component: {fileID: 744821544490468314}
   - component: {fileID: 7720061077792394606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torso_Jacket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +697,7 @@ GameObject:
   - component: {fileID: 8399337388484668344}
   - component: {fileID: 5734607288657117802}
   - component: {fileID: 85497934736804259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Right Sleeve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4944035979022375015}
   - component: {fileID: 3079685965522063169}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: FollowCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,8 +794,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2578013726227643356}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27410823, y: 0.3622709, z: -0.11236482, w: 0.8837413}
-  m_LocalPosition: {x: -27.1, y: 26.5, z: -27.5}
+  m_LocalRotation: {x: 0.27157184, y: 0.024803571, z: -0.007001497, w: 0.962073}
+  m_LocalPosition: {x: -2.1000004, y: 25, z: -40.700005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -848,7 +850,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691022209275354340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +887,7 @@ GameObject:
   - component: {fileID: 5587951870963738062}
   - component: {fileID: 4742686287118915378}
   - component: {fileID: 5679310858531274915}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -987,7 +989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6885190562913799870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6461460592983377121}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Leg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2906846767535346052}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,8 +1091,8 @@ GameObject:
   - component: {fileID: 5683909022842178430}
   - component: {fileID: 2318274838491967442}
   - component: {fileID: 1497113290232301511}
-  - component: {fileID: 4424852234091493225}
-  m_Layer: 0
+  - component: {fileID: 4942624138074734582}
+  m_Layer: 9
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: -27.1, y: 26.5, z: -27.5}
+  m_FollowOffset: {x: -2.1, y: 25, z: -40.7}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1146,7 +1148,7 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
---- !u!114 &4424852234091493225
+--- !u!114 &4942624138074734582
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1155,9 +1157,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4286074540677642046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_SoftZoneWidth: 0
+  m_SoftZoneHeight: 0
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!1 &4349987406945059493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,7 +1186,7 @@ GameObject:
   - component: {fileID: 2349650143284646255}
   - component: {fileID: 6257445501000093256}
   - component: {fileID: 6095037967890940098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1270,7 @@ GameObject:
   - component: {fileID: 3261845751891124946}
   - component: {fileID: 2911210855384651667}
   - component: {fileID: 5389643534074940700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bandana_LB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3937219711324986089}
   - component: {fileID: 4961330467016576063}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1388,7 +1405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5043103086199570118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Arm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1440,7 @@ GameObject:
   - component: {fileID: 4675232002678102285}
   - component: {fileID: 7041372739013671020}
   - component: {fileID: 8216801192677739744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1504,7 +1521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7652548920196292609}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Leg.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1261874431936073327}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Arm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1568,7 +1585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6328454608974369406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Arm.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1590,6 +1607,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1261874431936073327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6050178895374136000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093019566321053880}
+  m_Layer: 9
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093019566321053880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6050178895374136000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 692764245990960705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6261396069234634241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1649,7 @@ GameObject:
   - component: {fileID: 7605104552256527631}
   - component: {fileID: 393257444592285382}
   - component: {fileID: 5590209936280439369}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636820808925557427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Leg.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1755,7 @@ GameObject:
   - component: {fileID: 7910767196925762387}
   - component: {fileID: 4765370614941475043}
   - component: {fileID: 8951280638876227952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1788,7 +1836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8651220906739087938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Leg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1823,7 +1871,7 @@ GameObject:
   - component: {fileID: 4674829022742121013}
   - component: {fileID: 8661113885509037534}
   - component: {fileID: 7058321423410568465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1908,7 +1956,7 @@ GameObject:
   - component: {fileID: 535519246766599148}
   - component: {fileID: 1865475170198182169}
   - component: {fileID: 1793699160691595807}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shirt.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +2037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8469678691099217216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Arm.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,7 +2070,7 @@ GameObject:
   - component: {fileID: 295695769996721433}
   - component: {fileID: 4112545617071483799}
   - component: {fileID: 4891990043293192862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Head '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,7 +2155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6317091072551480545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig_Humanoid_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2142,7 +2190,7 @@ GameObject:
   - component: {fileID: 7387209234531808323}
   - component: {fileID: 8120689776154964668}
   - component: {fileID: 4397350712904912419}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2217,7 +2265,7 @@ GameObject:
   - component: {fileID: 7968137026275047901}
   - component: {fileID: 3587646917976453483}
   - component: {fileID: 7414567630408307466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beard_Crowbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
     Camera mainCam;
 
     public NavMeshAgent agent;
-
+    public Transform bulletSP;
     public Vector3 CameraPos;
 
     private PlayerInputActions inputActions;
@@ -145,10 +145,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
         agent.velocity = new Vector3(moveDirecton.x * dashSpeed, 0f, moveDirecton.y * dashSpeed);
 
+        
         playerParticles.transform.position = agent.transform.position;
-
-        playerParticles.transform.LookAt(agent.transform.position);
-
         playerParticles.GetComponent<ParticleSystem>().Play();
 
         yield return new WaitForSeconds(dashDuration);
@@ -173,7 +171,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         playerAnimator.SetTrigger("Throw");
 
         //projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
-        PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(player.transform.position, BulletType.Player, player.transform.forward);
+        PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
         
         
         yield return new WaitForSeconds(0.2f);

@@ -152,7 +152,7 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 512
-  meleeAttackForce: 80
+  meleeAttackForce: 50
   damageData:
     type: 0
     dmgAmount: 0

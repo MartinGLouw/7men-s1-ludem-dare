@@ -262,7 +262,6 @@ namespace Managers.Lawyer
             {
                 _publicDefenceLawyerStates.OnAttack();
                 _publicDefenceTimer -= Time.deltaTime;
-                Debug.Log($"Public Defence: {_publicDefenceTimer}");
                 if (_publicDefenceTimer <= 0)
                 {
                     _publicDefenceTimer = publicDefenceUseTime;
@@ -277,13 +276,13 @@ namespace Managers.Lawyer
         private void UpdateImages()
         {
             if (_contractInUse || _contractorCooling) cImage.color = Color.red;
-            else cImage.color = Color.green;
+            else cImage.color = Color.white;
 
             if (_prosecutorInUse || _prosecutorCooling) pImage.color = Color.red;
-            else pImage.color = Color.green;
+            else pImage.color = Color.white;
             
             if (_publicDefenceInUse || _publicDefenceCooling) pbImage.color = Color.red;
-            else pbImage.color = Color.green;
+            else pbImage.color = Color.white;
         }
     }
 }
