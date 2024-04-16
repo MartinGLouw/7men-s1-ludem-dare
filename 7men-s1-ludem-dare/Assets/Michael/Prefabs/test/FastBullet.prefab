@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c27ca690a6d984c839a8bc53c1bcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Fast
-  prefab: {fileID: 0}
-  shotsDelta: 0
   speed: 20
-  damage: 20
+  type: 0
+  damageData:
+    type: 0
+    dmgAmount: 10
 --- !u!54 &-6749367393397182901
 Rigidbody:
   m_ObjectHideFlags: 0

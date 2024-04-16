@@ -47,12 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c27ca690a6d984c839a8bc53c1bcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Medium
-  prefab: {fileID: 0}
-  shotsDelta: 0
   speed: 1
-  damage: 25
   type: 1
+  damageData:
+    type: 0
+    dmgAmount: 15
 --- !u!54 &6031135489053545656
 Rigidbody:
   m_ObjectHideFlags: 0

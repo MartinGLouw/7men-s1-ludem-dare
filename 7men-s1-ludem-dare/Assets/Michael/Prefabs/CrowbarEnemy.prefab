@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1033741446955979024}
   - {fileID: 3689895233233649371}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,6 +53,9 @@ MonoBehaviour:
   sniperEnemyHealth: 120
   crowbarEnemyHealth: 70
   sprayerEnemyHealth: 100
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 1033741446955979024}
+  playerRef: {fileID: 0}
 --- !u!195 &243877089377207413
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -97,6 +101,37 @@ CapsuleCollider:
   m_Height: 3.507996
   m_Direction: 1
   m_Center: {x: -0.028649867, y: 1.7589982, z: 0}
+--- !u!1 &3375804077665060767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033741446955979024}
+  m_Layer: 0
+  m_Name: BoxOverlapStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1033741446955979024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375804077665060767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.073, y: 1.62, z: 0.796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2351637689893498885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5755554415218142935
 GameObject:
   m_ObjectHideFlags: 0

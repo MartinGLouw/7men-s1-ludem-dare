@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &130586029341052678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8909123672217160120}
+  m_Layer: 0
+  m_Name: SP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8909123672217160120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130586029341052678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: -1.2495732e-14, z: -0, w: 0}
+  m_LocalPosition: {x: -0.00008, y: -0.00297, z: 0.00055}
+  m_LocalScale: {x: 0.010000001, y: 0.009999997, z: 0.009999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4408843627862107873}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &370101179850381824
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,6 +83,9 @@ MonoBehaviour:
   sniperEnemyHealth: 120
   crowbarEnemyHealth: 70
   sprayerEnemyHealth: 100
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 8909123672217160120}
+  playerRef: {fileID: 0}
 --- !u!195 &1360221282610676344
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -183,9 +217,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 957809744951593436, guid: f2c180e2bcc688f48aced7658622382d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8909123672217160120}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c180e2bcc688f48aced7658622382d, type: 3}
+--- !u!4 &4408843627862107873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 957809744951593436, guid: f2c180e2bcc688f48aced7658622382d, type: 3}
+  m_PrefabInstance: {fileID: 3487344157390303037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7270556811719930779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6089919955314449574, guid: f2c180e2bcc688f48aced7658622382d, type: 3}

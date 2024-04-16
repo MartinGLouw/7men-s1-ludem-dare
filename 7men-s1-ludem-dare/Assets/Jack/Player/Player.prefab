@@ -398,7 +398,7 @@ MonoBehaviour:
   projectileSpawner: {fileID: 0}
   health: {fileID: 5679310858531274915}
   playerAnimator: {fileID: 4961330467016576063}
-  playerParticles: {fileID: 0}
+  playerParticles: {fileID: 8965325337742488620, guid: d3e8d6394481a24468b32ea4142fa541, type: 3}
 --- !u!1 &1908018249796037562
 GameObject:
   m_ObjectHideFlags: 0

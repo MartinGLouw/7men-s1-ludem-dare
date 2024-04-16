@@ -52,6 +52,9 @@ MonoBehaviour:
   sniperEnemyHealth: 120
   crowbarEnemyHealth: 70
   sprayerEnemyHealth: 100
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 1183077846359964050}
+  playerRef: {fileID: 0}
 --- !u!195 &7396953749489841857
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -129,6 +132,37 @@ Transform:
   - {fileID: 7494300874992237633}
   m_Father: {fileID: 2351637689893498885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7563092721244574662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183077846359964050}
+  m_Layer: 0
+  m_Name: SP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183077846359964050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563092721244574662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: -1.2495732e-14, z: -0, w: 0}
+  m_LocalPosition: {x: -0.00008, y: -0.00268, z: 0.00009}
+  m_LocalScale: {x: 0.010000001, y: 0.009999997, z: 0.009999998}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4438488116886394125}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1001 &4360231138868535527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,9 +217,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 79387434887247338, guid: b1618a6d4086f98429081c6bb4ce7eaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1183077846359964050}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1618a6d4086f98429081c6bb4ce7eaf, type: 3}
+--- !u!4 &4438488116886394125 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 79387434887247338, guid: b1618a6d4086f98429081c6bb4ce7eaf, type: 3}
+  m_PrefabInstance: {fileID: 4360231138868535527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7494300874992237633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6089919955314449574, guid: b1618a6d4086f98429081c6bb4ce7eaf, type: 3}

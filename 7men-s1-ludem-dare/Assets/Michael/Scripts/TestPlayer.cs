@@ -7,8 +7,12 @@ using UnityEngine;
 
 public enum DamageType
 {
-    brawl,
-    shotgun,
+    Player,
+    EnemyShotgun,
+    EnemySprayer,
+    EnemySniper,
+    EnemyBrawler,
+    EnemyCrowbar
 }
 
 public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
@@ -22,6 +26,7 @@ public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
     }
 }
 
+[Serializable]
 public struct DamageData
 {
     public DamageType type;

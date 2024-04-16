@@ -6,7 +6,8 @@ namespace Managers.Pool
 {
     public class BulletCollisions : MonoBehaviour
     {
-        private Bullet bullet;
+        private Bullet _bulletData;
+        private DamageData _damageData;
         private PoolableObjects _poolableObjects;
 
         private void Start()
@@ -16,25 +17,31 @@ namespace Managers.Pool
 
         private void OnEnable()
         {
-            bullet = GetComponent<Bullet>();
+            _damageData = GetComponent<DamageData>();
+            _bulletData = GetComponent<Bullet>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-
-            if (other.TryGetComponent<IDamageable<Bullet>>(out IDamageable<Bullet> damageable))
-            {
-                damageable.TakeDamage(bullet);
-            }
         
             if (other.gameObject.tag == "Player" && gameObject.tag == "EnemyProjectile")
             {
-                Destroy(gameObject);
+                if (other.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> damageable))
+                {
+                    damageable.TakeDamage(_damageData);
+                }
+                
+                PoolableObjects.Instance.ReturnObject(_bulletData.type, gameObject);
             }
 
             if (other.gameObject.tag == "Enemy" && gameObject.tag == "PlayerProjectile")
             {
-                Destroy(gameObject);
+                if (other.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> damageable))
+                {
+                    damageable.TakeDamage(_damageData);
+                }
+                
+                PoolableObjects.Instance.ReturnObject(_bulletData.type, gameObject);
             }
         }
     }
