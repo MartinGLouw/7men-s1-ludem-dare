@@ -153,7 +153,8 @@ public class EnemyHandling : MonoBehaviour
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     rb.AddForce(direction * meleeAttackForce);
-
+                    Debug.Log("Add Crowbar Force");
+                    
                     if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                     {
                         player.TakeDamage(damageData);
@@ -196,6 +197,7 @@ private IEnumerator FighterAttack()
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     rb.AddForce(direction * meleeAttackForce);
+                    Debug.Log("Add Fighter Force");
 
                     if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                     {
@@ -217,8 +219,8 @@ private IEnumerator SniperAttack()
     if (canShoot)
     {
         canShoot = false;
-        // GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        // bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 100;
+        GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
+        bullet.GetComponent<Rigidbody>().velocity = firePoint.up * 100;
         yield return new WaitForSeconds(5); // Wait for 5 seconds before the next attack
         canShoot = true;
     }
@@ -231,9 +233,9 @@ private IEnumerator ShotgunAttack()
         canShoot = false;
         for (int i = 0; i < 5; i++)
         {
-            // GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
             Vector3 spread = new Vector3((i - 2) * 1, 0, 0); // Adjust the 2 here to control the spread
-            Vector3 forward = firePoint.forward * 90;
+            Vector3 forward = firePoint.up * 90;
             bullet.GetComponent<Rigidbody>().velocity = spread + forward;
         }
         yield return new WaitForSeconds(5);
@@ -248,8 +250,8 @@ private IEnumerator SprayerAttack()
         canShoot = false;
         for (int i = 0; i < 8; i++)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 80;
+            GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Slow, firePoint.position);
+            bullet.GetComponent<Rigidbody>().velocity = firePoint.up * 80;
 
             yield return new WaitForSeconds(0.1f); // Adjust this to control the speed of the rapid fire
         }

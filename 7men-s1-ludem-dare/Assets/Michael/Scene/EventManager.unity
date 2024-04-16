@@ -532,6 +532,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &314700294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+  m_PrefabInstance: {fileID: 2076363165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &334218913
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +606,11 @@ Transform:
   - {fileID: 1343121932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &732484152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8674005677193731626, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+  m_PrefabInstance: {fileID: 2076363165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765584826
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlingerEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 370101179850381824, guid: 1d5a0faaeb97245408a367ff96fe0dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2351637689893498885, guid: 1d5a0faaeb97245408a367ff96fe0dcf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4843373
@@ -1048,8 +1062,8 @@ Transform:
   m_GameObject: {fileID: 827013504}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.38268322, z: -0, w: 0.9238797}
-  m_LocalPosition: {x: 32.7, y: -3.1281428, z: 26.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 15.45, y: -2.63, z: 12.11}
+  m_LocalScale: {x: 2.2586, y: 2.2586, z: 2.2586}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 334218914}
@@ -1663,6 +1677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SprayerEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 370101179850381824, guid: 31c6f320908dfd341b7a8a5a54a871c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2351637689893498885, guid: 31c6f320908dfd341b7a8a5a54a871c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.4259853
@@ -1736,6 +1754,10 @@ PrefabInstance:
     - target: {fileID: 370101179850381824, guid: 6ca321092cceaed4f83d9ce374be0825, type: 3}
       propertyPath: m_Name
       value: CrowbarEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 370101179850381824, guid: 6ca321092cceaed4f83d9ce374be0825, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2351637689893498885, guid: 6ca321092cceaed4f83d9ce374be0825, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2257,6 +2279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3565960584079273292, guid: 2eb6cbde273a069438b9182d81cc848a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2267,6 +2293,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1683103530839023965, guid: 2eb6cbde273a069438b9182d81cc848a, type: 3}
   m_PrefabInstance: {fileID: 1949388183}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1970932495 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 843930083468076176, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+  m_PrefabInstance: {fileID: 2076363165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2076363165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2275,6 +2306,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 704097977}
     m_Modifications:
+    - target: {fileID: -8298232803746392931, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8298232803746392931, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -5735482579452589745, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
       propertyPath: _player
       value: 
@@ -2290,6 +2329,10 @@ PrefabInstance:
     - target: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
       propertyPath: m_Name
       value: Brawler (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7621110468845708969, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2331,16 +2374,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5735482579452589745, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5842310808983657820, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2076363172}
   m_SourcePrefab: {fileID: 100100000, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
 --- !u!4 &2076363166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7621110468845708969, guid: 0f0a5fb7df0e8de4988ca34939540e0f, type: 3}
   m_PrefabInstance: {fileID: 2076363165}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2076363172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314700294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561a0149823e4e44a50c549246647a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxEnemyHealth: 50
+  attackingDistance: 5
+  cubeAttackSize: {x: 2, y: 1, z: 2}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  meleeAttackForce: 80
+  damageData:
+    type: 0
+    dmgAmount: 0
+  enemyAnim: {fileID: 1970932495}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 732484152}
+  playerRef: {fileID: 827013504}
 --- !u!1 &2085203961
 GameObject:
   m_ObjectHideFlags: 0

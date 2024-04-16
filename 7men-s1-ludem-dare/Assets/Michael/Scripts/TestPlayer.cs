@@ -21,7 +21,7 @@ public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
     
     public void TakeDamage(DamageData data)
     {
-        
+        health -= 10;
         Debug.Log("take damage");
     }
 }
