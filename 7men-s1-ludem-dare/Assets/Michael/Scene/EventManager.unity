@@ -2183,30 +2183,6 @@ PrefabInstance:
       propertyPath: enemyParent
       value: 
       objectReference: {fileID: 765584830}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseOneSpawnMinMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseOneSpawnMinMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseTwoSpawnMinMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseTwoSpawnMinMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseThreeSpawnMinMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441918814917541874, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
-      propertyPath: phaseThreeSpawnMinMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1013277346931734558, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: m_Name
       value: Managers

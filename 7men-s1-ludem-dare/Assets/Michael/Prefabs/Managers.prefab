@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b951d759ac361f49bc3e2790acabf60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetMusicVolume: 1
+  targetSFXVolume: 1
   sfxSource: {fileID: 158488789678028816}
   musicSource: {fileID: 6487253453382944249}
   sfxClips:
@@ -770,9 +772,9 @@ MonoBehaviour:
   - {fileID: 2622349266309872972}
   - {fileID: 6494853154564165917}
   player: {fileID: 0}
-  phaseOneSpawnMinMax: {x: 5, y: 7}
-  phaseTwoSpawnMinMax: {x: 9, y: 12}
-  phaseThreeSpawnMinMax: {x: 15, y: 18}
+  phaseOneSpawnMinMax: {x: 0, y: 0}
+  phaseTwoSpawnMinMax: {x: 0, y: 0}
+  phaseThreeSpawnMinMax: {x: 0, y: 0}
 --- !u!1 &6792027304298448238
 GameObject:
   m_ObjectHideFlags: 0
