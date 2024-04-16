@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Projectiles
 {
+    //test
     public string name;
 
     public GameObject prefab;

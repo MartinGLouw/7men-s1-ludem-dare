@@ -1,27 +1,30 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
+    public float targetMusicVolume = 1.0f; 
+    public float targetSFXVolume = 1.0f;  
 
     public AudioSource sfxSource;
     public AudioSource musicSource;
     public AudioClip[] sfxClips;
     public AudioClip[] musicClips;
-    private Queue<int> musicQueue = new Queue<int>();
+    private Queue<int> musicQueue = new Queue<int>(); 
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); 
         }
         else if (Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
     }
 
@@ -37,7 +40,7 @@ public class SoundManager : MonoBehaviour
     {
         if (index >= 0 && index < musicClips.Length)
         {
-            musicQueue.Enqueue(index);
+            musicQueue.Enqueue(index); 
         }
     }
 
@@ -48,49 +51,65 @@ public class SoundManager : MonoBehaviour
             yield return StartCoroutine(FadeOutMusic(fadeTime));
         }
 
-        musicSource.clip = musicClips[index];
+        musicSource.clip = musicClips[index]; 
         musicSource.Play();
-        yield return StartCoroutine(FadeInMusic(fadeTime));
+        yield return StartCoroutine(FadeInMusic(fadeTime)); 
     }
 
     private IEnumerator FadeOutMusic(float time)
     {
         float startVolume = musicSource.volume;
-
         while (musicSource.volume > 0)
         {
-            musicSource.volume -= startVolume * Time.deltaTime / time;
+            musicSource.volume -= startVolume * Time.deltaTime / time; 
             yield return null;
         }
-
         musicSource.Stop();
-        musicSource.volume = startVolume;
+        musicSource.volume = targetMusicVolume; 
     }
 
     private IEnumerator FadeInMusic(float time)
     {
-        
-        musicSource.volume = 0;
+        float initialVolume = 0;
+        musicSource.volume = initialVolume;
         musicSource.Play();
 
-        while (musicSource.volume < 1.0f)
+        while (musicSource.volume < targetMusicVolume)
         {
-            musicSource.volume += Time.deltaTime / time;
+            musicSource.volume += Time.deltaTime / time * targetMusicVolume; 
             yield return null;
         }
     }
 
     public void PlaySFX(int index, float volume = 1.0f)
     {
-        if (index < 0 || index >= sfxClips.Length) return;
-        sfxSource.PlayOneShot(sfxClips[index], volume);
+        if (index < 0 || index >= sfxClips.Length) return; 
+        sfxSource.PlayOneShot(sfxClips[index], targetSFXVolume * volume); 
+    }
+
+    public void ClearMusicQueue()
+    {
+        musicQueue.Clear();
+        musicSource.Stop(); 
+    }
+
+    public void PlayWinMusic()
+    {
+        ClearMusicQueue();
+        int winMusicIndex = Array.IndexOf(musicClips, 4);
+        if (winMusicIndex != -1)
+        {
+            QueueMusic(winMusicIndex);
+        }
+    }
+
+    public void PlayLoseMusic()
+    {
+        ClearMusicQueue();
+        int loseMusicIndex = Array.IndexOf(musicClips, 5); 
+        if (loseMusicIndex != -1)
+        {
+            QueueMusic(loseMusicIndex);
+        }
     }
 }
-
-
-//Use this in another script like so
-//SoundManager.Instance.PlaySFX(0, 1); Sfx volume too low? Increase the volume : SoundManager.Instance.PlaySFX(0, 2);
-
-//Queue music like so
-//SoundManager.Instance.QueueMusic(0);
-//SoundManager.Instance.QueueMusic(1); etc
