@@ -1581,6 +1581,10 @@ PrefabInstance:
       propertyPath: bossHealthUI
       value: 
       objectReference: {fileID: 1022768092}
+    - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+      propertyPath: phaseCheckingInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6842535079175297681, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: m_Center.y
       value: 2.33

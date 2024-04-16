@@ -41,6 +41,8 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     public Phase bossPhase;
     public BossStates bossState;
     public BossStateMachine currentState;
+    public BossStateMachine meleeState;
+    public BossStateMachine shootingState;
     
     [Header("Boss Settings")]
     public float bossHealth = 300;
@@ -89,6 +91,9 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
         _agent.isStopped = false;
         _shoot = false;
         _melee = false;
+
+        meleeState = availableStates.FrontKick;
+        shootingState = availableStates.BulletStorm;
         
         _bossCooldownTimer = bossCooldown;
     }
@@ -131,21 +136,41 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
             }
         }
         
+        _melee = _playerDistance < bossMeleeDistance;
+        _shoot = _playerDistance < bossShootingDistance && !_melee;
+
+        if (_flee) return;
+        
+        if (_shoot && !_melee)
+        {
+            currentState.ChangeState(shootingState);
+        }
+
+        if (_melee)
+        {
+            currentState.ChangeState(meleeState);
+        }
         
     }
 
     private void PhaseHandling()
     {
-        _melee = _playerDistance < bossMeleeDistance;
-        _shoot = _playerDistance < bossShootingDistance && !_melee;
-
         if (_melee) _shoot = false;
         
         switch (bossPhase)
         {
             case Phase.Phase1:
-                if (_shoot) { currentState.ChangeState(availableStates.BulletStorm); }
-                if (_melee) {currentState.ChangeState(availableStates.FrontKick);}
+                if (_shoot)
+                {
+                    currentState.ChangeState(availableStates.BulletStorm);
+                    shootingState = availableStates.BulletStorm;
+                }
+
+                if (_melee)
+                {
+                    currentState.ChangeState(availableStates.FrontKick);
+                    meleeState = availableStates.FrontKick;
+                }
                 
                 if(!_melee && !_shoot) currentState.ChangeState(availableStates.Idle);
                 break;
@@ -157,19 +182,72 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
                 }
                 
                 //Implement call to arms
-                if (_shoot) { currentState.ChangeState(availableStates.ShotgunStrike); }
-                if (_melee) { currentState.ChangeState(availableStates.HeavyStrike); }
+                if (_shoot)
+                {
+                    currentState = GetRandomState(new BossStateMachine[]
+                    {
+                        availableStates.ShotgunStrike,
+                        availableStates.BulletStorm,
+                    });
+                    shootingState = currentState;
+                    // currentState.ChangeState(availableStates.ShotgunStrike);
+                }
+
+                if (_melee)
+                {
+                    Debug.Log("randomise");
+                    currentState = GetRandomState(new BossStateMachine[]
+                    {
+                        availableStates.FrontKick,
+                        availableStates.HeavyStrike,
+                    });
+                    meleeState = currentState;
+                }
                 
                 if(!_melee && !_shoot) currentState.ChangeState(availableStates.Idle);
                 break;
             case Phase.Phase3:
-                if(_melee) currentState.ChangeState(availableStates.MegaStomp);
+                if (_shoot)
+                {
+                    currentState = GetRandomState(new BossStateMachine[]
+                    {
+                        //availableStates.ShotgunStrike,
+                        //availableStates.BulletStorm,
+                        availableStates.MegaStomp
+                    });
+                    shootingState = currentState;
+                }
+
+                if (_melee)
+                {
+                    currentState = GetRandomState(new BossStateMachine[]
+                    {
+                        //availableStates.FrontKick,
+                        availableStates.MegaStomp,
+                       // availableStates.HeavyStrike
+                    });
+
+                    meleeState = currentState;
+                    //currentState.ChangeState(availableStates.MegaStomp);
+                }
                 else
                 {
                     currentState.ChangeState(availableStates.Idle);
                 }
                 break;
         }
+        
+        currentState.OnStateEnter();
+    }
+
+    private BossStateMachine GetRandomState(BossStateMachine[] bossStates)
+    {
+        BossStateMachine randState = availableStates.Idle;
+
+        int randomTier = Random.Range(0, bossStates.Length);
+        randState = bossStates[randomTier];
+        
+        return randState;
     }
 
     private void HandleFlee()
@@ -196,6 +274,7 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
         
         if (bossHealth <= 100)
         {
+            _agent.speed = 5f;
             bossPhase = Phase.Phase3;
             
             //bossMeleeDistance = bossShootingDistance;

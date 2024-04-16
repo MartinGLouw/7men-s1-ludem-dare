@@ -33,6 +33,23 @@ namespace Managers.BossStates
             Debug.Log("Stomping");
             Physics.OverlapSphereNonAlloc(transform.position, 10f, player, layer);
 
+            int numberOfProjectiles = 12; 
+            float initialRadius = 2.0f; 
+            float expandSpeed = 10f; 
+
+            for (int j = 0; j < numberOfProjectiles; j++)
+            {
+                float angle = j * Mathf.PI * 2 / numberOfProjectiles;
+                Vector3 ringOffset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * initialRadius;
+                Vector3 projectilePosition = transform.position + ringOffset;
+                GameObject projectile = PoolableObjects.Instance.GetObject(BulletType.Fast, transform.position);
+                projectile.transform.position += new Vector3(0, 2, 0);
+                
+                Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+                Vector3 projectileDirection = (projectilePosition - transform.position).normalized;
+                projectileRb.velocity = projectileDirection * expandSpeed;
+            }
+            
             foreach (var hit in player)
             {
                 if (hit == null) return;
@@ -40,7 +57,11 @@ namespace Managers.BossStates
                 {
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
-                    rb.AddForce(direction * meleeAttackForce);
+                    float distance = Vector3.Distance(hit.transform.position, transform.position);
+                    if (distance < 5)
+                    {
+                        rb.AddForce(direction * meleeAttackForce);
+                    }
                     
                     if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                     {
@@ -48,17 +69,9 @@ namespace Managers.BossStates
                     }
                 }
             }
-            
-            
-            int numberOfProjectiles = 6; 
-            float radius = 2.0f; 
 
-            for (int j = 0; j < numberOfProjectiles; j++)
-            {
-                float angle = j * Mathf.PI * 2 / numberOfProjectiles;
-                Vector3 ringOffset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
-                PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position + ringOffset, BulletType.Slow, gunSP);
-            }
+           
+
         }
         
     }

@@ -42,7 +42,11 @@ namespace Managers.BossStates
                 {
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
-                    rb.AddForce(direction * meleeAttackForce);
+                    float distance = Vector3.Distance(hit.transform.position, transform.position);
+                    if (distance < 5)
+                    {
+                        rb.AddForce(direction * meleeAttackForce);
+                    }
                     
                     if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                     {

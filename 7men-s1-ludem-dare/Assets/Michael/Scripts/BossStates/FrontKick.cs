@@ -32,6 +32,7 @@ namespace Managers.BossStates
 
         public void FrontKickLogic()
         {
+            GameObject test = null;
             Debug.Log("Kicking");
             
             Physics.OverlapBoxNonAlloc(frontAttackPosition.position, cubeSize, player, Quaternion.identity, layer);
@@ -42,9 +43,14 @@ namespace Managers.BossStates
                 if (hit == null) return;
                 if (hit.CompareTag("Player"))
                 {
+                    test = hit.gameObject;
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
-                    rb.AddForce(direction * meleeAttackForce);
+                    float distance = Vector3.Distance(hit.transform.position, transform.position);
+                    if (distance < 5)
+                    {
+                        rb.AddForce(direction * meleeAttackForce);
+                    }
                     
                     if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                     {
@@ -53,6 +59,7 @@ namespace Managers.BossStates
                 }
                 //if(hit.TryGetComponent<IDamageable<DamageData>>())
             }
+            
         }
         
         void OnDrawGizmos()
