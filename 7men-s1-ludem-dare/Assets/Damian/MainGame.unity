@@ -4701,7 +4701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ExitToDesktop
         m_Mode: 1
@@ -8357,7 +8357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -14947,6 +14947,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d958250acf1c9045944bedc818f35ed, type: 3}
+--- !u!114 &667167673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4378979590191274388, guid: 9d958250acf1c9045944bedc818f35ed, type: 3}
+  m_PrefabInstance: {fileID: 667167671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc84bf279b843947a23150a984d5a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &668344113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34017,7 +34028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -38795,7 +38806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -40999,7 +41010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ExitToDesktop
         m_Mode: 1
@@ -45584,7 +45595,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 667167673}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
