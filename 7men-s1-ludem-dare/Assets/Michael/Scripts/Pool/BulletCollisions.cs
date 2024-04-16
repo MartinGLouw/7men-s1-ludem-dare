@@ -17,8 +17,8 @@ namespace Managers.Pool
 
         private void OnEnable()
         {
-            _damageData = GetComponent<DamageData>();
             _bulletData = GetComponent<Bullet>();
+            _damageData = _bulletData.damageData;
         }
 
         private void OnTriggerEnter(Collider other)

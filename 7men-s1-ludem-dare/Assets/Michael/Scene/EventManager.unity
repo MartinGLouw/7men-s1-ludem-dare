@@ -1394,6 +1394,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885252838}
   m_CullTransparentMesh: 1
+--- !u!1 &905407012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 815030638064518930, guid: dfb5a5695a8fb9f4e8a66a38a9598452, type: 3}
+  m_PrefabInstance: {fileID: 692214628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &905407017 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 692764245990960705, guid: dfb5a5695a8fb9f4e8a66a38a9598452, type: 3}
+  m_PrefabInstance: {fileID: 692214628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &946804418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,7 +2381,7 @@ PrefabInstance:
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 827013504}
+      objectReference: {fileID: 905407012}
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: bossHealthUI
       value: 
@@ -2754,7 +2764,7 @@ PrefabInstance:
     - target: {fileID: 72741806492597482, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 827013508}
+      objectReference: {fileID: 905407017}
     - target: {fileID: 72741806492597482, guid: 1e6a66c664204db4e82b4443f0be8b35, type: 3}
       propertyPath: pbImage
       value: 

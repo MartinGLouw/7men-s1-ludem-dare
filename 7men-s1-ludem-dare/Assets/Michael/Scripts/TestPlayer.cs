@@ -25,8 +25,3 @@ public class TestPlayer : MonoBehaviour, IDamageable<DamageData>
         Debug.Log("take damage");
     }
 }
-public class DamageData : MonoBehaviour
-{
-    public DamageType type;
-    public int dmgAmount;
-}
