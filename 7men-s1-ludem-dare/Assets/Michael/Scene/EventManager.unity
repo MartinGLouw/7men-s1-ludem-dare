@@ -1140,7 +1140,7 @@ Transform:
   m_GameObject: {fileID: 1213251462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.464, z: -2.59}
+  m_LocalPosition: {x: -0.15, y: -0.464, z: -6.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1278,7 +1278,7 @@ Transform:
   m_GameObject: {fileID: 1271811787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.428, z: 0}
+  m_LocalPosition: {x: 0, y: 0.428, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1593,7 +1593,8 @@ PrefabInstance:
       propertyPath: meleeAttackForce
       value: 400
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6832900767373618760, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

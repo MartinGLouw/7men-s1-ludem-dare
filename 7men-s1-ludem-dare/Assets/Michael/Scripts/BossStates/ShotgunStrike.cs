@@ -36,7 +36,7 @@ namespace Managers.BossStates
                 float angle = j * Mathf.PI * 2 / numberOfProjectiles;
                 Vector3 ringOffset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
                 Vector3 projectilePosition = gunSP.position + gunSP.rotation * ringOffset;
-                PooledProjectileSpawner.Instance.SpawnProjectile(projectilePosition + ringOffset, BulletType.Slow, gunSP);
+                PooledProjectileSpawner.Instance.SpawnProjectile(projectilePosition + ringOffset, BulletType.Normal, gunSP);
             }
             
         }
