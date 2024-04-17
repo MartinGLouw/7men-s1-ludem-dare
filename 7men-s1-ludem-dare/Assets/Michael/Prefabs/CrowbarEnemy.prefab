@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7707851206277442074}
   - component: {fileID: 1614898967654617928}
   - component: {fileID: -1286502567129891579}
+  - component: {fileID: 1035570077968627788}
   m_Layer: 0
   m_Name: CrowbarEnemy
   m_TagString: Enemy
@@ -123,6 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &1035570077968627788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf189ee2cde01a4f8240d8c2822d087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3375804077665060767
 GameObject:
   m_ObjectHideFlags: 0

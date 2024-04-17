@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8667015765126387787}
   - component: {fileID: 86731148198546877}
   - component: {fileID: -815162648542433132}
+  - component: {fileID: -2778189846317377158}
   m_Layer: 0
   m_Name: Brawler
   m_TagString: Enemy
@@ -175,6 +176,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &-2778189846317377158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842310808983657820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf189ee2cde01a4f8240d8c2822d087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7228162691681787206
 GameObject:
   m_ObjectHideFlags: 0

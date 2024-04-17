@@ -36,7 +36,8 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     public AllBossStates availableStates;
     public Transform gun;
     public BossHealthUI bossHealthUI;
-    
+    private DamageFlash damageFlash;
+
     [Header("Boss State")]
     public Phase bossPhase;
     public BossStates bossState;
@@ -84,6 +85,8 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
 
     private void Start()
     {
+        damageFlash = GetComponent<DamageFlash>();
+
         _eventManager = EventManager.Instance;
         _agent = GetComponent<NavMeshAgent>();
         _bossRb = GetComponent<Rigidbody>();
@@ -144,6 +147,7 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
             _bossCooldownTimer -= Time.deltaTime;
             if (_bossCooldownTimer <= 0)
             {
+                SoundManager.Instance.PlaySFX(16,3);
                 _flee = false;
                 _bossCooldownTimer = bossCooldown;
                 currentState.ChangeState(availableStates.Idle);
@@ -153,7 +157,8 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
         _melee = _playerDistance < bossMeleeDistance;
         _shoot = _playerDistance < bossShootingDistance && !_melee;
 
-        if (_flee) return;
+        if (_flee) {
+            return; }
         
         if (_shoot && !_melee)
         {
@@ -209,7 +214,6 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
 
                 if (_melee)
                 {
-                    Debug.Log("randomise");
                     currentState = GetRandomState(new BossStateMachine[]
                     {
                         availableStates.FrontKick,
@@ -267,7 +271,7 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     private void HandleFlee()
     {
         if (_bossFled) return;
-        
+        SoundManager.Instance.PlaySFX(16,3);
         _flee = true;
         _eventManager.EnemyEvents.FireOnSpawnEnemies(2);
         _bossFled = true;
@@ -275,6 +279,9 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
 
     public void TakeDamage(DamageData data)
     {
+        damageFlash.DamageEffect();
+        SoundManager.Instance.PlaySFX(13);
+
         bossHealth -= data.dmgAmount;
         bossHealthUI.UpdateBossHealth(bossHealth / 300);
 
@@ -310,9 +317,11 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
 
     private void StopActions()
     {
+        SoundManager.Instance.PlaySFX(20);
         StopAllAnimations();
         
         _dead = true;
         _agent.isStopped = true;
+        this.gameObject.SetActive(false);
     }
 }

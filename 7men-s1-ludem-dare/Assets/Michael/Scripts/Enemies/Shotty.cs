@@ -13,6 +13,7 @@ namespace Managers.Enemies
         {
             if (canShoot)
             {
+                SoundManager.Instance.PlaySFX(8, 0.5f);
                 canShoot = false;
                 enemyAnim.SetTrigger("OnAim");
                 enemyAnim.SetBool("IsAttacking", true);

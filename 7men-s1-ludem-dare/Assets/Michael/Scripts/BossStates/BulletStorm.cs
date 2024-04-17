@@ -32,7 +32,9 @@ namespace Managers.BossStates
 
         public void BossShoot()
         {
+            SoundManager.Instance.PlaySFX(8,0.5f);
             PooledProjectileSpawner.Instance.SpawnProjectile(gunSP.position, BulletType.Fast, gunSP);
+
         }
     }
 }

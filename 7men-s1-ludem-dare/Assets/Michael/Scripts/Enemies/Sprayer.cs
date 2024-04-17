@@ -16,6 +16,7 @@ namespace Managers.Enemies
                 enemyAnim.SetBool("IsAttacking", true);
                 for (int i = 0; i < 8; i++)
                 {
+                    SoundManager.Instance.PlaySFX(8, 0.2f);
                     GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Normal, firePoint.position);
                     bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 35;
 

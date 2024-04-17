@@ -364,7 +364,6 @@ private void CrowbarEnemy()
 
 private void SprayerEnemy()
 {
-    Debug.Log("SprayerEnemy behavior");
     float attackDistance = 40.0f; // The distance at which the enemy will stop and attack
     float retreatDistance = 5.0f; // The distance at which the enemy will start retreating
     Vector3 targetPosition = _player.transform.position;

@@ -35,7 +35,7 @@ namespace Managers.BossStates
         public void FrontKickLogic()
         {
             GameObject test = null;
-            Debug.Log("Kicking");
+            SoundManager.Instance.PlaySFX(23, 2);
             
             Physics.OverlapBoxNonAlloc(frontAttackPosition.position, cubeSize, player, Quaternion.identity, layer);
             
@@ -54,6 +54,7 @@ namespace Managers.BossStates
                         
                         if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                         {
+
                             player.TakeDamage(damageData);
                         }
                     }

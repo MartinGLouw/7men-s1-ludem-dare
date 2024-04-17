@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4295716095212612242}
   - component: {fileID: 6096169279589436198}
   - component: {fileID: -5322727222866449832}
+  - component: {fileID: 7012197731635844302}
   m_Layer: 0
   m_Name: SprayerEnemy
   m_TagString: Enemy
@@ -123,6 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &7012197731635844302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf189ee2cde01a4f8240d8c2822d087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2755254193479625942
 GameObject:
   m_ObjectHideFlags: 0

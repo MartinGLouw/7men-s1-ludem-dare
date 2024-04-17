@@ -40,7 +40,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //SoundManager.Instance.PlaySFX(0);
 
             if (isPaused)
             {
@@ -55,7 +54,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        //SoundManager.Instance.PlaySFX(0);
+        SoundManager.Instance.PlaySFX(25);
         _menuContainer.RemoveFromClassList("hide");
         _settingsContainer.AddToClassList("hide");
         pauseMenuUI.SetActive(false);
@@ -116,6 +115,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        SoundManager.Instance.PlaySFX(24);
         pauseMenuUI.SetActive(true);
         SetupUI();
         

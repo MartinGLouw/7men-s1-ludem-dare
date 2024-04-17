@@ -18,7 +18,7 @@ namespace Managers.Enemies
                 // Play attack animation
                 enemyAnim.SetTrigger("OnAttack");
                 Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
-
+                SoundManager.Instance.PlaySFX(6, 0.5f);
                 foreach (var hit in _playerCollider)
                 {
                     if (hit == null) continue;

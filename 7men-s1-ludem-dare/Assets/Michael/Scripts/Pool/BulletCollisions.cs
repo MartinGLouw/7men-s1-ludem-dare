@@ -24,7 +24,6 @@ namespace Managers.Pool
 
         private void OnTriggerEnter(Collider other)
         {
-        
             if (other.gameObject.tag == "Player" && gameObject.tag == "EnemyProjectile")
             {
                 if (other.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> damageable))

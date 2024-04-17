@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
@@ -60,6 +61,9 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
     private void OnEnable()
     {
+        EventManager.Instance.GameManagerEvents.OnEndGame += StopActions;
+        EventManager.Instance.GameManagerEvents.OnLoseGame += StopActions;
+
         walk = inputActions.Player.Walk;
         walk.Enable();
 
@@ -72,8 +76,16 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         fire.performed += Fire;
     }
 
+    private void StopActions()
+    {
+        this.enabled = false;
+    }
+
     private void OnDisable()
     {
+        EventManager.Instance.GameManagerEvents.OnEndGame -= StopActions;
+        EventManager.Instance.GameManagerEvents.OnLoseGame -= StopActions;
+
         walk.Disable();
 
         dash.Disable();
@@ -153,7 +165,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
     private IEnumerator performDash()
     {
-
+        SoundManager.Instance.PlaySFX(12, 1);
         isDashing = true;
 
         player.GetComponent<Collider>().enabled = false;
@@ -190,6 +202,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
     private void Fire(InputAction.CallbackContext context)
     {
+        
         if (!isDashing && canInvoke)
         {
             StartCoroutine(Shoot());
@@ -201,7 +214,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         canInvoke = false;
 
         playerAnimator.SetTrigger("Throw");
-
+        SoundManager.Instance.PlaySFX(4, 0.5f);
         //projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
         PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
         
@@ -224,6 +237,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
     public void TakeDamage(DamageData value)
     {
+        SoundManager.Instance.PlaySFX(9, 0.5f);
         hp -= value.dmgAmount;
         
         health.UpdateHealthBar(hp, maxHP);

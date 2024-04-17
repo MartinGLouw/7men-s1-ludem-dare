@@ -21,6 +21,7 @@ namespace Managers.Enemies
                 canShoot = false;
                 enemyAnim.SetTrigger("OnAim");
                 enemyAnim.SetBool("IsAttacking", true);
+                SoundManager.Instance.PlaySFX(8, 0.5f);
                 GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Fast, firePoint.position);
                 bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 20;
                 

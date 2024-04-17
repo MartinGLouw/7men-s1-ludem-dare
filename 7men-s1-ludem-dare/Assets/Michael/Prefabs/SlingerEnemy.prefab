@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 27925809612455542}
   - component: {fileID: 3497452528469936639}
   - component: {fileID: -3659382698613188550}
+  - component: {fileID: 6467263570201463384}
   m_Layer: 0
   m_Name: SlingerEnemy
   m_TagString: Enemy
@@ -154,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &6467263570201463384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370101179850381824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf189ee2cde01a4f8240d8c2822d087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1784854208030765656
 GameObject:
   m_ObjectHideFlags: 0

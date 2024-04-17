@@ -27,6 +27,7 @@ namespace Managers.BossStates
 
         public void ShotgunStrikeAnimEvent()
         {
+            SoundManager.Instance.PlaySFX(7,0.5f);
             int numberOfProjectiles = 5; 
             float radius = 2.0f; 
 

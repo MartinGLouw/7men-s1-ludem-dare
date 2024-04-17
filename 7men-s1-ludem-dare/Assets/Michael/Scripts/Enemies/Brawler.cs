@@ -18,7 +18,7 @@ namespace Managers.Enemies
                 // Play attack animation
                 enemyAnim.SetTrigger("OnAttack");
                 Physics.OverlapBoxNonAlloc(firePoint.position, cubeAttackSize, _playerCollider, Quaternion.identity, detectionLayer);
-                Debug.Log("Brawler");
+                SoundManager.Instance.PlaySFX(6, 0.5f);
             
                 foreach (var hit in _playerCollider)
                 {
@@ -35,7 +35,9 @@ namespace Managers.Enemies
                 
                             if (hit.TryGetComponent<IDamageable<DamageData>>(out IDamageable<DamageData> player))
                             {
+
                                 player.TakeDamage(damageData);
+
                             }
                         }
                     }

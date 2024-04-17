@@ -32,7 +32,8 @@ namespace Managers.BossStates
         public void MegaStompEvent()
         {
             EventManager.Instance.EnemyEvents.FireBossShockwave();
-            
+            SoundManager.Instance.PlaySFX(10, 2);
+
             Physics.OverlapSphereNonAlloc(transform.position, 10f, player, layer);
 
             int numberOfProjectiles = 12; 
