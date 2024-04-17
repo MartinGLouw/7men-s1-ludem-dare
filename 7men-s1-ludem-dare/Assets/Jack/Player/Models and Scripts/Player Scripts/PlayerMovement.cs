@@ -12,7 +12,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 {
     public GameObject player;
 
-    Camera mainCam;
+    public Camera mainCam;
 
     public NavMeshAgent agent;
     public Transform bulletSP;
@@ -88,7 +88,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
         playerParticles.GetComponent<ParticleSystem>().Stop();
 
-        mainCam = Camera.main;
+        //mainCam = Camera.main;
         //hp = maxHP;
         health.UpdateHealthBar(hp, maxHP);
     }
@@ -201,7 +201,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         playerAnimator.SetTrigger("Throw");
 
         //projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
-        PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
+        //PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
         
         
         yield return new WaitForSeconds(0.2f);
