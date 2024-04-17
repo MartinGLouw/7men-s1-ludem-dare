@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Managers.BossStates
 {
@@ -29,6 +30,8 @@ namespace Managers.BossStates
 
         private IEnumerator LerpPosition(Vector3 targetPosition, float duration, bool animate)
         {
+            NavMeshAgent agent = bossTransfrom.GetComponent<NavMeshAgent>();
+            agent.enabled = false;
             float time = 0;
             Vector3 startPosition = transform.position;
 
@@ -39,7 +42,8 @@ namespace Managers.BossStates
                 yield return null;
             }
 
-            transform.position = targetPosition;  // Ensure the position is set exactly at the end
+            transform.position = targetPosition;
+            agent.enabled = true;
 
             if (!animate)
             {

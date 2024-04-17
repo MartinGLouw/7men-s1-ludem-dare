@@ -17151,7 +17151,7 @@ Transform:
   m_GameObject: {fileID: 698624737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 757.59, y: 60.420807, z: 185.7}
+  m_LocalPosition: {x: 0, y: 60.420807, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43829,6 +43829,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1204993448}
+    - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
+      propertyPath: bossCooldown
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6738590418118880198, guid: 818c8aa9fe8f0854f8c1827761e3eecb, type: 3}
       propertyPath: bossHealthUI
       value: 

@@ -113,12 +113,16 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     {
         if (_dead) return;
         
-        _agent.SetDestination(player.transform.position);
+        if(_agent.isActiveAndEnabled)
+        {
+            _agent.SetDestination(player.transform.position);
+        }
         
         //Distance
         _playerDistance = Vector3.Distance(transform.position, player.transform.position);
 
         Vector3 direction = player.transform.position - gun.position;
+        transform.forward = direction;
         gun.up = direction;
         
         //Anim
@@ -135,13 +139,14 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
         //Boss Cooldown
         if (_flee)
         {
+            _shoot = false;
+            _melee = false;
             _bossCooldownTimer -= Time.deltaTime;
             if (_bossCooldownTimer <= 0)
             {
                 _flee = false;
                 _bossCooldownTimer = bossCooldown;
                 currentState.ChangeState(availableStates.Idle);
-                _agent.isStopped = false;
             }
         }
         
@@ -262,8 +267,7 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     private void HandleFlee()
     {
         if (_bossFled) return;
-
-        _agent.isStopped = true;
+        
         _flee = true;
         _eventManager.EnemyEvents.FireOnSpawnEnemies(2);
         _bossFled = true;

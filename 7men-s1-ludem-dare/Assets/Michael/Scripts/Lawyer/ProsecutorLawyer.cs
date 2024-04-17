@@ -57,6 +57,8 @@ namespace Managers.Lawyer
         
         void Shoot()
         {
+            if (enemies.Count == 0) return;
+            
             Vector3 bulletDirection = AimInClosestEnemyDirection();
             PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSpawnPos.position, BulletType.Player, -bulletDirection.normalized);
             //ProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSpawnPos.position, -bulletDirection);
