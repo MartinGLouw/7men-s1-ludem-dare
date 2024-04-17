@@ -11,7 +11,6 @@ using UnityEngine.InputSystem;
 public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 {
     public GameObject player;
-    public GameData data;
 
     Camera mainCam;
 
@@ -30,9 +29,11 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
     public float speed;
 
     bool isDashing = false;
+    bool dashisCooldown = false;
 
     public float dashSpeed;
     public float dashDuration;
+    public float dashTime;
 
     public ProjectileSpawner projectileSpawner;
 
@@ -45,6 +46,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
     bool isDead = false;
 
     public PlayerHealth health;
+
+    public GameObject dashCooldown;
 
     public Animator playerAnimator;
 
@@ -81,6 +84,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
     // Start is called before the first frame update
     void Start()
     {
+        dashCooldown.gameObject.SetActive(false);
+
         playerParticles.GetComponent<ParticleSystem>().Stop();
 
         mainCam = Camera.main;
@@ -95,7 +100,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
         LegAnimations();
 
-        moveDirecton = walk.ReadValue<Vector2>();   
+        moveDirecton = walk.ReadValue<Vector2>();
+
     }
 
     void FixedUpdate()
@@ -130,12 +136,17 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
 
     void MoveCamera()
     {
-        //mainCam.transform.position = new Vector3(player.transform.position.x + CameraPos.x, player.transform.position.y + CameraPos.y, player.transform.position.z + CameraPos.z);
+        mainCam.transform.position = new Vector3(player.transform.position.x + CameraPos.x, player.transform.position.y + CameraPos.y, player.transform.position.z + CameraPos.z);
     }
 
     private void Dash(InputAction.CallbackContext context)
     {
-        StartCoroutine(performDash());
+        if (!dashisCooldown)
+        {
+            StartCoroutine(dashCoolDown());
+            StartCoroutine(performDash());
+        }
+
     }
 
     private IEnumerator performDash()
@@ -156,6 +167,23 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         player.GetComponent<Collider>().enabled = true;
 
         isDashing = false;
+    }
+
+    private IEnumerator dashCoolDown()
+    {
+        dashisCooldown = true;
+
+        dashCooldown.gameObject.SetActive(true);
+
+
+
+        dashCooldown.GetComponent<DashCooldown>().UpdateDash(dashTime);
+
+        yield return new WaitForSeconds(dashTime);
+
+        dashisCooldown = false;
+
+        dashCooldown.gameObject.SetActive(false);
     }
 
     private void Fire(InputAction.CallbackContext context)
