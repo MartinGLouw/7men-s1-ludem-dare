@@ -121,8 +121,6 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
         Vector3 direction = player.transform.position - gun.position;
         gun.up = direction;
         
-        //Implement Phase
-        
         //Anim
         bossAnim.SetFloat("Speed", _bossRb.velocity.sqrMagnitude);
 
