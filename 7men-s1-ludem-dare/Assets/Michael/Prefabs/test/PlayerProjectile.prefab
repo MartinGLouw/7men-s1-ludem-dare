@@ -183,7 +183,7 @@ MonoBehaviour:
   type: 0
   damageData:
     type: 0
-    dmgAmount: 10
+    dmgAmount: 5
 --- !u!114 &5301470579629352908
 MonoBehaviour:
   m_ObjectHideFlags: 0
