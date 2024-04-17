@@ -13,7 +13,7 @@ namespace Managers.BossStates
         MegaStomp,
         Fleeing
     }
-    
+
     public abstract class BossStateMachine : MonoBehaviour
     {
         public BossStates BossState;
@@ -23,6 +23,18 @@ namespace Managers.BossStates
         protected BossStateMachine runningState;
         protected Animator bossAnimator;
         protected Transform gunSP;
+
+        private void OnEnable()
+        {
+            EventManager.Instance.GameManagerEvents.OnEndGame += StopActions;
+            EventManager.Instance.GameManagerEvents.OnLoseGame += StopActions;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.Instance.GameManagerEvents.OnEndGame -= StopActions;
+            EventManager.Instance.GameManagerEvents.OnLoseGame -= StopActions;
+        }
 
         public virtual void OnStateEnter()
         {
@@ -46,6 +58,11 @@ namespace Managers.BossStates
             bossState.OnStateEnter();
 
             runningState = bossState;
+        }
+
+        private void StopActions()
+        {
+            this.enabled = false;
         }
         
     }

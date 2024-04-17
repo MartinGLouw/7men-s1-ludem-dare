@@ -36,7 +36,18 @@ namespace Managers.Enemies
         // Current health for this specific enemy
         protected int currentHealth;
         protected NavMeshAgent navMeshAgent;
-        
+
+
+        private void OnEnable()
+        {
+            EventManager.Instance.GameManagerEvents.OnEndGame += StopActions;
+            EventManager.Instance.GameManagerEvents.OnLoseGame += StopActions;
+        }
+        private void OnDisable()
+        {
+            EventManager.Instance.GameManagerEvents.OnEndGame -= StopActions;
+            EventManager.Instance.GameManagerEvents.OnLoseGame -= StopActions;
+        }
 
         public virtual void Start()
         {
@@ -90,5 +101,13 @@ namespace Managers.Enemies
 
         public abstract IEnumerator EnemyAttackBehavior();
         
+        private void StopActions()
+        {
+            navMeshAgent.isStopped = true;
+            enemyAnim.SetBool("IsWalking", false);
+            enemyAnim.SetBool("IsAttacking", false);
+            this.enabled = false;
+        }
+
     }
 }

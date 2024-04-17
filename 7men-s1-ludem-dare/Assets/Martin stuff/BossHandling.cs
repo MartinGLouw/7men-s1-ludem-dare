@@ -71,6 +71,17 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
     private bool _shoot = false;
     private bool _dead = false;
 
+    private void OnEnable()
+    {
+        EventManager.Instance.GameManagerEvents.OnEndGame += StopActions;
+        EventManager.Instance.GameManagerEvents.OnLoseGame += StopActions;
+    }
+    private void OnDisable()
+    {
+        EventManager.Instance.GameManagerEvents.OnEndGame -= StopActions;
+        EventManager.Instance.GameManagerEvents.OnLoseGame -= StopActions;
+    }
+
     private void Start()
     {
         _eventManager = EventManager.Instance;
@@ -286,5 +297,20 @@ public class BossHandling : MonoBehaviour, IDamageable<DamageData>
             _eventManager.GameManagerEvents.FireEndGameEvent();
             bossAnim.SetTrigger("OnDeath");
         }
+    }
+
+
+    private void StopAllAnimations()
+    {
+        bossAnim.StopPlayback();  
+        bossAnim.Rebind();        
+    }
+
+    private void StopActions()
+    {
+        StopAllAnimations();
+        
+        _dead = true;
+        _agent.isStopped = true;
     }
 }
