@@ -136,7 +136,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         Ray mousePos = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         //if there was a ray cast the player will look at it
-        if (Physics.Raycast(mousePos, out hit, 100f))
+        if (Physics.Raycast(mousePos, out hit, 100f, layer))
         {
             player.transform.LookAt(new Vector3(hit.point.x, 0f, hit.point.z));
         }
