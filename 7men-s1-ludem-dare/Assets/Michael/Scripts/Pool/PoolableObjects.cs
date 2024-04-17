@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PoolableObjects : Singleton<PoolableObjects>
 {
@@ -9,92 +10,76 @@ public class PoolableObjects : Singleton<PoolableObjects>
     [System.Serializable]
     public class NewPoolableObject
     {
-        public BulletType type;
-        public GameObject Prefab;
+        public BulletType type; 
+        public GameObject prefab;
         public int sizeOfPool;
         public Transform parent;
     }
     
     public NewPoolableObject[] ObjectPools;
 
-    public Dictionary<BulletType, List<GameObject>> pooledObjects;
+    private Dictionary<BulletType, Queue<GameObject>> pooledObjects;
 
     private void Awake()
     {
-        pooledObjects = new Dictionary<BulletType, List<GameObject>>();
-        
-        GameObject objectToPool;
+        pooledObjects = new Dictionary<BulletType, Queue<GameObject>>();
 
-        foreach(NewPoolableObject pool in ObjectPools)
+        foreach (NewPoolableObject pool in ObjectPools)
         {
-            List<GameObject> gameObjects = new List<GameObject>();
+            Queue<GameObject> objectQueue = new Queue<GameObject>();
             for (int i = 0; i < pool.sizeOfPool; i++)
             {
-                objectToPool = Instantiate(pool.Prefab, pool.parent);
-                objectToPool.SetActive(false);
-                gameObjects.Add(objectToPool);
+                GameObject newObj = Instantiate(pool.prefab, pool.parent);
+                newObj.SetActive(false);
+                objectQueue.Enqueue(newObj);
             }
-            pooledObjects.Add(pool.type, gameObjects);
+            pooledObjects.Add(pool.type, objectQueue);
         }
     }
 
-    public void SpawnFromPool(BulletType type, Vector3 position, Quaternion rotation)
+    public GameObject GetObject(BulletType type, Vector3 position)
     {
-        if(!pooledObjects.ContainsKey(type))
+        if (!pooledObjects.ContainsKey(type))
         {
-            Debug.LogWarning($"Pool with index {type} does not exist!");
-            return;
-        }
-
-        foreach(GameObject obj in pooledObjects[type])
-        {
-            GameObject objectToSpawn = obj;
-            objectToSpawn.SetActive(true);
-            objectToSpawn.transform.position = position;
-            objectToSpawn.transform.rotation = rotation;
-
-        }
-    }
-
-    public GameObject GetObject(BulletType poolIndex, Vector3 pos)
-    {
-        //Debug.Log("New pool index" + poolIndex);
-        int size = pooledObjects[poolIndex].Count;
-        //Debug.Log("New name: " + pooledObjects[0][size - 1].name);
-        
-
-        //GameObject obj = pooledObjects[poolIndex][size - 1];
-        GameObject obj = pooledObjects[poolIndex][0];   
-
-        if (obj != null)
-        {
-            pooledObjects[poolIndex].Remove(obj);
-            obj.transform.position = pos;
-            obj.SetActive(true); 
-            IPoolObject pool = obj.GetComponent<IPoolObject>();
-            if(pool != null)
-            {
-                pool.Initialize();
-            }
-            return obj;
-        }
-        else
-        {
+            Debug.LogWarning($"No pool exists for type: {type}");
             return null;
         }
+
+        Queue<GameObject> objectQueue = pooledObjects[type];
+        
+        if (objectQueue.Count == 0)
+        {
+            NewPoolableObject pool = System.Array.Find(ObjectPools, p => p.type == type);
+            if (pool != null)
+            {
+                GameObject newObj = Instantiate(pool.prefab, pool.parent);
+                newObj.SetActive(true);
+                newObj.transform.position = position;
+                IPoolObject poolScript = newObj.GetComponent<IPoolObject>();
+                poolScript?.Initialize();
+                return newObj;
+            }
+        }
+
+        GameObject obj = objectQueue.Dequeue();
+        obj.SetActive(true);
+        obj.transform.position = position;
+        IPoolObject poolObj = obj.GetComponent<IPoolObject>();
+        poolObj?.Initialize();
+        
+        return obj;
     }
 
-    public void ReturnObject(BulletType poolIndex, GameObject obj)
+    public void ReturnObject(BulletType type, GameObject obj)
     {
-        if (obj == null)
+        if (!pooledObjects.ContainsKey(type))
         {
-            Debug.Log("Object returning not working for index: " + poolIndex);
+            Debug.LogError("Returned object has no matching pool.");
             return;
-            
         }
 
         obj.SetActive(false);
-        pooledObjects[poolIndex].Add(obj);
+        pooledObjects[type].Enqueue(obj);
     }
 
 }

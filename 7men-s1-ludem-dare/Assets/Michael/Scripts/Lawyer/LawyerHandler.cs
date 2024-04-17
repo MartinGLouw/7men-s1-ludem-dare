@@ -284,5 +284,10 @@ namespace Managers.Lawyer
             if (_publicDefenceInUse || _publicDefenceCooling) pbImage.color = Color.red;
             else pbImage.color = Color.white;
         }
+
+        private void OnDestroy()
+        {
+            _eventManager.PlayerEvents.OnSpawnLawyer -= HandleSpawnLawyerCall;
+        }
     }
 }

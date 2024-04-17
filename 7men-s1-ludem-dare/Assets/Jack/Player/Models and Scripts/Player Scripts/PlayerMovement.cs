@@ -200,7 +200,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         health.UpdateHealthBar(hp, maxHP);
         if (hp <= 0)
         {
-            EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
+            //EventManager.Instance.PlayerEvents.FirePlayerDeathEvent();
+            EventManager.Instance.GameManagerEvents.FireLoseGameEvent();
             isDead = true;
         }
     }

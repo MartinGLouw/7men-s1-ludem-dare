@@ -17,12 +17,10 @@ namespace Managers.Lawyer
         public override void OnAttack()
         {
             base.OnAttack();
-            Debug.Log("Contract Attacking");
         }
 
         public override void OnDeath()
         {
-            Debug.Log("Contract Death");
             base.OnDeath();
         }
 

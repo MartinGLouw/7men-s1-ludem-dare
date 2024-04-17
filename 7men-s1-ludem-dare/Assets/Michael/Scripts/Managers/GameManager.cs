@@ -32,6 +32,10 @@ namespace Managers
             
         }
 
-        
+        private void OnDestroy()
+        {
+            _eventManager.EnemyEvents.OnBossDeath -= HandleBossDeath;
+            _eventManager.PlayerEvents.OnPlayerDeath -= PlayerDeath;
+        }
     }
 }

@@ -39,7 +39,6 @@ namespace Managers.BossStates
             
             foreach (var hit in player)
             {
-                Debug.Log("frontKick");
                 if (hit == null) return;
                 if (hit.CompareTag("Player"))
                 {

@@ -36,16 +36,12 @@ namespace Managers.BossStates
             
         }
 
-        public virtual void OnStateExit()
-        {
-            Debug.Log($"Exiting {BossState}");
-        }
+        public virtual void OnStateExit() {  }
 
         public virtual void ChangeState(BossStateMachine bossState)
         {
             if (bossState == runningState) return;
             
-            Debug.Log("Changing state");
             runningState.OnStateExit();
             bossState.OnStateEnter();
 

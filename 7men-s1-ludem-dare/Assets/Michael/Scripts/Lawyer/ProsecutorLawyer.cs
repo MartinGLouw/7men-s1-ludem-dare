@@ -26,7 +26,7 @@ namespace Managers.Lawyer
         public override void OnAttack()
         {
             base.OnAttack();
-            if(GetClosestPlayer() == null) return;
+            if(GetClosestEnemy() == null) return;
 
             AimInClosestEnemyDirection();
                 
@@ -48,7 +48,7 @@ namespace Managers.Lawyer
 
         Vector3 AimInClosestEnemyDirection()
         {
-            Vector3 bulletDirection = transform.position - GetClosestPlayer().transform.position;
+            Vector3 bulletDirection = transform.position - GetClosestEnemy().transform.position;
             bulletSpawnPos.up = bulletDirection;
             lawyer.forward = -bulletDirection;
             return bulletDirection;
@@ -78,7 +78,7 @@ namespace Managers.Lawyer
             }
         }
 
-        GameObject GetClosestPlayer()
+        GameObject GetClosestEnemy()
         {
             if (enemies.Count == 0) return null;
 

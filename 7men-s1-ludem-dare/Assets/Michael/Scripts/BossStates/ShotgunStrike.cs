@@ -8,7 +8,6 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            Debug.Log("Shotgun Strike");
             bossAnimator.SetTrigger("OnShotgunStrike");
             bossAnimator.SetBool(BossStates.ShotgunStrike.ToString(), true);
         }
@@ -26,10 +25,8 @@ namespace Managers.BossStates
 
         public void ShotgunStrikeAnimEvent()
         {
-            // Slow-moving projectiles in a ring
-            Debug.Log("Shotgun");
-            int numberOfProjectiles = 5; // Number of projectiles in the ring
-            float radius = 2.0f; // Radius of the circle of projectiles
+            int numberOfProjectiles = 5; 
+            float radius = 2.0f; 
 
             for (int j = 0; j < numberOfProjectiles; j++)
             {

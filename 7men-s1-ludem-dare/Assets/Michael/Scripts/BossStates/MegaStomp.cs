@@ -12,7 +12,6 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            Debug.Log("Entering Stomp");
             bossAnimator.SetTrigger("OnMegaStomp");
             bossAnimator.SetBool(BossStates.MegaStomp.ToString(), true);
         }
@@ -30,7 +29,6 @@ namespace Managers.BossStates
         
         public void MegaStompEvent()
         {
-            Debug.Log("Stomping");
             Physics.OverlapSphereNonAlloc(transform.position, 10f, player, layer);
 
             int numberOfProjectiles = 12; 

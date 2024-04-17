@@ -13,7 +13,6 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            Debug.Log("Call To Arms");
             bossAnimator.SetTrigger("OnJump");
             bossAnimator.SetBool("IsJumping", true);
             StartCoroutine(LerpPosition(fleeDestination.position, 1f, true));

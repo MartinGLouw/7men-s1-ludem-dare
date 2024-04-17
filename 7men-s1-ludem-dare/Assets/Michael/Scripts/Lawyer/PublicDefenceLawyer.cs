@@ -14,7 +14,6 @@ namespace Managers.Lawyer
 
         public override void OnAttack()
         {
-            Debug.Log("Off");
             base.OnAttack();
         }
 
@@ -22,7 +21,6 @@ namespace Managers.Lawyer
         {
             base.OnDeath();
             ShieldOnOff(false);
-            Debug.Log("Off");
         }
 
         void ShieldOnOff(bool on)

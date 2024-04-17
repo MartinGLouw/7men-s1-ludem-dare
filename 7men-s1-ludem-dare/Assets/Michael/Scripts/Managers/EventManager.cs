@@ -19,9 +19,4 @@ public class EventManager : Singleton<EventManager>
         TimeEvents = new TimeEvents();
         GameManagerEvents = new GameManagerEvents();
     }
-
-    private void Start()
-    {
-        GameManagerEvents.OnGameStart += () => { Debug.Log("Game Started"); };
-    }
 }

@@ -7,7 +7,6 @@ namespace Managers.BossStates
         
         public override void OnStateEnter()
         {
-            Debug.Log("idle");
             base.OnStateEnter();
             runningState = this;
         }
