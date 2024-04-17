@@ -44,6 +44,7 @@ namespace Managers.Lawyer
         public override void OnDeath()
         {
             base.OnDeath();
+            enemies.Clear();
         }
 
         Vector3 AimInClosestEnemyDirection()

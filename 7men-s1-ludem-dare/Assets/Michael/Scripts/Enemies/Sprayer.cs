@@ -17,7 +17,7 @@ namespace Managers.Enemies
                 for (int i = 0; i < 8; i++)
                 {
                     GameObject bullet = PoolableObjects.Instance.GetObject(BulletType.Normal, firePoint.position);
-                    bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 80;
+                    bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * 35;
 
                     yield return new WaitForSeconds(0.1f); // Adjust this to control the speed of the rapid fire
                 }

@@ -16,7 +16,7 @@ namespace Events
 
         public void FireLoseGameEvent()
         {
-            //OnLoseGame?.Invoke();
+            OnLoseGame?.Invoke();
         }
         
         public void FireGameStartEvent()

@@ -6,18 +6,19 @@ public class BossShockWaveVFX : MonoBehaviour
     [SerializeField] private GameObject VFXPrefab;
 
     //listen for the event
-    private void OnEnable()
+    private void Start()
     {
-       //EnemyEvents.OnBossShockWave += TriggerVFX;
+       EventManager.Instance.EnemyEvents.OnBossShockWave += TriggerVFX;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        //EnemyEvents.OnBossShockWave -= TriggerVFX;
+        EventManager.Instance.EnemyEvents.OnBossShockWave -= TriggerVFX;
     }
 
-    public void TriggerVFX()
+    private void TriggerVFX()
     {
+        Debug.Log("Particles");
         Vector3 feetPosition = new Vector3(transform.position.x, GetComponent<Collider>().bounds.min.y, transform.position.z);
 
         GameObject vfx = Instantiate(VFXPrefab, feetPosition, Quaternion.identity);

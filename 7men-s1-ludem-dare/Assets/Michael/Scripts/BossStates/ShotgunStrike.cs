@@ -8,6 +8,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            if (bossParent) bossParent.enabled = false;
             bossAnimator.SetTrigger("OnShotgunStrike");
             bossAnimator.SetBool(BossStates.ShotgunStrike.ToString(), true);
         }
@@ -15,6 +16,7 @@ namespace Managers.BossStates
         public override void OnStateExit()
         {
             base.OnStateExit();
+            if (bossParent) bossParent.enabled = true;
             bossAnimator.SetBool(BossStates.ShotgunStrike.ToString(), false);
         }
 

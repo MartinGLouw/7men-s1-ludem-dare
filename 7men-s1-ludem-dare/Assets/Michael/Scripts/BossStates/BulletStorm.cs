@@ -1,5 +1,6 @@
 ﻿using Managers.Pool;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Managers.BossStates
 {
@@ -10,7 +11,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
-            
+            if (bossParent) bossParent.enabled = false;
             bossAnimator.SetTrigger("OnBulletStorm");
             bossAnimator.SetBool(BossStates.BulletStorm.ToString(), true);
             entered = true;
@@ -19,6 +20,7 @@ namespace Managers.BossStates
 
         public override void OnStateExit()
         {
+            if (bossParent) bossParent.enabled = true;
             entered = false;
             bossAnimator.SetBool(BossStates.BulletStorm.ToString(), false);
         }

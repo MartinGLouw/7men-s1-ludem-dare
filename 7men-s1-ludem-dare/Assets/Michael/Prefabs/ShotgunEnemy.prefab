@@ -141,7 +141,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 7103601714615188069}
   playerRef: {fileID: 0}
-  speed: 0.25
+  speed: 0.2
   spreadVal: 15
 --- !u!114 &-2077855347653667272
 MonoBehaviour:

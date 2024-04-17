@@ -15,6 +15,7 @@ namespace Managers.BossStates
         {
             base.OnStateEnter();
             Debug.Log("Heavy");
+            if (bossParent) bossParent.enabled = false;
             bossAnimator.SetTrigger("OnHeavySwipe");
             bossAnimator.SetBool(BossStates.HeavySwipe.ToString(), true);
         }
@@ -22,6 +23,7 @@ namespace Managers.BossStates
         public override void OnStateExit()
         {
             base.OnStateExit();
+            if (bossParent) bossParent.enabled = true;
             bossAnimator.SetBool(BossStates.HeavySwipe.ToString(), false);
         }
 
@@ -43,7 +45,7 @@ namespace Managers.BossStates
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     float distance = Vector3.Distance(hit.transform.position, transform.position);
-                    if (distance < 5)
+                    if (distance < 7)
                     {
                         rb.AddForce(direction * meleeAttackForce);
                         

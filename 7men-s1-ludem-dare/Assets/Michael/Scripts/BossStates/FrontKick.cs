@@ -15,6 +15,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            if (bossParent) bossParent.enabled = false;
             bossAnimator.SetTrigger("OnFrontKick");
             bossAnimator.SetBool(BossStates.FrontKick.ToString(), true);
         }
@@ -23,6 +24,7 @@ namespace Managers.BossStates
         {
             base.OnStateExit();
             bossAnimator.SetBool(BossStates.FrontKick.ToString(), false);
+            if (bossParent) bossParent.enabled = true;
         }
 
         public override void ChangeState(BossStateMachine bossState)
@@ -46,7 +48,7 @@ namespace Managers.BossStates
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     float distance = Vector3.Distance(hit.transform.position, transform.position);
-                    if (distance < 5)
+                    if (distance < 7)
                     {
                         rb.AddForce(direction * meleeAttackForce);
                         

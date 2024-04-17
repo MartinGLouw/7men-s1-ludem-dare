@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Managers.BossStates
 {
@@ -17,6 +18,7 @@ namespace Managers.BossStates
     public abstract class BossStateMachine : MonoBehaviour
     {
         public BossStates BossState;
+        public NavMeshAgent bossParent;
         public float meleeAttackForce = 150;
         public DamageData damageData;
 

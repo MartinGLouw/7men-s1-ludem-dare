@@ -9,6 +9,9 @@ namespace Events
         public event Action<int> OnSpawnEnemies;
         public event Action OnBossExit;
         public event Action OnBossEnter;
+
+        public event Action OnBossShockWave;
+        
         public event Action<Vector3> OnBossDeath;
 
         public void FireEnemyDeathEvent(Vector3 deathPos)
@@ -24,6 +27,11 @@ namespace Events
         public void FireBossExitEvent()
         {
             OnBossExit?.Invoke();
+        }
+        
+        public void FireBossShockwave()
+        {
+            OnBossShockWave?.Invoke();
         }
         
         public void FireBossEnterEvent()

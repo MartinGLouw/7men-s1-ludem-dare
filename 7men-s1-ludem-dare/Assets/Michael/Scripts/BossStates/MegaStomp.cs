@@ -12,6 +12,7 @@ namespace Managers.BossStates
         public override void OnStateEnter()
         {
             base.OnStateEnter();
+            if (bossParent) bossParent.enabled = false;
             bossAnimator.SetTrigger("OnMegaStomp");
             bossAnimator.SetBool(BossStates.MegaStomp.ToString(), true);
         }
@@ -19,6 +20,7 @@ namespace Managers.BossStates
         public override void OnStateExit()
         {
             base.OnStateExit();
+            if (bossParent) bossParent.enabled = true;
             bossAnimator.SetBool(BossStates.MegaStomp.ToString(), false);
         }
 
@@ -29,6 +31,8 @@ namespace Managers.BossStates
         
         public void MegaStompEvent()
         {
+            EventManager.Instance.EnemyEvents.FireBossShockwave();
+            
             Physics.OverlapSphereNonAlloc(transform.position, 10f, player, layer);
 
             int numberOfProjectiles = 12; 
@@ -56,7 +60,7 @@ namespace Managers.BossStates
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
                     Vector3 direction = hit.transform.position - transform.position;
                     float distance = Vector3.Distance(hit.transform.position, transform.position);
-                    if (distance < 5)
+                    if (distance < 7)
                     {
                         rb.AddForce(direction * meleeAttackForce);
                         
