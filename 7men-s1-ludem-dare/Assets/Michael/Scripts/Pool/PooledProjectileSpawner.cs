@@ -32,7 +32,6 @@ namespace Managers.Pool
             if (newProjectile.TryGetComponent<Bullet>(out Bullet projectile))
             {
                 var speed = projectile.speed;
-                Debug.Log($"speed: {speed}");
                 Rigidbody rb = newProjectile.GetComponent<Rigidbody>();
                 newProjectile.GetComponent<Rigidbody>().velocity = new Vector3(
                     direction.x * speed, 

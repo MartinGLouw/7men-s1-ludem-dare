@@ -6,7 +6,7 @@ using System;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
-    public float targetMusicVolume = 1.0f; 
+    public float targetMusicVolume = 0.5f; 
     public float targetSFXVolume = 1.0f;  
 
     public AudioSource sfxSource;
@@ -107,20 +107,12 @@ public class SoundManager : MonoBehaviour
     public void PlayWinMusic()
     {
         ClearMusicQueue();
-        int winMusicIndex = Array.IndexOf(musicClips, 4);
-        if (winMusicIndex != -1)
-        {
-            QueueMusic(winMusicIndex);
-        }
+        SoundManager.Instance.QueueMusic(4);
     }
 
     public void PlayLoseMusic()
     {
         ClearMusicQueue();
-        int loseMusicIndex = Array.IndexOf(musicClips, 5); 
-        if (loseMusicIndex != -1)
-        {
-            QueueMusic(loseMusicIndex);
-        }
+        SoundManager.Instance.QueueMusic(5);
     }
 }

@@ -62,6 +62,8 @@ public class UIManager : MonoBehaviour
             case GameState.MainGame:
                 SoundManager.Instance.ClearMusicQueue();
                 SoundManager.Instance.QueueMusic(0);
+                SoundManager.Instance.QueueMusic(2);
+                SoundManager.Instance.QueueMusic(3);
                 Debug.Log("Main Game scene detected");
                 break;
             case GameState.UnknownScene:

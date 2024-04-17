@@ -90,16 +90,19 @@ namespace Managers.Lawyer
 
         public void OnContractCalled()
         {
+            SoundManager.Instance.PlaySFX(1,1.5f);
             HandleSpawnLawyerCall(LawyerType.Contract, player.position);
         }
 
         public void OnProsecutorCalled()
         {
+            SoundManager.Instance.PlaySFX(2,1.5f);
             HandleSpawnLawyerCall(LawyerType.Prosecutor, player.position);
         }
         
         public void OnPublicDefenceCall()
         {
+            SoundManager.Instance.PlaySFX(3,1.5f);
             HandleSpawnLawyerCall(LawyerType.PublicDefence, player.position);
         }
 

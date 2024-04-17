@@ -47,7 +47,6 @@ namespace Managers.Pool
                         enemyHealthUtil.TakeDamage(_damageData);
                     }
                 }
-                Debug.Log("Other: " + other.name);
                 PoolableObjects.Instance.ReturnObject(_bulletData.type, gameObject);
             }
         }
