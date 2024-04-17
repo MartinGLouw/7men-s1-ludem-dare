@@ -902,6 +902,14 @@ PrefabInstance:
       propertyPath: projectileSpawner
       value: 
       objectReference: {fileID: 743886060}
+    - target: {fileID: 8985220967024577232, guid: cfc30cecfe3f1c04187577201f72f15e, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1132357267}
+    - target: {fileID: 8985220967024577232, guid: cfc30cecfe3f1c04187577201f72f15e, type: 3}
+      propertyPath: playerParticles
+      value: 
+      objectReference: {fileID: 1385219013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

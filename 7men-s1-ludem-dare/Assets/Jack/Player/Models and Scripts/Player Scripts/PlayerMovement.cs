@@ -114,6 +114,8 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         }
     }
 
+    public LayerMask layer;
+    
     void PlayerRotation()
     {
         RaycastHit hit;
@@ -201,8 +203,7 @@ public class PlayerLook : MonoBehaviour, IDamageable<DamageData>
         playerAnimator.SetTrigger("Throw");
 
         //projectileSpawner.SpawnPlayerProjectiles(player.transform.position, player.transform.forward);
-        //PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
-        
+        PooledProjectileSpawner.Instance.SpawnPlayerProjectiles(bulletSP.position, BulletType.Player, player.transform.forward);
         
         yield return new WaitForSeconds(0.2f);
 
